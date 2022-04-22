@@ -21,12 +21,17 @@
     border: none !important;  }
 
 .all::after {
-    content: "back home";
     background: var(--dark) !important;
     color: var(--light);
-    padding: .5rem 2rem;
+    padding: .5rem 2rem .6rem 2rem;
     font-size: 1rem;
     position: relative;
     border-radius: 20px;
     -webkit-border-radius: 20px;
     border: 3px solid var(--teal); }    
+
+.all.ru::after { 
+    content: "обратно"; 
+    margin-left: 12px;  }
+
+.all.en::after { content: "back home"; }
