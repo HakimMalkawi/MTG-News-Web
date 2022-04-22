@@ -1,0 +1,14 @@
+.language-switcher {
+    border: none;
+    border-bottom-left-radius: 20px;
+    padding: 1rem;
+    padding-inline: 1.75rem;
+    justify-self: end;  
+    align-self: start;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0; }
+
+.EN { background-image: url("../resources/en.png"); }
+
+.RU { background-image: url("../resources/ru.png"); }

@@ -1,0 +1,31 @@
+.all-posts {
+    max-width: 600px;
+    display: grid;
+    grid-template: auto / repeat(auto-fit, minmax(300px, 500px)); 
+    grid-gap: 3rem;
+    padding: 3rem;
+    padding-inline: 2rem;
+    justify-content: center; }
+  
+.all-posts > * { max-width: 500px; }
+
+.post-container {
+    display: grid;
+    grid-template: min-content auto / auto;
+    grid-template-areas:
+        "image"
+        "title";
+    overflow: hidden;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border: solid 2px var(--light);
+    background: var(--dark) !important; }
+
+.post-image { 
+    grid-area: image; 
+    object-fit: cover;
+    height: 310px; }
+
+.post-title {
+    grid-area: title;
+    align-self: center; }

@@ -1,0 +1,50 @@
+:root {
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --darker: #1f1f1f;
+  --dark: #384b66;
+  --light: #f1f1f1;
+  --teal: #0eab8e;
+  --ruby: #c01755; }
+
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--light) !important;
+  text-decoration: none;
+  background-color: var(--darker) !important;   
+  overflow-x: hidden; }
+
+#root { 
+  display: grid;
+  min-height: 100vh; }
+
+#root > * {
+  grid-row: 1;
+  grid-column: 1; }
+
+h1 {
+  font-size: 1.15rem !important;
+  text-align: center;
+  width: 100%;
+  padding: 0.75rem 0.75rem 1rem 0.75rem;
+  background: var(--dark) !important;
+  color: var(--light);
+  border: none; }
+
+a {
+  color: var(--ruby) !important;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: left; }
+
+li { margin-bottom: 1rem; }
+
+img {
+  width: 100%;
+  object-fit: contain; }
+
+img[alt] { color: transparent !important; }

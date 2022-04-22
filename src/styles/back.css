@@ -1,0 +1,32 @@
+.single {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: var(--darker) !important;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 2px solid var(--teal); }
+
+.all {
+    position: fixed;
+    left: 50%;
+    margin-left: -99px;
+    bottom: 30px;
+    overflow-x: visible !important;
+    color: transparent !important;
+    background: transparent !important;
+    border: none !important;  }
+
+.all::after {
+    content: "back home";
+    background: var(--dark) !important;
+    color: var(--light);
+    padding: .5rem 2rem;
+    font-size: 1rem;
+    position: relative;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border: 3px solid var(--teal); }    

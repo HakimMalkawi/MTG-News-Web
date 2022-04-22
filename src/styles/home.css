@@ -1,0 +1,34 @@
+.home-container {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;  }
+
+.categories-container {
+    display: grid;
+    grid-gap: 1.5rem; }
+
+.categories-container > div {
+    display: grid;
+    height: 10rem;
+    width: 13rem;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border: 2px solid var(--light);
+    overflow: hidden;   }
+
+.categories-container > div > img {
+    object-fit: contain;
+    border: none;
+    height: 100%;
+    width: auto !important;
+    justify-self: center; }
+
+.categories-container > div > h1 {
+    font-size: 1rem !important;
+    padding: 1rem;
+    align-self: end;
+    border-top: 2px solid var(--light); }
+
+.categories-announcements { background: #4fc3d0 !important; }
+.categories-publications { background: #34bdb0 !important; }
+.categories-events { background: #66d6d7 !important; }
