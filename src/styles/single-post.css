@@ -10,7 +10,7 @@
     min-height: 100vh; 
     z-index: 2; }
 
-.single-post * { overflow-x: visible }
+.single-post * { overflow-x: visible; }
     
 .single-post > div {
     grid-area: post;
@@ -29,6 +29,8 @@
       
 .single-post h2 {
     font-size: 1.25rem !important; }
+
+.single-post-content * { line-height: 1.5rem; }
   
 .single-post-content img {
     width: 100%;

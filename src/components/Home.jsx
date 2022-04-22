@@ -28,7 +28,7 @@ const Home = props => {
                         <div onClick={assignCategory} 
                              className="categories-events">
                         <img src={eventsImg} alt="View Events" className="categories-events-image"></img>
-                        <h1 className="categories-events-title">{language ? "Events" : "Мероприятия"}</h1>
+                        <h1 className="categories-events-title">{language ? "Events" : "Mероприятия"}</h1>
                         </div>
                     </section>
                 </main> </>  }
