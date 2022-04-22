@@ -1,6 +1,7 @@
 .language-switcher {
     border: none;
     border-radius: 5px;
+    -webkit-border-radius: 5px;
     border: solid 2px var(--light);
     padding: .75rem;
     padding-inline: 1.3rem;
