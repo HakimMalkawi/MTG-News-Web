@@ -1,8 +1,10 @@
 .language-switcher {
     border: none;
-    border-bottom-left-radius: 20px;
-    padding: 1rem;
-    padding-inline: 1.75rem;
+    border-radius: 5px;
+    border: solid 2px var(--light);
+    padding: .75rem;
+    padding-inline: 1.3rem;
+    margin: .5rem;
     justify-self: end;  
     align-self: start;
     background-size: cover;
