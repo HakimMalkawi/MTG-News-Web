@@ -1,9 +1,14 @@
 .settings-container {
+    display: grid;
     position: relative;
     left: -100vw;
     transition: left .5s ease-in-out;
     z-index: 1; }
 
-.settings-options { }
+.settings-options {
+    font-size: 2rem;
+    text-align: center;
+    list-style: none;
+}
 
 .settings-options-color { }
