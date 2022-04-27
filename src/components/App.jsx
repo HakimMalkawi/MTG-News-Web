@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Language from "./Language"
+import Navbar from "./Navbar"
 import Home from "./Home"
 import AllPosts from "./AllPosts"
 import SinglePost from "./SinglePost"
@@ -14,7 +14,7 @@ const App = () => {
   const [currentPostData, setCurrentPostData] = useState(null)
   const [scrollPosition, setScrollPosition] = useState(null)
 
-  return <>   <Language 
+  return <>   <Navbar 
                 language={language} 
                 setLanguage={setLanguage} 
                 home={home} 
@@ -44,8 +44,7 @@ const App = () => {
               { showPost && currentPostData &&
                 <SinglePost 
                   currentPostData={currentPostData} 
-                  setCurrentPostData={setCurrentPostData} 
-                  language={language}
+                  setCurrentPostData={setCurrentPostData}
                   setShowPost={setShowPost} />} 
                   
               { (!home && !content && <PreLoader />) || (showPost && !currentPostData && <PreLoader />) }  </> }

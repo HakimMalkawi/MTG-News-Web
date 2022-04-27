@@ -15,8 +15,7 @@ body {
   box-sizing: border-box;
   color: var(--light) !important;
   text-decoration: none;
-  background-color: var(--darker) !important;   
-  overflow-x: hidden; }
+  background-color: var(--darker) !important; }
 
 #root { 
   display: grid;
@@ -44,6 +43,7 @@ a {
 li { margin-bottom: 1rem; }
 
 img {
+  overflow-x: hidden;
   width: 100%;
   object-fit: contain; }
 

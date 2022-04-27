@@ -6,8 +6,8 @@
     padding: .75rem;
     padding-inline: 1.3rem;
     margin: .5rem;
-    justify-self: end;  
-    align-self: start;
+    justify-self: start;
+    align-self: center;
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 0; }

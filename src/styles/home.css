@@ -1,4 +1,5 @@
 .home-container {
+    padding-top: 3rem;
     display: grid;
     place-items: center;
     min-height: 100vh;  }
@@ -11,8 +12,8 @@
     display: grid;
     height: 10rem;
     width: 13rem;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
     border: 2px solid var(--light);
     overflow: hidden;   }
 

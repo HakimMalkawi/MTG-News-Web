@@ -3,10 +3,10 @@ import Back from "./Back"
 import "../styles/single-post.css"
 
 const SinglePost = props => {
-    const {currentPostData, setCurrentPostData, setShowPost, language} = props
+    const {currentPostData, setCurrentPostData, setShowPost} = props
 
     return <>   <main className="single-post">
-                    <img src={currentPostData.image} />
+                    <img src={currentPostData.image} alt="Current Post" />
                     <div className="single-post-content" dangerouslySetInnerHTML={ { __html: DOMPurify.sanitize(currentPostData.content) } } />
                     <Back back={setShowPost} class="single" reset={setCurrentPostData} />
                 </main>  </> }

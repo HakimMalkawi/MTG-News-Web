@@ -3,7 +3,7 @@
     display: grid;
     grid-template: auto / repeat(auto-fit, minmax(300px, 500px)); 
     grid-gap: 3rem;
-    padding: 3rem;
+    padding: 5rem 3rem 5rem 3rem;
     padding-inline: 2rem;
     justify-content: center; }
   
@@ -16,8 +16,8 @@
         "image"
         "title";
     overflow: hidden;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
     border: solid 2px var(--light);
     background: var(--dark) !important; }
 
