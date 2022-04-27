@@ -9,7 +9,7 @@
     animation: grower .7s forwards;
     object-fit: contain;
     width: 200px;
-    height: auto;   }
+    height: auto; }
 
 @keyframes grower {
     from{ transform: scale(1); }

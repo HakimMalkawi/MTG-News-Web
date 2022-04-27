@@ -1,0 +1,13 @@
+.dark {
+    --darker: #1f1f1f;
+    --dark: #384b66;
+    --light: #f1f1f1;
+    --teal: #0eab8e;
+    --ruby: #c01755; }
+
+.light {
+    --darker: #f1f1f1;
+    --dark: #e7d4c0;
+    --light: #384b66;
+    --teal: #0a6a60;
+    --ruby: #7d0833; }

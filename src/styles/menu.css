@@ -9,10 +9,9 @@
     transition: right .5s ease-in-out;
     z-index: 1; }
 
-.show {
-    right: 0;
-    transition: right .5s ease-in-out;
-}
+.show-right { right: 0; }
+
+.show-left { left: 0; }
 
 .menu-container > * {
     grid-row: 1;
@@ -44,12 +43,8 @@
     grid-column: 1;
     height: .35rem;
     list-style: none;
-    background: white !important;
+    background: var(--light) !important;
     margin: 0; }
 
 .menu-toggle li:nth-child(1) { transform: rotate(45deg); }
 .menu-toggle li:nth-child(2) { transform: rotate(-45deg); }
-
-@keyframes menu {
-    from { right: -100vw; }
-    to { right: 0; } }

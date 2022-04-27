@@ -1,3 +1,16 @@
+.menu {
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    background: var(--darker) !important;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 2px solid var(--teal);  }
+
 .single {
     cursor: pointer;
     position: fixed;

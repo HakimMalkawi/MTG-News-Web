@@ -1,11 +1,6 @@
 :root {
   font-size: 20px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --darker: #1f1f1f;
-  --dark: #384b66;
-  --light: #f1f1f1;
-  --teal: #0eab8e;
-  --ruby: #c01755; }
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
 
 *,
 html,
@@ -19,11 +14,11 @@ body {
 
 body { overflow-x: hidden; }
 
-#root { 
+.app { 
   display: grid;
   min-height: 100vh;  }
 
-#root > * {
+.app > * {
   grid-row: 1;
   grid-column: 1; }
 

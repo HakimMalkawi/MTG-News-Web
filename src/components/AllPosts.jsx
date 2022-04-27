@@ -7,7 +7,7 @@ import "../styles/all-posts.css"
 
 const AllPosts = props => {
     const {content, setShowPost, setCurrentPostData, back, scrollPosition, setScrollPosition, setContent, language} = props
-    useEffect(()=>{restoreScrollPosition(scrollPosition)}, [])
+    useEffect( () => { restoreScrollPosition(scrollPosition) }, [])
 
     return <>   <main className="all-posts">
                     { content.map((post) => (

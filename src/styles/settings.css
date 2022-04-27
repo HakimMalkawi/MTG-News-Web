@@ -1,0 +1,9 @@
+.settings-container {
+    position: relative;
+    left: -100vw;
+    transition: left .5s ease-in-out;
+    z-index: 1; }
+
+.settings-options { }
+
+.settings-options-color { }

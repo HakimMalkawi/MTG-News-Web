@@ -4,7 +4,7 @@ import "../styles/navbar.css"
 const Navbar = props => {
     const hideOverlay = () => {
         props.setToggleMenu(prevToggleMenu => !prevToggleMenu)
-        setTimeout(()=>props.setHideLayout(true), 500)    }
+        setTimeout( () => props.setHideLayout(true), 500)    }
 return  <>  <header className="navbar-container">
                 <nav className="navbar-content">
                     <Language 

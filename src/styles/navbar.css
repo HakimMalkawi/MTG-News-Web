@@ -7,11 +7,11 @@
     display: grid;
     background: var(--dark) !important;
     height: 100%; 
-    padding-inline: 1rem;   }
+    padding-inline: 1rem; }
 
 .navbar-content > * {
     grid-column: 1;
-    grid-row: 1;    }
+    grid-row: 1; }
 
 .navbar-menu-toggle {
     cursor: pointer;
@@ -29,4 +29,4 @@
     -webkit-border-radius: 10px;
     margin: 0;
     height: .25rem;
-    background: white !important; }
+    background: var(--light) !important; }

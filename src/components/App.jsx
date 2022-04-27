@@ -6,8 +6,10 @@ import AllPosts from "./AllPosts"
 import SinglePost from "./SinglePost"
 import PreLoader from "./PreLoader"
 import "../styles/app.css"
+import "../styles/color-scheme.css"
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(true)
   const [toggleMenu, setToggleMenu] = useState(false)
   const [hideLayout, setHideLayout] = useState(false)
   const [language, setLanguage] = useState(true)
@@ -17,7 +19,9 @@ const App = () => {
   const [currentPostData, setCurrentPostData] = useState(null)
   const [scrollPosition, setScrollPosition] = useState(null)
 
-  return <>   { toggleMenu && <Menu setToggleMenu={setToggleMenu} setHideLayout={setHideLayout}/>}
+  return <>   <div className={darkMode ? "app dark" : "app light"}>
+  
+              { toggleMenu && <Menu setToggleMenu={setToggleMenu} setHideLayout={setHideLayout} setDarkMode={setDarkMode}/>}
               
               { !hideLayout &&
               <>  <Navbar 
@@ -55,5 +59,7 @@ const App = () => {
                       setCurrentPostData={setCurrentPostData}
                       setShowPost={setShowPost} />} 
                       
-                  { (!home && !content && <PreLoader />) || (showPost && !currentPostData && <PreLoader />) }  </> } </> }
+                  { (!home && !content && <PreLoader />) || (showPost && !currentPostData && <PreLoader />) }  </> } 
+
+                  </div> </> }
 export default App
