@@ -9,6 +9,7 @@
     grid-gap: 1.5rem; }
 
 .categories-container > div {
+    cursor: pointer;
     display: grid;
     height: 10rem;
     width: 13rem;

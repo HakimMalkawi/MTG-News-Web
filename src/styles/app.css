@@ -17,9 +17,11 @@ body {
   text-decoration: none;
   background-color: var(--darker) !important; }
 
+body { overflow-x: hidden; }
+
 #root { 
   display: grid;
-  min-height: 100vh; }
+  min-height: 100vh;  }
 
 #root > * {
   grid-row: 1;

@@ -1,11 +1,11 @@
 .language-switcher {
+    cursor: pointer;
     border: none;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     border: solid 2px var(--light);
     padding: .75rem;
     padding-inline: 1.3rem;
-    margin: .5rem;
     justify-self: start;
     align-self: center;
     background-size: cover;

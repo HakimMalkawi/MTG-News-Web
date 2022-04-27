@@ -6,4 +6,26 @@
 .navbar-content {
     display: grid;
     background: var(--dark) !important;
-    height: 100%; }
+    height: 100%; 
+    padding-inline: 1rem;   }
+
+.navbar-content > * {
+    grid-column: 1;
+    grid-row: 1;    }
+
+.navbar-menu-toggle {
+    cursor: pointer;
+    display: grid;
+    grid-gap: .3rem;
+    width: 2em;
+    background: none !important;
+    justify-self: end;
+    align-self: center; }
+
+.navbar-menu-toggle * {
+    list-style: none;
+    border: none;
+    border-radius: 10px;
+    margin: 0;
+    height: .25rem;
+    background: white !important; }

@@ -10,6 +10,7 @@
 .all-posts > * { max-width: 500px; }
 
 .post-container {
+    cursor: pointer;
     display: grid;
     grid-template: min-content auto / auto;
     grid-template-areas:

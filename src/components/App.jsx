@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Menu from "./Menu"
 import Navbar from "./Navbar"
 import Home from "./Home"
 import AllPosts from "./AllPosts"
@@ -7,6 +8,8 @@ import PreLoader from "./PreLoader"
 import "../styles/app.css"
 
 const App = () => {
+  const [toggleMenu, setToggleMenu] = useState(false)
+  const [hideLayout, setHideLayout] = useState(false)
   const [language, setLanguage] = useState(true)
   const [home, setHome] = useState(true)
   const [content, setContent] = useState(null)
@@ -14,38 +17,43 @@ const App = () => {
   const [currentPostData, setCurrentPostData] = useState(null)
   const [scrollPosition, setScrollPosition] = useState(null)
 
-  return <>   <Navbar 
-                language={language} 
-                setLanguage={setLanguage} 
-                home={home} 
-                setShowPost={setShowPost}
-                setHome={setHome} 
-                setContent={setContent} 
-                setCurrentPostData={setCurrentPostData}/>
+  return <>   { toggleMenu && <Menu setToggleMenu={setToggleMenu} setHideLayout={setHideLayout}/>}
+              
+              { !hideLayout &&
+              <>  <Navbar 
+                    setHideLayout={setHideLayout}
+                    setToggleMenu={setToggleMenu}
+                    language={language} 
+                    setLanguage={setLanguage} 
+                    home={home} 
+                    setShowPost={setShowPost}
+                    setHome={setHome} 
+                    setContent={setContent} 
+                    setCurrentPostData={setCurrentPostData}/>
 
-              { home && 
-                <Home 
-                  setScrollPosition={setScrollPosition}
-                  setHome={setHome} 
-                  setContent={setContent} 
-                  language={language}/> }
+                  { home && 
+                    <Home 
+                      setScrollPosition={setScrollPosition}
+                      setHome={setHome} 
+                      setContent={setContent} 
+                      language={language}/> }
 
-              { content && !showPost && !home && 
-                <AllPosts 
-                  setShowPost={setShowPost} 
-                  setCurrentPostData={setCurrentPostData} 
-                  language={language}
-                  content={content} 
-                  back={setHome}
-                  scrollPosition={scrollPosition} 
-                  setScrollPosition={setScrollPosition} 
-                  setContent={setContent} />}
+                  { content && !showPost && !home && 
+                    <AllPosts 
+                      setShowPost={setShowPost} 
+                      setCurrentPostData={setCurrentPostData} 
+                      language={language}
+                      content={content} 
+                      back={setHome}
+                      scrollPosition={scrollPosition} 
+                      setScrollPosition={setScrollPosition} 
+                      setContent={setContent} />}
 
-              { showPost && currentPostData &&
-                <SinglePost 
-                  currentPostData={currentPostData} 
-                  setCurrentPostData={setCurrentPostData}
-                  setShowPost={setShowPost} />} 
-                  
-              { (!home && !content && <PreLoader />) || (showPost && !currentPostData && <PreLoader />) }  </> }
+                  { showPost && currentPostData &&
+                    <SinglePost 
+                      currentPostData={currentPostData} 
+                      setCurrentPostData={setCurrentPostData}
+                      setShowPost={setShowPost} />} 
+                      
+                  { (!home && !content && <PreLoader />) || (showPost && !currentPostData && <PreLoader />) }  </> } </> }
 export default App
