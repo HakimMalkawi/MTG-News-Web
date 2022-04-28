@@ -5,8 +5,8 @@ import Home from "./Home"
 import AllPosts from "./AllPosts"
 import SinglePost from "./SinglePost"
 import PreLoader from "./PreLoader"
-import "../styles/app.css"
 import "../styles/color-scheme.css"
+import "../styles/app.css"
 
 const App = () => {
     const [toggleMenu, setToggleMenu] = useState(false)

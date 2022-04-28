@@ -1,12 +1,13 @@
 .home-container {
-    padding-top: 3rem;
+    padding: 5rem 0 2rem 0;
     display: grid;
-    place-items: center;
+    justify-items: center;
     min-height: 100vh; }
 
 .categories-container {
     display: grid;
-    grid-gap: 1.5rem; }
+    grid-gap: 1.5rem; 
+    align-items: center; }
 
 .categories-container > div {
     cursor: pointer;

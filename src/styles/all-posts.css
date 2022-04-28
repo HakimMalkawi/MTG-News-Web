@@ -1,9 +1,9 @@
 .all-posts {
     max-width: 600px;
     display: grid;
-    grid-template: auto / repeat(auto-fit, minmax(300px, 500px)); 
+    grid-template: auto / 15.5rem;
     grid-gap: 3rem;
-    padding: 5rem 3rem 5rem 3rem;
+    padding: 6rem 3rem 5rem 3rem;
     padding-inline: 2rem;
     justify-content: center; }
   
@@ -12,7 +12,7 @@
 .post-container {
     cursor: pointer;
     display: grid;
-    grid-template: min-content auto / auto;
+    grid-template: 15rem auto / 15.5rem;
     grid-template-areas:
         "image"
         "title";
@@ -25,7 +25,7 @@
 .post-image { 
     grid-area: image; 
     object-fit: cover;
-    height: 310px; }
+    height: 15.5rem; }
 
 .post-title {
     grid-area: title;
