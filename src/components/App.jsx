@@ -60,7 +60,7 @@ const App = () => {
                               setCurrentPostData={setCurrentPostData}
                               setShowPost={setShowPost} />} 
                             
-                  { (!home && !content && <PreLoader />) || (showPost && !currentPostData && <PreLoader />) }  </> } 
+                  { (!home && !content && <PreLoader dark={darkMode} />) || (showPost && !currentPostData && <PreLoader dark={darkMode} />) }  </> } 
 
                 </div> </> }
 export default App
