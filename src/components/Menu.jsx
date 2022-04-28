@@ -3,13 +3,13 @@ import Settings from "./Settings"
 import "../styles/menu.css"
 
 const Menu = props => {
-    const {setToggleMenu, setHideLayout} = props
+    const {setToggleMenu, setRenderApp, setDarkMode} = props
     const [options, setOptions] = useState({ on: false, settings: false, privacy_policy: false })
 
     useEffect( () => !options.on && document.querySelector(".menu-container").classList.add("show-right"), [options.on])
 
     const hideMenu = () => {
-        setHideLayout(prevHideLayout => !prevHideLayout)
+        setRenderApp(prevRenderApp => !prevRenderApp)
         document.querySelector(".menu-container").classList.toggle("show-right")
         setTimeout( () =>setToggleMenu(prevToggle => !prevToggle), 500) }
 
@@ -24,5 +24,5 @@ const Menu = props => {
                         </ul>
                     </main> } 
                     
-                { options.settings && <Settings setOptions={setOptions} setDarkMode={props.setDarkMode} /> }    </> }
+                { options.settings && <Settings setOptions={setOptions} setDarkMode={setDarkMode} /> }    </> }
 export default Menu

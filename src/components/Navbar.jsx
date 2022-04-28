@@ -2,9 +2,11 @@ import Language from "./Language"
 import "../styles/navbar.css"
 
 const Navbar = props => {
-    const {language, setLanguage, home, setHome, setToggleMenu, setHideLayout, setContent, setCurrentPostData, setShowPost} = props
+    const {language, setLanguage, home, setHome, setToggleMenu, setRenderApp, setContent, setCurrentPostData, setShowPost} = props
 
-    const hideOverlay = () => { setToggleMenu(prevToggleMenu => !prevToggleMenu); setTimeout( () => setHideLayout(true), 500)    }
+    const hideOverlay = () => { 
+        setToggleMenu(prevToggleMenu => !prevToggleMenu)
+        setTimeout( () => setRenderApp(prevRenderApp => !prevRenderApp), 500)    }
 
     return  <>  <header className="navbar-container">
                     <nav className="navbar-content">

@@ -10,7 +10,7 @@ import "../styles/color-scheme.css"
 
 const App = () => {
     const [toggleMenu, setToggleMenu] = useState(false)
-    const [hideLayout, setHideLayout] = useState(false)
+    const [renderApp, setRenderApp] = useState(true)
     const [home, setHome] = useState(true)
     const [content, setContent] = useState(null)
     const [currentPostData, setCurrentPostData] = useState(null)
@@ -22,12 +22,12 @@ const App = () => {
     return <>   <div className={`app ${darkMode ? "dark" : "light"}`}>
 
                   { toggleMenu && 
-                    <Menu setToggleMenu={setToggleMenu} hideLayout={hideLayout} setHideLayout={setHideLayout} setDarkMode={setDarkMode}/>}
+                    <Menu setToggleMenu={setToggleMenu} renderApp={renderApp} setRenderApp={setRenderApp} setDarkMode={setDarkMode}/>}
                   
-                  { !hideLayout &&
+                  { renderApp &&
                     <>  <Navbar 
                           setToggleMenu={setToggleMenu}
-                          setHideLayout={setHideLayout}
+                          setRenderApp={setRenderApp}
                           home={home} 
                           setHome={setHome}
                           language={language} 
