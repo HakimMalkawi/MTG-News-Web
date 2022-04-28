@@ -1,6 +1,6 @@
-import React, { useState } from "react"
-import Menu from "./Menu"
+import { useState } from "react"
 import Navbar from "./Navbar"
+import Menu from "./Menu"
 import Home from "./Home"
 import AllPosts from "./AllPosts"
 import SinglePost from "./SinglePost"
@@ -9,57 +9,58 @@ import "../styles/app.css"
 import "../styles/color-scheme.css"
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(true)
-  const [toggleMenu, setToggleMenu] = useState(false)
-  const [hideLayout, setHideLayout] = useState(false)
-  const [language, setLanguage] = useState(true)
-  const [home, setHome] = useState(true)
-  const [content, setContent] = useState(null)
-  const [showPost, setShowPost] = useState(false)
-  const [currentPostData, setCurrentPostData] = useState(null)
-  const [scrollPosition, setScrollPosition] = useState(null)
+    const [toggleMenu, setToggleMenu] = useState(false)
+    const [hideLayout, setHideLayout] = useState(false)
+    const [home, setHome] = useState(true)
+    const [content, setContent] = useState(null)
+    const [currentPostData, setCurrentPostData] = useState(null)
+    const [showPost, setShowPost] = useState(false)
+    const [language, setLanguage] = useState(true)
+    const [darkMode, setDarkMode] = useState(true)
+    const [scrollPosition, setScrollPosition] = useState(null)
 
-  return <>   <div className={darkMode ? "app dark" : "app light"}>
-  
-              { toggleMenu && <Menu setToggleMenu={setToggleMenu} setHideLayout={setHideLayout} setDarkMode={setDarkMode}/>}
-              
-              { !hideLayout &&
-              <>  <Navbar 
-                    setHideLayout={setHideLayout}
-                    setToggleMenu={setToggleMenu}
-                    language={language} 
-                    setLanguage={setLanguage} 
-                    home={home} 
-                    setShowPost={setShowPost}
-                    setHome={setHome} 
-                    setContent={setContent} 
-                    setCurrentPostData={setCurrentPostData}/>
+    return <>   <div className={`app ${darkMode ? "dark" : "light"}`}>
 
-                  { home && 
-                    <Home 
-                      setScrollPosition={setScrollPosition}
-                      setHome={setHome} 
-                      setContent={setContent} 
-                      language={language}/> }
+                  { toggleMenu && 
+                    <Menu setToggleMenu={setToggleMenu} hideLayout={hideLayout} setHideLayout={setHideLayout} setDarkMode={setDarkMode}/>}
+                  
+                  { !hideLayout &&
+                    <>  <Navbar 
+                          setToggleMenu={setToggleMenu}
+                          setHideLayout={setHideLayout}
+                          home={home} 
+                          setHome={setHome}
+                          language={language} 
+                          setLanguage={setLanguage} 
+                          setContent={setContent} 
+                          setCurrentPostData={setCurrentPostData}
+                          setShowPost={setShowPost} />
 
-                  { content && !showPost && !home && 
-                    <AllPosts 
-                      setShowPost={setShowPost} 
-                      setCurrentPostData={setCurrentPostData} 
-                      language={language}
-                      content={content} 
-                      back={setHome}
-                      scrollPosition={scrollPosition} 
-                      setScrollPosition={setScrollPosition} 
-                      setContent={setContent} />}
+                        { home && 
+                            <Home 
+                              setHome={setHome} 
+                              setContent={setContent} 
+                              setScrollPosition={setScrollPosition}
+                              language={language} /> }
 
-                  { showPost && currentPostData &&
-                    <SinglePost 
-                      currentPostData={currentPostData} 
-                      setCurrentPostData={setCurrentPostData}
-                      setShowPost={setShowPost} />} 
-                      
+                        { content && !showPost && !home && 
+                            <AllPosts 
+                              content={content} 
+                              setContent={setContent}
+                              setCurrentPostData={setCurrentPostData} 
+                              setShowPost={setShowPost} 
+                              language={language}
+                              back={setHome}
+                              scrollPosition={scrollPosition} 
+                              setScrollPosition={setScrollPosition} />}
+
+                        { showPost && currentPostData &&
+                            <SinglePost 
+                              currentPostData={currentPostData} 
+                              setCurrentPostData={setCurrentPostData}
+                              setShowPost={setShowPost} />} 
+                            
                   { (!home && !content && <PreLoader />) || (showPost && !currentPostData && <PreLoader />) }  </> } 
 
-                  </div> </> }
+                </div> </> }
 export default App

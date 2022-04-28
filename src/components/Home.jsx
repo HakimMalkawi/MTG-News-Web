@@ -1,35 +1,26 @@
 import { fetchPosts } from "../helpers/fetchPost"
-import announcementsImg from "../resources/announcements.png"
-import publicationsImg from "../resources/publications.png"
-import eventsImg from "../resources/events.png"
+import { categories } from "../data/categories"
 import "../styles/home.css"
 
 const Home = props => {
-    const currentCategory = event => event.target.parentElement.children[1].innerText
     const {setHome, setContent, language, setScrollPosition} = props
 
+    const currentCategory = event => event.target.parentElement.children[1].innerText
+
     const assignCategory = event => {
+        fetchPosts(setContent, currentCategory(event), language ? "en" : "ru")
         setScrollPosition(null)
-        setHome(false)
-        fetchPosts(setContent, currentCategory(event), language ? "en" : "ru")  }
+        setHome(false) }
+
+    const categoryElements = categories.map( category =>  
+        <div onClick={assignCategory} className={`categories-${category.en.toLowerCase()}`}>
+            <img src={category.img} alt={`View ${category.en}`} className={`categories-${category.en.toLowerCase()}-image`}></img>
+            <h1 className={`categories-${category.en.toLowerCase()}-title`}>{language ? category.en : category.ru}</h1>
+        </div> )
 
     return  <> <main className="home-container">
                     <section className="categories-container">
-                        <div onClick={assignCategory} 
-                             className="categories-announcements">
-                        <img src={announcementsImg} alt="View Announcements" className="categories-announcements-image"></img>
-                        <h1 className="categories-announcements-title">{language ? "Announcements" : "Анонсы"}</h1>
-                        </div>
-                        <div onClick={assignCategory} 
-                             className="categories-publications">
-                        <img src={publicationsImg} alt="View Publications" className="categories-publications-image"></img>
-                        <h1 className="categories-publications-title">{language ? "Publications" : "Публикации"}</h1>
-                        </div>
-                        <div onClick={assignCategory} 
-                             className="categories-events">
-                        <img src={eventsImg} alt="View Events" className="categories-events-image"></img>
-                        <h1 className="categories-events-title">{language ? "Events" : "Mероприятия"}</h1>
-                        </div>
+                        {categoryElements}
                     </section>
                 </main> </>  }
 export default Home

@@ -3,7 +3,6 @@ import "../styles/back.css"
 import "../styles/settings.css"
 
 const Settings = props => {
-
     const hideSettings = () => {
         document.querySelector(".settings-container").classList.toggle("show-left")
         props.setOptions(prevOptions => ({ ...prevOptions, on: !prevOptions.on }) )
@@ -19,5 +18,4 @@ const Settings = props => {
                         <li onClick={ () => props.setDarkMode(prevDarkMode => !prevDarkMode)} className="settings-options-color">Toggle Color Scheme</li>
                     </ul>
                 </main>  </> }
-
 export default Settings
