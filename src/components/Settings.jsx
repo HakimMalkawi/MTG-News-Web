@@ -4,8 +4,8 @@ import "../styles/settings.css"
 
 const Settings = props => {
     const hideSettings = () => {
-        document.querySelector(".settings-container").classList.toggle("show-left")
         props.setOptions(prevOptions => ({ ...prevOptions, on: !prevOptions.on }) )
+        document.querySelector(".settings-container").classList.toggle("show-left")
         setTimeout(() => props.setOptions(prevOptions => ({ ...prevOptions, settings: !prevOptions.settings } ) ), 500 ) }
 
     useEffect( () => {
