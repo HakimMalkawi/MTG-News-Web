@@ -1,5 +1,5 @@
 import { fetchPosts } from "../helpers/fetchPost"
-import { categories } from "../data/categories"
+import { postCategories } from "../data/postCategories"
 import { nanoid } from "nanoid"
 import "../styles/home.css"
 
@@ -13,7 +13,7 @@ const Home = props => {
         setScrollPosition(null)
         setHome(false) }
 
-    const categoryElements = categories.map( category =>  
+    const categoryElements = postCategories.map( category =>  
         <div onClick={assignCategory} className={`categories-${category.en.toLowerCase()}`} key={nanoid()}>
             <img src={category.img} alt={`View ${category.en}`} className={`categories-${category.en.toLowerCase()}-image`}></img>
             <h1 className={`categories-${category.en.toLowerCase()}-title`}>{language ? category.en : category.ru}</h1>

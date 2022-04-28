@@ -32,6 +32,6 @@
     align-self: end;
     border-top: 2px solid var(--light); }
 
-.categories-announcements { background: #4fc3d0 !important; }
-.categories-publications { background: #34bdb0 !important; }
-.categories-events { background: #66d6d7 !important; }
+.categories-announcements { background: #6dbecd !important; }
+.categories-publications { background: #5eb8ae !important; }
+.categories-events { background: #80d1d5 !important; }

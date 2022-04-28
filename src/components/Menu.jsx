@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react"
 import { toggleCurrentSetting } from "../helpers/toggleCurrentSetting"
 import { toggleClass } from "../helpers/toggleClass"
+import { menuCategories } from "../data/menuCategories"
 import { nanoid } from "nanoid"
 import Settings from "./Settings"
 import "../styles/menu.css"
 
 const Menu = props => {
     const {setToggleMenu, setRenderApp, setDarkMode} = props
-    const [menu, setMenu] = useState( { on: false, options: [ { show: false, name: "Settings" }, { show: false, name: "Privacy Policy" } ] })
+    const [menu, setMenu] = useState(menuCategories)
 
     useEffect( () => !menu.on && toggleClass(".menu-container", "show-right"), [menu.on])
 
