@@ -26,13 +26,18 @@
 
 .all {
     cursor: pointer;
+    display: grid;
     position: fixed;
-    justify-self: center;
-    bottom: 2rem;
-    overflow-x: visible !important;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1.25rem;
     color: transparent !important;
     background: transparent !important;
     border: none !important;  }
+
+.all * {
+    grid-row: 1;
+    grid-column: 1; }
 
 .all::after {
     background: var(--dark) !important;
@@ -40,7 +45,6 @@
     padding: .5rem 2rem .6rem 2rem;
     font-size: 1rem;
     font-weight: bold;
-    position: relative;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     border: 2px solid var(--teal); }    
