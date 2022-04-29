@@ -2,12 +2,46 @@
     display: grid;
     position: relative;
     left: -100vw;
-    transition: left .5s ease-in-out;
+    transition: left .5s ease-in-out, background .35s ease-out;
+    -webkit-transition: left .5s ease-in-out, background .35s ease-out;
     z-index: 1; }
 
 .settings-options {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
-    list-style: none; }
+    list-style: none; 
+    background: none !important; }
 
-.settings-options-color { }
+.settings-option { 
+    display: grid;
+    width: 4rem;
+    height: 2rem;
+    margin-left: 12rem;
+    border: none;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background: var(--dark) !important;
+    transition: background .35s ease-out; }
+
+.settings-option * {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center; }
+
+.settings-option p {
+    position: relative;
+    left: -7.5rem;
+    width: max-content;
+    background: none !important }
+
+.settings-option span {
+    position: relative;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 100%;
+    background: var(--light) !important;
+    transition: left .25s ease-in-out, background .35s ease-out; }
+
+.settings-option.on span { left: 2.1rem; }
+
+.settings-option.off span { left: .15rem; }

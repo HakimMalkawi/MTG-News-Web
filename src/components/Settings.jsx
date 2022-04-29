@@ -5,7 +5,7 @@ import "../styles/back.css"
 import "../styles/settings.css"
 
 const Settings = props => {
-    const {setMenu, setDarkMode} = props
+    const {setMenu, darkMode, setDarkMode} = props
 
     const toggleMenu = () => setMenu( prevMenu => ({ ...prevMenu, on: !prevMenu.on }) )
 
@@ -21,7 +21,9 @@ const Settings = props => {
     return <>  <main className="settings-container">
                     <button className="menu" onClick={ () => hideSettings(props.id) }>{"<"}</button>
                     <ul className="settings-options">
-                        <li onClick={ () => setDarkMode( prevDarkMode => !prevDarkMode ) } className="settings-options-color">Toggle Color Scheme</li>
+                        <li onClick={ () => setDarkMode( prevDarkMode => !prevDarkMode ) } 
+                            className={`settings-option ${darkMode ? "on" : "off"}`}><p>Dark Mode</p><span></span>
+                        </li>
                     </ul>
                 </main>  </> }
 export default Settings

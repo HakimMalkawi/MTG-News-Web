@@ -10,7 +10,8 @@ body {
   box-sizing: border-box;
   color: var(--light) !important;
   text-decoration: none;
-  background-color: var(--darker) !important; }
+  background-color: var(--darker) !important; 
+  transition: background .35s ease-out; }
 
 body { overflow-x: hidden; }
 

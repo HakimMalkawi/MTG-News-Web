@@ -7,8 +7,8 @@
     height: 2.5rem;
     width: 2.5rem;
     font-size: 1rem;
-    border-radius: 50%;
     -webkit-border-radius: 50%;
+    border-radius: 50%;
     border: 2px solid var(--teal);  }
 
 .single {
@@ -20,8 +20,8 @@
     height: 2.5rem;
     width: 2.5rem;
     font-size: 1rem;
-    border-radius: 50%;
     -webkit-border-radius: 50%;
+    border-radius: 50%;
     border: 2px solid var(--teal); }
 
 .all {
@@ -45,8 +45,8 @@
     padding: .5rem 2rem .6rem 2rem;
     font-size: 1rem;
     font-weight: bold;
-    border-radius: 10px;
     -webkit-border-radius: 10px;
+    border-radius: 10px;
     border: 2px solid var(--teal); }    
 
 .all.ru::after { content: "обратно"; }

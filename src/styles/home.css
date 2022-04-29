@@ -14,8 +14,8 @@
     display: grid;
     height: 10rem;
     width: 13rem;
-    border-radius: 10px;
     -webkit-border-radius: 10px;
+    border-radius: 10px;
     border: 2px solid var(--light);
     overflow: hidden; }
 

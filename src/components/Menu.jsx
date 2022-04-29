@@ -7,7 +7,7 @@ import Settings from "./Settings"
 import "../styles/menu.css"
 
 const Menu = props => {
-    const {setToggleMenu, setRenderApp, setDarkMode} = props
+    const {setToggleMenu, setRenderApp, darkMode, setDarkMode} = props
     const [menu, setMenu] = useState(menuCategories)
 
     useEffect( () => !menu.on && toggleClass(".menu-container", "show-right"), [menu.on])
@@ -22,7 +22,7 @@ const Menu = props => {
         toggleClass(".menu-container", "show-right")    } 
 
     const menuItems = menu.options.map( (option, index) =>
-        <li onClick={() => selectMenuItem(index)} className="menu-item" key={nanoid()}>{option.name}</li>) 
+        <li onClick={() => selectMenuItem(index)} className="menu-item" key={nanoid()} >{option.name}<hr className="menu-item-separator" /></li>) 
 
     return  <>  { !menu.on &&
                     <main className="menu-container">
@@ -30,5 +30,5 @@ const Menu = props => {
                         <ul className="menu-content">{menuItems}</ul>
                     </main> } 
                     
-                { menu.options[0].show && <Settings id={0} setMenu={setMenu} setDarkMode={setDarkMode} /> }    </> }
+                { menu.options[0].show && <Settings id={0} setMenu={setMenu} darkMode={darkMode} setDarkMode={setDarkMode} /> }    </> }
 export default Menu

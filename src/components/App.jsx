@@ -22,7 +22,12 @@ const App = () => {
     return <>   <div className={`app ${darkMode ? "dark" : "light"}`}>
 
                   { toggleMenu && 
-                    <Menu setToggleMenu={setToggleMenu} renderApp={renderApp} setRenderApp={setRenderApp} setDarkMode={setDarkMode}/>}
+                    <Menu 
+                      setToggleMenu={setToggleMenu} 
+                      renderApp={renderApp} 
+                      setRenderApp={setRenderApp} 
+                      darkMode={darkMode} 
+                      setDarkMode={setDarkMode}/>}
                   
                   { renderApp &&
                     <>  <Navbar 
