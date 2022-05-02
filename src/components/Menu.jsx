@@ -10,7 +10,7 @@ const Menu = props => {
     const {setToggleMenu, setRenderApp, darkMode, setDarkMode} = props
     const [menu, setMenu] = useState(menuCategories)
 
-    useEffect( () => !menu.on && toggleClass(".menu-container", "show-right"), [menu.on])
+    useEffect( () => { if(!menu.on) toggleClass(".menu-container", "show-right") }, [menu.on])
 
     const hideMenu = () => {
         setRenderApp(prevRenderApp => !prevRenderApp)
