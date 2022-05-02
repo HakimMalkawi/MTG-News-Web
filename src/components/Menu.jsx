@@ -4,6 +4,7 @@ import { toggleClass } from "../helpers/toggleClass"
 import { menuCategories } from "../data/menuCategories"
 import { nanoid } from "nanoid"
 import Settings from "./Settings"
+import PrivacyPolicy from "./PrivacyPolicy"
 import "../styles/menu.css"
 
 const Menu = props => {
@@ -30,5 +31,6 @@ const Menu = props => {
                         <ul className="menu-content">{menuItems}</ul>
                     </main> } 
                     
-                { menu.options[0].show && <Settings id={0} setMenu={setMenu} darkMode={darkMode} setDarkMode={setDarkMode} /> }    </> }
+                { menu.options[0].show && <Settings id={0} setMenu={setMenu} darkMode={darkMode} setDarkMode={setDarkMode} /> }    
+                { menu.options[1].show && <PrivacyPolicy /> } </> }
 export default Menu
