@@ -15,7 +15,8 @@ const Language = props => {
             setLanguage(mainLanguage)
             refresh()   } }
 
-    return <>   <select className={`language-switcher ${language ? "EN" : "RU"}`}>
+    return <>   <label className="language-label"></label>
+                <select className={`language-switcher ${language ? "EN" : "RU"}`}>
                     <option onClick={() => handleClick(true)}>EN</option>
                     <option onClick={() => handleClick(false)}>RU</option>
                 </select>   </> }

@@ -1,4 +1,4 @@
-.language-switcher {
+/* .language-switcher {
     cursor: pointer;
     border: none;
     -webkit-border-radius: 5px;
@@ -14,4 +14,35 @@
 
 .EN { background-image: url("../resources/en.png"); }
 
-.RU { background-image: url("../resources/ru.png"); }
+.RU { background-image: url("../resources/ru.png"); } */
+
+.language-label,
+.language-switcher { background: none !important; }
+
+.language-label {
+    position: relative;
+    align-self: center;
+    height: 1.5rem;
+    width: 3rem; }
+
+.language-label::before {
+    content: url("../resources/toggle.svg"); 
+    display: grid;
+    place-content: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem; }
+
+
+.language-switcher {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    justify-self: start;
+    align-self: center;
+    height: 1.5rem;
+    width: 3rem;
+    font-size: 1rem; }
