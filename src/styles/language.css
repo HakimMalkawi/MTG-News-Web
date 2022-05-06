@@ -1,48 +1,54 @@
-/* .language-switcher {
-    cursor: pointer;
-    border: none;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    border: solid 2px var(--light);
-    padding: .75rem;
-    padding-inline: 1.3rem;
-    justify-self: start;
-    align-self: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 0; }
-
-.EN { background-image: url("../resources/en.png"); }
-
-.RU { background-image: url("../resources/ru.png"); } */
-
+.language-selector,
 .language-label,
-.language-switcher { background: none !important; }
-
-.language-label {
-    position: relative;
-    align-self: center;
-    height: 1.5rem;
-    width: 3rem; }
-
-.language-label::before {
-    content: url("../resources/toggle.svg"); 
-    display: grid;
-    place-content: center;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1rem;
-    height: 1rem; }
-
-
-.language-switcher {
-    position: relative;
+.language-list li { 
     cursor: pointer;
+    background: none !important; }
+
+.language-selector {
     border: none;
     justify-self: start;
     align-self: center;
     height: 1.5rem;
     width: 3rem;
+    color: transparent !important;
     font-size: 1rem; }
+
+.language-label {
+    display: grid;
+    position: relative;
+    align-self: center;
+    font-weight: bold;
+    height: 1.5rem;
+    width: 3rem; }
+
+.language-label::before {
+    content: ""; 
+    display: grid;
+    position: absolute;
+    right: -.5rem;
+    top: 45%;
+    transform: translateY(-45%);
+    width: 2.25rem;
+    height: 2.25rem; 
+    background: white;
+    -webkit-mask-image: url("../resources/toggle.svg");
+    mask-image: url("../resources/toggle.svg");
+    mask-position: center;
+    mask-size: contain; 
+    transition: transform .15s ease-in-out; }
+    
+.language-label.open::before { transform: rotateX(180deg) translateY(50%); }
+
+.language-list {
+    display: grid;
+    justify-content: center;
+    list-style-type: none;
+    border: 1px solid white;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding: .25rem 0;
+}
+
+.language-list li {
+    align-self: center;
+}
