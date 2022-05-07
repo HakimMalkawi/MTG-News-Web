@@ -18,12 +18,13 @@ const Language = props => {
             setLanguage(mainLanguage)
             refresh()   } }
 
-    return <>   <div className="language-selector">
-                    <label onClick={() => setToggle(prevToggle => !prevToggle)} className={`language-label ${toggle ? "closed" : "open"}`}> 
+    return <>   <div className="language-container">
+                    <label onClick={() => setToggle(prevToggle => !prevToggle)} className={`language-label ${toggle ? "open" : "closed"}`}> 
                         {language ? "EN" : "RU"}
                     </label>
                     <ul className="language-list">
                         <li onClick={() => handleClick(true)}>EN</li>
+                        <hr/>
                         <li onClick={() => handleClick(false)}>RU</li>
                     </ul>
                 </div> </> }

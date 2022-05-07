@@ -1,10 +1,10 @@
-.language-selector,
+.language-container,
 .language-label,
 .language-list li { 
     cursor: pointer;
     background: none !important; }
 
-.language-selector {
+.language-container {
     border: none;
     justify-self: start;
     align-self: center;
@@ -15,6 +15,7 @@
 
 .language-label {
     display: grid;
+    z-index: 1;
     position: relative;
     align-self: center;
     font-weight: bold;
@@ -32,23 +33,35 @@
     height: 2.25rem; 
     background: white;
     -webkit-mask-image: url("../resources/toggle.svg");
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain; 
     mask-image: url("../resources/toggle.svg");
     mask-position: center;
     mask-size: contain; 
     transition: transform .15s ease-in-out; }
     
+.language-label::after {
+    content: "";
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    background: var(--dark);
+    width: 3rem;
+    height: 2.5rem; }
+
 .language-label.open::before { transform: rotateX(180deg) translateY(50%); }
+.language-label.open + .language-list { margin: 0; }
+.language-label.closed + .language-list { margin-top: -5rem; }
 
 .language-list {
     display: grid;
+    grid-gap: .5rem;
+    padding: .3rem 0 .5rem 0;
     justify-content: center;
-    list-style-type: none;
+    list-style-type: none; 
     border: 1px solid white;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    padding: .25rem 0;
-}
+    transition: margin .25s ease-in-out; }
 
-.language-list li {
-    align-self: center;
-}
+.language-list li { margin: 0; }
