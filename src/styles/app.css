@@ -33,7 +33,8 @@ h1 {
   color: var(--light);
   border: none; }
 
-a {
+a,
+a * {
   color: var(--ruby) !important;
   font-weight: bold;
   text-decoration: none;

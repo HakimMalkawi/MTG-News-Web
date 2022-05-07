@@ -1,25 +1,14 @@
 import { useEffect } from "react"
-import { toggleCurrentSetting } from "../helpers/toggleCurrentSetting"
-import { toggleClass } from "../helpers/toggleClass"
-import "../styles/back.css"
+import { showSelectedMenuOption, hideSelectedMenuOption} from "../helpers/navigationFlow"
 import "../styles/settings.css"
 
 const Settings = props => {
-    const {setMenu, darkMode, setDarkMode} = props
-
-    const toggleMenu = () => setMenu( prevMenu => ({ ...prevMenu, on: !prevMenu.on }) )
-
-    const hideSettings = targetIndex => { 
-        toggleMenu()
-        toggleClass(".settings-container", "show-left")
-        setTimeout( () => toggleCurrentSetting(setMenu, targetIndex) , 500 ) }
-
-    useEffect( () => { 
-        toggleClass(".settings-container", "show-left")
-        setTimeout(toggleMenu, 500) }, [] )
+    const {setMenu, darkMode, setDarkMode, id} = props
+    const classNamesForToggle = ["settings-container", "show-left"]
+    useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle), [] )
     
     return <>  <main className="settings-container">
-                    <button className="menu" onClick={ () => hideSettings(props.id) }>{"<"}</button>
+                    <button className="menu" onClick={ () => hideSelectedMenuOption(setMenu, id, classNamesForToggle) }>{"<"}</button>
                     <ul className="settings-options">
                         <li onClick={ () => setDarkMode( prevDarkMode => !prevDarkMode ) } 
                             className={`settings-option ${darkMode ? "on" : "off"}`}><p>Dark Mode</p><span></span>

@@ -31,7 +31,7 @@
     transform: translateY(-45%);
     width: 2.25rem;
     height: 2.25rem; 
-    background: white;
+    background: var(--light);
     -webkit-mask-image: url("../resources/toggle.svg");
     -webkit-mask-position: center;
     -webkit-mask-size: contain; 
@@ -59,7 +59,7 @@
     padding: .3rem 0 .5rem 0;
     justify-content: center;
     list-style-type: none; 
-    border: 1px solid white;
+    border: 1px solid var(--light);
     -webkit-border-radius: 10px;
     border-radius: 10px;
     transition: margin .25s ease-in-out; }

@@ -1,6 +1,6 @@
-import "../styles/preloader.css"
 import preloaderDark from "../resources/preloader-dark.png"
 import preloaderLight from "../resources/preloader-light.png"
+import "../styles/preloader.css"
 
 const PreLoader = props => {
     const {dark} = props

@@ -6,7 +6,8 @@ import Back from "./Back"
 import "../styles/all-posts.css"
 
 const AllPosts = props => {
-    const {scrollPosition, setScrollPosition, content, setContent, setCurrentPostData, setShowPost, back, language} = props
+    const {
+        scrollPosition, setScrollPosition, content, setContent, setCurrentPostData, setShowPost, setShowState, language } = props
     useEffect( () => { restoreScrollPosition(scrollPosition) }, [])
 
     return <>   <main className="all-posts">
@@ -18,6 +19,6 @@ const AllPosts = props => {
                             <h1 className="post-title">{post.title}</h1>
                             <img className="post-image" src={post.image} alt="Post"/>
                         </div> ) ) }
-                    <Back language={language} back={back} className="all" reset={setContent} />
+                    <Back setShowState={setShowState} className="all" language={language} reset={setContent} />
                 </main>  </> }
 export default AllPosts

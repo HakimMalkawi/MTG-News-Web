@@ -9,15 +9,29 @@ import "../styles/color-scheme.css"
 import "../styles/app.css"
 
 const App = () => {
-    const [toggleMenu, setToggleMenu] = useState(false)
-    const [renderApp, setRenderApp] = useState(true)
-    const [home, setHome] = useState(true)
-    const [content, setContent] = useState(null)
-    const [currentPostData, setCurrentPostData] = useState(null)
-    const [showPost, setShowPost] = useState(false)
-    const [language, setLanguage] = useState(true)
-    const [darkMode, setDarkMode] = useState(true)
-    const [scrollPosition, setScrollPosition] = useState(null)
+    let preferencesSaved = false ; localStorage.getItem("appState") ? preferencesSaved = true : preferencesSaved = false
+    const preferences = JSON.parse(localStorage.getItem("appState"))
+
+    const [toggleMenu, setToggleMenu] = useState( preferencesSaved ? preferences.toggleMenu : false)
+    const [renderApp, setRenderApp] = useState( preferencesSaved ? preferences.renderApp : true)
+    const [home, setHome] = useState( preferencesSaved ? preferences.home : true)
+    const [content, setContent] = useState( preferencesSaved ? preferences.content : null)
+    const [currentPostData, setCurrentPostData] = useState( preferencesSaved ? preferences.currentPostData : null)
+    const [showPost, setShowPost] = useState( preferencesSaved ? preferences.showPost : false)
+    const [language, setLanguage] = useState( preferencesSaved ? preferences.language : true)
+    const [darkMode, setDarkMode] = useState( preferencesSaved ? preferences.darkMode : true)
+    const [scrollPosition, setScrollPosition] = useState( preferencesSaved ? preferences.scrollPosition : null)
+
+    localStorage.setItem("appState", JSON.stringify({
+      toggleMenu: toggleMenu,
+      renderApp: renderApp,
+      home: home,
+      content: content,
+      currentPostData: currentPostData,
+      showPost: showPost,
+      language: language,
+      darkMode: darkMode,
+      scrollPosition: scrollPosition }))
 
     return <>   <div className={`app ${darkMode ? "dark" : "light"}`}>
 
@@ -55,7 +69,7 @@ const App = () => {
                               setCurrentPostData={setCurrentPostData} 
                               setShowPost={setShowPost} 
                               language={language}
-                              back={setHome}
+                              setShowState={setHome}
                               scrollPosition={scrollPosition} 
                               setScrollPosition={setScrollPosition} />}
 

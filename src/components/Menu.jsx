@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
-import { toggleCurrentSetting } from "../helpers/toggleCurrentSetting"
-import { toggleClass } from "../helpers/toggleClass"
+import { toggleCurrentSetting, toggleClass } from "../helpers/navigationFlow"
 import { menuCategories } from "../data/menuCategories"
 import { nanoid } from "nanoid"
 import Settings from "./Settings"
@@ -10,17 +9,18 @@ import "../styles/menu.css"
 const Menu = props => {
     const {setToggleMenu, setRenderApp, darkMode, setDarkMode} = props
     const [menu, setMenu] = useState(menuCategories)
+    const classNamesForToggle = ["menu-container", "show-right"]
 
-    useEffect( () => { if(!menu.on) toggleClass(".menu-container", "show-right") }, [menu.on])
+    useEffect( () => { if(!menu.on) toggleClass(classNamesForToggle) }, [menu.on])
 
     const hideMenu = () => {
         setRenderApp(prevRenderApp => !prevRenderApp)
-        toggleClass(".menu-container", "show-right")
+        toggleClass(classNamesForToggle)
         setTimeout( () => setToggleMenu(prevToggle => !prevToggle), 500) }
 
     const selectMenuItem = targetIndex => {
         toggleCurrentSetting(setMenu, targetIndex)
-        toggleClass(".menu-container", "show-right")    } 
+        toggleClass(classNamesForToggle)    } 
 
     const menuItems = menu.options.map( (option, index) =>
         <li onClick={() => selectMenuItem(index)} className="menu-item" key={nanoid()} >{option.name}<hr className="menu-item-separator" /></li>) 
@@ -31,6 +31,8 @@ const Menu = props => {
                         <ul className="menu-content">{menuItems}</ul>
                     </main> } 
                     
-                { menu.options[0].show && <Settings id={0} setMenu={setMenu} darkMode={darkMode} setDarkMode={setDarkMode} /> }    
-                { menu.options[1].show && <PrivacyPolicy /> } </> }
+                { menu.options[0].show && 
+                    <Settings id={0} setMenu={setMenu} darkMode={darkMode} setDarkMode={setDarkMode} /> }    
+                { menu.options[1].show && 
+                    <PrivacyPolicy id={1} setMenu={setMenu} /> } </> }
 export default Menu

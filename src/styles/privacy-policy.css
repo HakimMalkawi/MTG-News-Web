@@ -1,0 +1,8 @@
+.privacy-policy-container h1 { 
+    padding: 1rem;
+    padding-inline: .25rem; }
+
+.privacy-policy-container div { padding: 1rem 2rem }
+.privacy-policy-container div ul { 
+    list-style-position: inside; 
+    margin-bottom: 1.5rem; }
