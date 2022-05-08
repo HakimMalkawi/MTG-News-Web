@@ -35,3 +35,5 @@
 .categories-announcements { background: #6dbecd !important; }
 .categories-publications { background: #5eb8ae !important; }
 .categories-events { background: #80d1d5 !important; }
+.show-right { right: 0; }
+.show-left { left: 0; }

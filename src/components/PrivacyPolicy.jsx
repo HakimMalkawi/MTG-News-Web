@@ -1,16 +1,15 @@
 import { useEffect } from "react"
-import { showSelectedMenuOption, hideSelectedMenuOption} from "../helpers/navigationFlow"
+import { showSelectedMenuOption } from "../helpers/navigationFlow"
+import Back from "./Back"
 import "../styles/privacy-policy.css"
 
 const PrivacyPolicy = props => {
-    const {setMenu, id} = props
+    const {setMenu, id, language} = props
     const classNamesForToggle = ["privacy-policy-container", "show-left"]
     useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle), [] )
 
-    return  <>  <button className="menu" onClick={ () => hideSelectedMenuOption(setMenu, id, classNamesForToggle) }>{"<"}</button>
-                <main className="privacy-policy-container">
-                    <h1>Privacy Policy & GDPR Disclaimer<br/>(Last Updated 20th March 2021)</h1>
-
+    return  <>  <main className="privacy-policy-container">
+                <h1>Privacy Policy & GDPR Disclaimer<br/>(Last Updated 20th March 2021)</h1>
                     <div>
                         <p>
                             <strong>1. Content:</strong>
@@ -100,6 +99,7 @@ const PrivacyPolicy = props => {
                             The <strong>M. Target Group</strong> website may contain links to other sites, including sites maintained by other organization and firms that are not governed by this Privacy Statement. Please review the destination websites’ privacy statements before submitting personal data on those sites. Whilst <strong>M. Target Group</strong> tries to link only to sites that share high standards and respect for privacy, <strong>M. Target Group</strong> is not responsible for the content, security, or privacy practices employed by other sites.
                         </p>
                     </div>
+                    <Back setShowState={setMenu} classNamesForToggle={classNamesForToggle} id={id} className="all" language={language} />
                 </main> </> }
 
 export default PrivacyPolicy

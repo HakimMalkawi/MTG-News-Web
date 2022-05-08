@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { Fragment, useState, useEffect } from "react"
 import { toggleCurrentSetting, toggleClass } from "../helpers/navigationFlow"
 import { menuCategories } from "../data/menuCategories"
 import { nanoid } from "nanoid"
@@ -7,7 +7,7 @@ import PrivacyPolicy from "./PrivacyPolicy"
 import "../styles/menu.css"
 
 const Menu = props => {
-    const {setToggleMenu, setRenderApp, darkMode, setDarkMode} = props
+    const {setToggleMenu, setRenderApp, darkMode, setDarkMode, language} = props
     const [menu, setMenu] = useState(menuCategories)
     const classNamesForToggle = ["menu-container", "show-right"]
 
@@ -23,16 +23,18 @@ const Menu = props => {
         toggleClass(classNamesForToggle)    } 
 
     const menuItems = menu.options.map( (option, index) =>
-        <li onClick={() => selectMenuItem(index)} className="menu-item" key={nanoid()} >{option.name}<hr className="menu-item-separator" /></li>) 
+        <Fragment key={nanoid()}>  
+            <li onClick={() => selectMenuItem(index)} className="menu-item">{language ? option.name.en : option.name.ru}</li>
+            <hr  className="menu-item-separator" /> 
+        </Fragment> ) 
 
     return  <>  { !menu.on &&
                     <main className="menu-container">
                         <ul className="menu-toggle" onClick={hideMenu}><li></li><li></li></ul>
-                        <ul className="menu-content">{menuItems}</ul>
+                        <ul className={`menu-content ${language ? "en" : "ru"}`}>{menuItems}</ul>
                     </main> } 
-                    
                 { menu.options[0].show && 
-                    <Settings id={0} setMenu={setMenu} darkMode={darkMode} setDarkMode={setDarkMode} /> }    
+                    <Settings id={0} setMenu={setMenu} darkMode={darkMode} setDarkMode={setDarkMode} language={language}/> }    
                 { menu.options[1].show && 
-                    <PrivacyPolicy id={1} setMenu={setMenu} /> } </> }
+                    <PrivacyPolicy id={1} setMenu={setMenu} language={language} /> } </> }
 export default Menu

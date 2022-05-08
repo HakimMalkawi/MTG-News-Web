@@ -41,7 +41,8 @@ const App = () => {
                       renderApp={renderApp} 
                       setRenderApp={setRenderApp} 
                       darkMode={darkMode} 
-                      setDarkMode={setDarkMode}/>}
+                      setDarkMode={setDarkMode}
+                      language={language} /> }
                   
                   { renderApp &&
                     <>  <Navbar 

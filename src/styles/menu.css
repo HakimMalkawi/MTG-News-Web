@@ -10,10 +10,6 @@
     transition: right .5s ease-in-out;
     z-index: 1; }
 
-.show-right { right: 0; }
-
-.show-left { left: 0; }
-
 .menu-container > * {
     grid-row: 1;
     grid-column: 1; }
@@ -23,18 +19,23 @@
     grid-template: min-content / auto;
     grid-gap: 1rem;
     place-self: center;
+    max-width: min-content;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 600;
     text-align: center;
     list-style: none; }
 
+.menu-content.ru { font-size: 1.5rem; }
+
+.menu-content.en .menu-item { width: max-content; }
+
 .menu-item { 
-    place-items: center;
-    cursor: pointer; }
+    cursor: pointer;
+    justify-self: center; }
 
 .menu-item-separator {
-    margin-top: 1.25rem;
-    height: .15rem;
+    height: .1rem;
+    margin-bottom: 1rem;
     border: none;
     border-radius: 5px;
     background: var(--light) !important; }

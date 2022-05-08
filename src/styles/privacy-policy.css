@@ -1,8 +1,23 @@
-.privacy-policy-container h1 { 
+.privacy-policy-container {
+    display: grid;
+    grid-template: repeat(2, min-content) / auto;
+    position: relative; 
+    left: -100vw;
+    -webkit-transition: left .5s ease-in-out;
+    transition: left .5s ease-in-out; }
+
+.privacy-policy-container > * {
+    grid-row: 1;
+    grid-column: 1; }
+
+.privacy-policy-container h1 {
     padding: 1rem;
     padding-inline: .25rem; }
 
-.privacy-policy-container div { padding: 1rem 2rem }
+.privacy-policy-container div { 
+    grid-row: 2;
+    padding: 1rem 2rem 5rem 2rem; }
+
 .privacy-policy-container div ul { 
     list-style-position: inside; 
     margin-bottom: 1.5rem; }
