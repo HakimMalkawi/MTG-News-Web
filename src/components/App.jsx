@@ -9,12 +9,15 @@ import "../styles/color-scheme.css"
 import "../styles/app.css"
 
 const App = () => {
+    localStorage.clear()
+
     let preferencesSaved = false ; localStorage.getItem("appState") ? preferencesSaved = true : preferencesSaved = false
     const preferences = JSON.parse(localStorage.getItem("appState"))
 
     const [toggleMenu, setToggleMenu] = useState( preferencesSaved ? preferences.toggleMenu : false)
     const [renderApp, setRenderApp] = useState( preferencesSaved ? preferences.renderApp : true)
     const [home, setHome] = useState( preferencesSaved ? preferences.home : true)
+    const [currentCategoryId, setCurrentCategoryId] = useState(preferencesSaved ? preferences.currentCategoryId : null)
     const [content, setContent] = useState( preferencesSaved ? preferences.content : null)
     const [currentPostData, setCurrentPostData] = useState( preferencesSaved ? preferences.currentPostData : null)
     const [showPost, setShowPost] = useState( preferencesSaved ? preferences.showPost : false)
@@ -60,6 +63,7 @@ const App = () => {
                             <Home 
                               setHome={setHome} 
                               setContent={setContent} 
+                              setCurrentCategoryId={setCurrentCategoryId}
                               setScrollPosition={setScrollPosition}
                               language={language} /> }
 
@@ -68,6 +72,7 @@ const App = () => {
                               content={content} 
                               setContent={setContent}
                               setCurrentPostData={setCurrentPostData} 
+                              currentCategoryId={currentCategoryId}
                               setShowPost={setShowPost} 
                               language={language}
                               setShowState={setHome}

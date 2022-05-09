@@ -2,12 +2,15 @@
     max-width: 600px;
     display: grid;
     grid-template: auto / 15.5rem;
-    grid-gap: 3rem;
     padding: 6rem 3rem 5rem 3rem;
     padding-inline: 2rem;
     justify-content: center; }
   
 .all-posts > * { max-width: 500px; }
+
+.all-posts > div > div {
+    display: grid;
+    grid-gap: 3rem; }
 
 .post-container {
     cursor: pointer;
