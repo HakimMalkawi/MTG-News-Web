@@ -46,9 +46,9 @@
     z-index: -1;
     position: fixed;
     top: 0;
-    left: 1rem;
+    right: 0;
     background: var(--dark);
-    width: 4rem;
+    width: 100vw;
     height: 2.5rem; }
 
 .language-label.open::before { transform: rotateX(180deg) translateY(50%); }
