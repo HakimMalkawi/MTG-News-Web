@@ -41,11 +41,12 @@
     background: var(--light) !important; }
 
 .menu-toggle {
+    cursor: pointer;
     display: grid;
     justify-self: end;
-    height: 3rem;
+    height: min-content;
     width: 2.5rem; 
-    cursor: pointer; }
+    align-items: center; }
 
 .menu-toggle * {
     grid-row: 1;
