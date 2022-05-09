@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { memo, useEffect } from "react"
 import { fetchPost } from "../helpers/fetchPost"
 import { saveScrollPosition, restoreScrollPosition } from "../helpers/scrollTracker.js"
 import { nanoid } from "nanoid"
@@ -21,4 +21,4 @@ const AllPosts = props => {
                         </div> ) ) }
                     <Back setShowState={setShowState} className="all" classNamesForToggle={classNamesForToggle} language={language} reset={setContent} />
                 </main>  </> }
-export default AllPosts
+export default memo(AllPosts)

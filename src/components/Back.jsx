@@ -1,4 +1,4 @@
-import { hideSelectedMenuOption } from "../helpers/navigationFlow";
+import { hideSelectedMenuOption } from "../helpers/navigationFlow"
 import "../styles/back.css"
 
 const Back = props => {    

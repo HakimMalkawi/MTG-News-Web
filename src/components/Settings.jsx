@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { memo, useEffect } from "react"
 import { showSelectedMenuOption } from "../helpers/navigationFlow"
 import Back from "./Back"
 import "../styles/settings.css"
@@ -16,4 +16,4 @@ const Settings = props => {
                         </li>
                     </ul>
                 </main>  </> }
-export default Settings
+export default memo(Settings)

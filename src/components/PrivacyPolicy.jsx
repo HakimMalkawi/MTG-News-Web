@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { memo, useEffect } from "react"
 import { showSelectedMenuOption } from "../helpers/navigationFlow"
 import Back from "./Back"
 import "../styles/privacy-policy.css"
@@ -102,4 +102,4 @@ const PrivacyPolicy = props => {
                     <Back setShowState={setMenu} classNamesForToggle={classNamesForToggle} id={id} className="all" language={language} />
                 </main> </> }
 
-export default PrivacyPolicy
+export default memo(PrivacyPolicy)

@@ -1,3 +1,4 @@
+import { memo } from "react"
 import Language from "./Language"
 import "../styles/navbar.css"
 
@@ -21,4 +22,4 @@ const Navbar = props => {
                         <ul className="navbar-menu-toggle" onClick={hideOverlay}><li></li><li></li><li></li></ul>
                     </nav>
                 </header>   </> }
-export default Navbar
+export default memo(Navbar)

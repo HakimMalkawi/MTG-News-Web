@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { fetchPosts } from "../helpers/fetchPost"
 import { postCategories } from "../data/postCategories"
 import { nanoid } from "nanoid"
@@ -24,4 +25,4 @@ const Home = props => {
                         {categoryElements}
                     </section>
                 </main> </>  }
-export default Home
+export default memo(Home)
