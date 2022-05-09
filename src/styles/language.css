@@ -40,16 +40,6 @@
     mask-position: center;
     mask-size: contain; 
     transition: transform .15s ease-in-out; }
-    
-.language-label::after {
-    content: "";
-    z-index: -1;
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: var(--dark);
-    width: 100vw;
-    height: 2.5rem; }
 
 .language-label.open::before { transform: rotateX(180deg) translateY(50%); }
 .language-label.open + .language-list { margin-top: .3rem; }
