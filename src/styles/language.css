@@ -52,7 +52,7 @@
 
 .language-label.open::before { transform: rotateX(180deg) translateY(50%); }
 .language-label.open + .language-list { margin-top: .3rem; }
-.language-label.closed + .language-list { margin-top: -5.5rem; }
+.language-label.closed + .language-list { margin-top: -15rem; }
 
 .language-list {
     display: grid;
