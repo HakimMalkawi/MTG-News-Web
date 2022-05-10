@@ -12,7 +12,10 @@ const Settings = props => {
                     <Back setShowState={setMenu} classNamesForToggle={classNamesForToggle} id={id} className="menu" />
                     <ul className="settings-options">
                         <li onClick={ () => setDarkMode( prevDarkMode => !prevDarkMode ) } 
-                            className={`settings-option ${darkMode ? "on" : "off"}`}><p>{language ? "Dark Mode" : "Тёмный режим"}</p><span></span>
+                            className={`settings-option ${darkMode ? "on" : "off"}`}><p>{language ? "Dark Mode" : "Тёмный режим"}</p>
+                            <div>
+                                <span></span>
+                            </div>
                         </li>
                     </ul>
                 </main>  </> }

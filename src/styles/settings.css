@@ -10,7 +10,6 @@
 
 .settings-options {
     font-size: 1.5rem;
-    text-align: center;
     list-style: none; 
     background: none !important; }
 
@@ -19,13 +18,26 @@
     grid-template: auto / repeat(2, min-content);
     grid-template-areas: "option switch";
     grid-gap: .75rem;
-    align-items: center;
-    justify-content: center;
+    width: min-content;
+    margin: auto;
     border: none; }
 
-.settings-option::after {
+.settings-option p {
+    grid-area: option;
+    width: max-content;
+    background: none !important }
+
+.settings-option div { 
     grid-area: switch;
+    display: grid; 
+    align-items: center; }
+
+.settings-option div::after {
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 0;
     content: "";
+    position: relative;
     width: 4rem;
     height: 2rem;
     -webkit-border-radius: 50px;
@@ -33,13 +45,11 @@
     background: var(--dark) !important;
     transition: background .35s ease-out;  }
 
-.settings-option p {
-    grid-area: option;
-    width: max-content;
-    background: none !important }
-
-.settings-option span {
-    grid-area: switch;
+.settings-option div span {
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 1;
+    display: grid;
     position: relative;
     height: 1.75rem;
     width: 1.75rem;
@@ -47,6 +57,7 @@
     background: var(--light) !important;
     transition: left .25s ease-in-out, background .35s ease-out; }
 
-.settings-option.on span { left: 2.1rem; }
 
-.settings-option.off span { left: .15rem; }
+.settings-option.on div span { left: 2.1rem; }
+
+.settings-option.off div span { left: .15rem; }
