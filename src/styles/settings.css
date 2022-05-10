@@ -14,21 +14,18 @@
     background: none !important; }
 
 .settings-option { 
-    display: grid;
-    grid-template: auto / repeat(2, min-content);
-    grid-template-areas: "option switch";
+    display: flex;
+    justify-content: center;
     grid-gap: .75rem;
     width: min-content;
     margin: auto;
     border: none; }
 
 .settings-option p {
-    grid-area: option;
     width: max-content;
     background: none !important }
 
 .settings-option div { 
-    grid-area: switch;
     display: grid; 
     align-items: center; }
 
