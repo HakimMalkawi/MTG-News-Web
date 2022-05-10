@@ -16,7 +16,8 @@
 
 .privacy-policy-container div { 
     grid-row: 2;
-    padding: 1rem 2rem 5rem 2rem; }
+    padding: 1rem 1.5rem 5rem 1.5rem;
+    text-align: justify; }
 
 .privacy-policy-container div ul { 
     list-style-position: inside; 
