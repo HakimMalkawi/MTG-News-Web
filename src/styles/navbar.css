@@ -1,7 +1,8 @@
 .navbar-container {
     height: 3.5rem;
     position: sticky;
-    top: 0; }
+    top: 0; 
+    z-index: 1; }
 
 .navbar-content {
     display: grid;

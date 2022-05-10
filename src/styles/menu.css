@@ -8,7 +8,7 @@
     right: -100vw;
     -webkit-transition: right .5s ease-in-out;
     transition: right .5s ease-in-out;
-    z-index: 1; }
+    z-index: 2; }
 
 .menu-container > * {
     grid-row: 1;
