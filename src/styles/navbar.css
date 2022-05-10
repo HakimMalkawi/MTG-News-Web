@@ -5,23 +5,15 @@
     z-index: 1; }
 
 .navbar-content {
-    display: grid;
+    display: flex;
+    justify-content: space-between;
     background: var(--dark) !important;
     height: 100%; 
-    padding-inline: 1rem; }
+    padding-inline: 1.5rem; }
 
 .navbar-content > * {
     grid-column: 1;
     grid-row: 1; }
-
-.navbar-content::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: var(--dark);
-    width: 100vw;
-    height: 2.5rem; }
 
 .navbar-menu-toggle {
     cursor: pointer;

@@ -6,17 +6,26 @@
 
 .language-container {
     border: none;
-    justify-self: start;
     align-self: center;
     height: 1.5rem;
-    width: 4rem;
+    width: min-content;
     color: transparent !important;
     font-size: 1rem; }
+
+.language-container::after {
+    content: "";
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background: var(--dark);
+    width: 100vw;
+    height: 2.5rem; }
 
 .language-label {
     margin: auto;
     display: grid;
-    z-index: 1;
+    z-index: 2;
     position: relative;
     align-self: center;
     font-weight: bold;
@@ -51,6 +60,7 @@
     padding: .3rem 0 .5rem 0;
     justify-content: center;
     list-style-type: none;
+    z-index: 0;
     border: 1px solid var(--light);
     -webkit-border-radius: 10px;
     border-radius: 10px;
