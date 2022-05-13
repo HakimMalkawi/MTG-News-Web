@@ -10,7 +10,10 @@
     height: 1.5rem;
     width: min-content;
     color: transparent !important;
-    font-size: 1rem; }
+    font-size: 1rem; 
+    transition: margin-left .25s ease-out; }
+
+.language-container.slide-over-right { margin-left: 2.25rem; }
 
 .language-container::after {
     content: "";
@@ -23,11 +26,9 @@
     height: 2.5rem; }
 
 .language-label {
-    margin: auto;
     display: grid;
     z-index: 2;
     position: relative;
-    align-self: center;
     font-weight: bold;
     height: 1.5rem;
     width: 3rem; }
@@ -57,7 +58,8 @@
 .language-list {
     display: grid;
     grid-gap: .5rem;
-    padding: .3rem 0 .5rem 0;
+    padding: .3rem 1.25rem .5rem;
+    margin-left: -.6rem;
     justify-content: center;
     list-style-type: none;
     z-index: 0;

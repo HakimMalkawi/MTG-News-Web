@@ -7,10 +7,11 @@ import PrivacyPolicy from "./PrivacyPolicy"
 import "../styles/menu.css"
 
 const Menu = props => {
-    const {setToggleMenu, setRenderApp, darkMode, setDarkMode, language} = props
+    const {setToggleMenu, setRenderApp, setHome, darkMode, setDarkMode, language} = props
     const [menu, setMenu] = useState(menuCategories)
     const classNamesForToggle = ["menu-container", "show-right"]
 
+    useEffect( () => { if(menu.options[0].show) { hideMenu() ; setHome(true); toggleClass(classNamesForToggle) } }, [menu.options])
     useEffect( () => { if(!menu.on) toggleClass(classNamesForToggle) }, [menu.on])
 
     const hideMenu = () => {
@@ -33,8 +34,8 @@ const Menu = props => {
                         <ul className="menu-toggle" onClick={hideMenu}><li></li><li></li></ul>
                         <ul className={`menu-content ${language ? "en" : "ru"}`}>{menuItems}</ul>
                     </main> } 
-                { menu.options[0].show && 
-                    <Settings id={0} setMenu={setMenu} darkMode={darkMode} setDarkMode={setDarkMode} language={language}/> }    
                 { menu.options[1].show && 
-                    <PrivacyPolicy id={1} setMenu={setMenu} language={language} /> } </> }
+                    <Settings id={1} setMenu={setMenu} darkMode={darkMode} setDarkMode={setDarkMode} language={language}/> }    
+                { menu.options[2].show && 
+                    <PrivacyPolicy id={2} setMenu={setMenu} language={language} /> } </> }
 export default Menu

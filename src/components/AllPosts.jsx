@@ -7,10 +7,13 @@ import Back from "./Back"
 import "../styles/all-posts.css"
 
 const AllPosts = props => {
-    const { scrollPosition, setScrollPosition, content, setContent, setCurrentPostData, setShowPost, setShowState, currentCategoryId, language } = props
+    const { scrollPosition, setScrollPosition, content, setContent, setCurrentPostData, setShowPost, setShowState, currentCategoryId, language, darkMode } = props
     const classNamesForToggle = ["all-posts", "hide-right"]
-    useEffect( () => { restoreScrollPosition(scrollPosition) }, [])
-
+    useEffect( () => { 
+        document.querySelector(".language-container").classList.add("slide-over-right")
+        restoreScrollPosition(scrollPosition) 
+        return () => document.querySelector(".language-container").classList.remove("slide-over-right") }, [])
+        
     const handleClick = (id) => {
         saveScrollPosition(setScrollPosition)
         setShowPost(true)
@@ -25,7 +28,7 @@ const AllPosts = props => {
                             </div> ) }
                             
                         <Back   setShowState={setShowState} 
-                                className="all" 
+                                className={`nav ${darkMode ? "dark" : "light"}`}
                                 classNamesForToggle={classNamesForToggle} 
                                 language={language} 
                                 reset={setContent} />

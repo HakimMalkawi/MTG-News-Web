@@ -42,7 +42,8 @@ const App = () => {
                     <Menu 
                       setToggleMenu={setToggleMenu} 
                       renderApp={renderApp} 
-                      setRenderApp={setRenderApp} 
+                      setRenderApp={setRenderApp}
+                      setHome={setHome}
                       darkMode={darkMode} 
                       setDarkMode={setDarkMode}
                       language={language} /> }
@@ -77,7 +78,8 @@ const App = () => {
                               language={language}
                               setShowState={setHome}
                               scrollPosition={scrollPosition} 
-                              setScrollPosition={setScrollPosition} />}
+                              setScrollPosition={setScrollPosition} 
+                              darkMode={darkMode} />}
 
                         { showPost && currentPostData &&
                             <SinglePost 
