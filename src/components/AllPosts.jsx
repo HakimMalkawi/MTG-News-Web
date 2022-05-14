@@ -3,7 +3,6 @@ import { fetchPost, fetchSelectedPosts } from "../helpers/fetchPost"
 import { nanoid } from "nanoid"
 import { saveScrollPosition, restoreScrollPosition } from "../helpers/scrollTracker.js"
 import InfiniteScroll from "react-infinite-scroll-component"
-import Back from "./Back"
 import "../styles/all-posts.css"
 
 const AllPosts = props => {
@@ -15,7 +14,7 @@ const AllPosts = props => {
         restoreScrollPosition(scrollPosition) 
         return () => {
             document.querySelector(".nav").classList.remove("fade-in")
-            document.querySelector(".language-container").classList.remove("slide-over-right")} }, [])
+            document.querySelector(".language-container").classList.remove("slide-over-right") } }, [])
         
     const handleClick = (id) => {
         saveScrollPosition(setScrollPosition)
@@ -29,7 +28,6 @@ const AllPosts = props => {
                                 <h1 className="post-title">{post.title}</h1>
                                 <img className="post-image" src={post.image} alt="Post"/>
                             </div> ) }
-
                     </InfiniteScroll>
                 </main>  </> }
 export default memo(AllPosts)

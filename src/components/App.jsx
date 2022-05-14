@@ -49,18 +49,19 @@ const App = () => {
                       language={language} /> }
                   
                   { renderApp &&
-                    <>  <Navbar 
-                          setToggleMenu={setToggleMenu}
-                          setRenderApp={setRenderApp}
-                          home={home} 
-                          setHome={setHome}
-                          language={language} 
-                          setLanguage={setLanguage} 
-                          setContent={setContent} 
-                          setCurrentPostData={setCurrentPostData}
-                          showPost={showPost}
-                          setShowPost={setShowPost} 
-                          darkMode={darkMode} />
+                    <>  { !showPost && 
+                            <Navbar 
+                              setToggleMenu={setToggleMenu}
+                              setRenderApp={setRenderApp}
+                              home={home} 
+                              setHome={setHome}
+                              language={language} 
+                              setLanguage={setLanguage} 
+                              setContent={setContent} 
+                              setCurrentPostData={setCurrentPostData}
+                              showPost={showPost}
+                              setShowPost={setShowPost} 
+                              darkMode={darkMode} /> }
 
                         { home && 
                             <Home 
