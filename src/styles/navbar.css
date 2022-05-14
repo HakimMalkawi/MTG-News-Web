@@ -19,7 +19,7 @@
     cursor: pointer;
     display: grid;
     grid-gap: .3rem;
-    z-index: 2;
+    z-index: 1;
     width: 2em;
     background: none !important;
     justify-self: end;

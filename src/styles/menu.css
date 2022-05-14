@@ -17,21 +17,17 @@
 .menu-content {
     display: grid;
     grid-template: min-content / auto;
-    grid-gap: 1rem;
-    place-self: center;
-    max-width: min-content;
-    font-size: 2rem;
+    grid-gap: .5rem;
+    height: min-content;
+    font-size: 1.5rem;
     font-weight: 600;
-    text-align: center;
     list-style: none; }
-
-.menu-content.ru { font-size: 1.5rem; }
 
 .menu-content.en .menu-item { width: max-content; }
 
 .menu-item { 
-    cursor: pointer;
-    justify-self: center; }
+    cursor: pointer; 
+    padding-left: .5rem; }
 
 .menu-item-separator {
     height: .1rem;
@@ -45,7 +41,7 @@
     display: grid;
     justify-self: end;
     height: min-content;
-    width: 2.5rem; 
+    width: 2rem; 
     align-items: center; }
 
 .menu-toggle * {

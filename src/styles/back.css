@@ -53,16 +53,17 @@
 .all.en::after { content: "back home"; }
 
 .nav {
-    position: fixed;
+    position: absolute;
     border: none;
     color: transparent !important;
     opacity: 0;
-    z-index: 1;
+    z-index: 2;
     top: .5rem;
     left: .5rem;
     width: 2.5rem;
-    height: 2.5rem;
-    animation: fade-in .25s forwards .25s; }
+    height: 2.5rem; }
+
+.nav.fade-in { animation: fade-in .25s forwards .35s; }
 
 .nav.dark { background: url("../resources/preloader-dark.png") center / contain !important; }
 .nav.light { background: url("../resources/preloader-light.png") center / contain !important; }

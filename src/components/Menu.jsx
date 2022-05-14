@@ -7,11 +7,11 @@ import PrivacyPolicy from "./PrivacyPolicy"
 import "../styles/menu.css"
 
 const Menu = props => {
-    const {setToggleMenu, setRenderApp, setHome, darkMode, setDarkMode, language} = props
+    const {setToggleMenu, setRenderApp, setHome, setContent, darkMode, setDarkMode, language} = props
     const [menu, setMenu] = useState(menuCategories)
     const classNamesForToggle = ["menu-container", "show-right"]
 
-    useEffect( () => { if(menu.options[0].show) { hideMenu() ; setHome(true); toggleClass(classNamesForToggle) } }, [menu.options])
+    useEffect( () => { if(menu.options[0].show) { hideMenu() ; setHome(true); toggleClass(classNamesForToggle); setContent(null) } }, [menu.options])
     useEffect( () => { if(!menu.on) toggleClass(classNamesForToggle) }, [menu.on])
 
     const hideMenu = () => {

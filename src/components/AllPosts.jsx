@@ -7,12 +7,15 @@ import Back from "./Back"
 import "../styles/all-posts.css"
 
 const AllPosts = props => {
-    const { scrollPosition, setScrollPosition, content, setContent, setCurrentPostData, setShowPost, setShowState, currentCategoryId, language, darkMode } = props
-    const classNamesForToggle = ["all-posts", "hide-right"]
+    const { scrollPosition, setScrollPosition, content, setContent, setCurrentPostData, setShowPost, currentCategoryId, language } = props
+
     useEffect( () => { 
         document.querySelector(".language-container").classList.add("slide-over-right")
+        document.querySelector(".nav").classList.add("fade-in")
         restoreScrollPosition(scrollPosition) 
-        return () => document.querySelector(".language-container").classList.remove("slide-over-right") }, [])
+        return () => {
+            document.querySelector(".nav").classList.remove("fade-in")
+            document.querySelector(".language-container").classList.remove("slide-over-right")} }, [])
         
     const handleClick = (id) => {
         saveScrollPosition(setScrollPosition)
@@ -26,12 +29,7 @@ const AllPosts = props => {
                                 <h1 className="post-title">{post.title}</h1>
                                 <img className="post-image" src={post.image} alt="Post"/>
                             </div> ) }
-                            
-                        <Back   setShowState={setShowState} 
-                                className={`nav ${darkMode ? "dark" : "light"}`}
-                                classNamesForToggle={classNamesForToggle} 
-                                language={language} 
-                                reset={setContent} />
+
                     </InfiniteScroll>
                 </main>  </> }
 export default memo(AllPosts)

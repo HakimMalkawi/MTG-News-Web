@@ -1,9 +1,10 @@
 import { memo } from "react"
 import Language from "./Language"
+import Back from "./Back"
 import "../styles/navbar.css"
 
 const Navbar = props => {
-    const {language, setLanguage, home, setHome, setToggleMenu, setRenderApp, setContent, setCurrentPostData, setShowPost} = props
+    const {language, setLanguage, home, setHome, setToggleMenu, setRenderApp, setContent, setCurrentPostData, showPost, setShowPost, darkMode} = props
 
     const hideOverlay = () => { 
         setToggleMenu(prevToggleMenu => !prevToggleMenu)
@@ -11,6 +12,13 @@ const Navbar = props => {
 
     return  <>  <header className="navbar-container">
                     <nav className="navbar-content">
+                        { !home && !showPost && 
+                        <Back   
+                            setShowState={setHome} 
+                            className={`nav ${darkMode ? "dark" : "light"}`}
+                            classNamesForToggle={["all-posts", "hide-right"]} 
+                            language={language} 
+                            reset={setContent} /> }
                         <Language 
                             language={language} 
                             setLanguage={setLanguage} 

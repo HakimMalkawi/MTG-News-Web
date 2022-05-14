@@ -10,7 +10,6 @@ import "../styles/app.css"
 
 const App = () => {
     localStorage.clear()
-
     let preferencesSaved = false ; localStorage.getItem("appState") ? preferencesSaved = true : preferencesSaved = false
     const preferences = JSON.parse(localStorage.getItem("appState"))
 
@@ -44,6 +43,7 @@ const App = () => {
                       renderApp={renderApp} 
                       setRenderApp={setRenderApp}
                       setHome={setHome}
+                      setContent={setContent}
                       darkMode={darkMode} 
                       setDarkMode={setDarkMode}
                       language={language} /> }
@@ -58,7 +58,9 @@ const App = () => {
                           setLanguage={setLanguage} 
                           setContent={setContent} 
                           setCurrentPostData={setCurrentPostData}
-                          setShowPost={setShowPost} />
+                          showPost={showPost}
+                          setShowPost={setShowPost} 
+                          darkMode={darkMode} />
 
                         { home && 
                             <Home 
@@ -76,10 +78,8 @@ const App = () => {
                               currentCategoryId={currentCategoryId}
                               setShowPost={setShowPost} 
                               language={language}
-                              setShowState={setHome}
                               scrollPosition={scrollPosition} 
-                              setScrollPosition={setScrollPosition} 
-                              darkMode={darkMode} />}
+                              setScrollPosition={setScrollPosition} />}
 
                         { showPost && currentPostData &&
                             <SinglePost 

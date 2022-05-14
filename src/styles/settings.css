@@ -54,7 +54,5 @@
     background: var(--light) !important;
     transition: left .25s ease-in-out, background .35s ease-out; }
 
-
 .settings-option.on div span { left: 2.1rem; }
-
 .settings-option.off div span { left: .15rem; }
