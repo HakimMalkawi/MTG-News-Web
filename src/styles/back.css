@@ -50,7 +50,7 @@
     border: 2px solid var(--teal); }    
 
 .all.ru::after { content: "обратно"; }
-.all.en::after { content: "back home"; }
+.all.en::after { content: "Return"; }
 
 .nav {
     position: absolute;

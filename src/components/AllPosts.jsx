@@ -26,6 +26,7 @@ const AllPosts = props => {
                         { content.map( post =>
                             <div onClick={() => handleClick(post.id)} className="post-container" key={nanoid()} >
                                 <h1 className="post-title">{post.title}</h1>
+                                <p className="post-date">{post.date}</p>
                                 <img className="post-image" src={post.image} alt="Post"/>
                             </div> ) }
                     </InfiniteScroll>

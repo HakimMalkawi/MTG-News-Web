@@ -10,11 +10,18 @@ export const fetchSelectedPosts = async (handleState, categoryId, lang="en", set
                 try {   const response = await fetch(`https://mtargetgroup.com/wp-json/wp/v2/posts?lang=${lang}&context=view&categories=${categoryId}&per_page=${content.length+10}`)
                                 if(!response.ok) throw Error(response)
                         const data = await response.json()
-                        const result = []
-                        for (const post of data) { result.push({ id: post["id"], 
-                                                                title: post["title"]["rendered"], 
-                                                                image: post["yoast_head_json"]["og_image"][0]["url"].replaceAll("\\", ""),
-                                                                date: post["date"].slice(0, post["date"].indexOf("T")) } )     }
+                        const result = data.map( post => {
+                        const months = [ "January", "February", "March", "April", "May", "June", "July",        "August", "September", "October", "November", "December" ]
+                        const unformattedDate = 
+                                post["date"].slice(0, post["date"].indexOf("T")).split("-").reverse()
+                        const extractedMonthNameFromDate = months[unformattedDate[1].at(0) === "0" ? 
+                                JSON.parse(unformattedDate[1].at(1)) : JSON.parse(unformattedDate[1])]
+                        const formattedDate = `${unformattedDate[0]} ${extractedMonthNameFromDate} ${unformattedDate[2]}`
+                        return {id: post["id"], 
+                                title: post["title"]["rendered"], 
+                                image: post["yoast_head_json"]["og_image"][0]["url"].replaceAll("\\", ""),
+                                date: formattedDate } }  )
+
                         return handleState(result)   }
                 catch(error) { console.error(error) }   }
 
