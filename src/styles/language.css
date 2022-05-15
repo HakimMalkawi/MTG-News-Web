@@ -11,7 +11,7 @@
     width: min-content;
     color: transparent !important;
     font-size: 1rem; 
-    transition: margin-left .25s ease-out; }
+    transition: margin-left .25s ease-out .15s; }
 
 .language-container.slide-over-right { margin-left: 2.25rem; }
 

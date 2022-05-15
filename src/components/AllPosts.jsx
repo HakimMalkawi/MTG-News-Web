@@ -13,7 +13,7 @@ const AllPosts = props => {
         document.querySelector(".nav").classList.add("fade-in")
         restoreScrollPosition(scrollPosition) 
         return () => {
-            document.querySelector(".nav").classList.remove("fade-in")
+            if (document.querySelector(".nav")) document.querySelector(".nav").classList.remove("fade-in")
             document.querySelector(".language-container").classList.remove("slide-over-right") } }, [])
         
     const handleClick = (id) => {

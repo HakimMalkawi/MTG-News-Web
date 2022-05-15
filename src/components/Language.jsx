@@ -14,9 +14,11 @@ const Language = props => {
     
     const handleClick = mainLanguage => {
         setToggle(prevToggle => !prevToggle)
-        if(language !== mainLanguage) {
-            setLanguage(mainLanguage)
-            refresh()   } }
+        if (document.querySelector(".language-container").classList.contains("slide-over-right"))
+            document.querySelector(".language-container").classList.remove("slide-over-right")
+        if (language !== mainLanguage) {
+                setLanguage(mainLanguage)
+                refresh()   } }
 
     return <>   <div className="language-container">
                     <label onClick={() => setToggle(prevToggle => !prevToggle)} className={`language-label ${toggle ? "open" : "closed"}`}> 

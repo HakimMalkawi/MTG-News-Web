@@ -9,7 +9,6 @@ import "../styles/color-scheme.css"
 import "../styles/app.css"
 
 const App = () => {
-    localStorage.clear()
     let preferencesSaved = false ; localStorage.getItem("appState") ? preferencesSaved = true : preferencesSaved = false
     const preferences = JSON.parse(localStorage.getItem("appState"))
 
