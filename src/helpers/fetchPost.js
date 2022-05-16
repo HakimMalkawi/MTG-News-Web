@@ -7,11 +7,11 @@ const fetchCategory = async (categorySelection, lang="en") => {
 
         catch(error) { console.error(error) } }
 
-export const fetchSelectedPosts = async (handleState, categoryId, lang="en", setCurrentCategoryId = false, content = []) => {
+export const fetchSelectedPosts = async (handleState, categoryId, lang="en", setCurrentCategoryId = false, content = [], year="2016") => {
                 if (setCurrentCategoryId !== false) setCurrentCategoryId(categoryId)
 
                 try {   const response = await fetch(
-                        `https://mtargetgroup.com/wp-json/wp/v2/posts?lang=${lang}&context=view&categories=${categoryId}&per_page=${content.length+10}`)
+                        `https://mtargetgroup.com/wp-json/wp/v2/posts?lang=${lang}&context=view&categories=${categoryId}&per_page=${content.length+10}&modified_after=${year}-01-01T00:00:00`)
                                 if(!response.ok) throw Error(response)
 
                         const data = await response.json()
@@ -34,7 +34,9 @@ export const fetchSelectedPosts = async (handleState, categoryId, lang="en", set
 
                         return handleState(result)   }
 
-                catch(error) { console.error(error) }   }
+                catch(error) { 
+                        localStorage.clear()
+                        console.error(error) }   }
 
 export const fetchPosts = async (handleState, categorySelection, lang="en", setCurrentCategoryId) => {
         fetchCategory(categorySelection, lang).then(categoryId => fetchSelectedPosts(handleState, categoryId, lang, setCurrentCategoryId)) }
@@ -44,4 +46,6 @@ export const fetchPost = async (handleState, id, lang="en") => {
                         if(!response.ok) throw Error(response)
                 const data = await response.json()
                 return handleState({content: data.content.rendered, image: data["yoast_head_json"]["og_image"][0]["url"]})  }
-        catch(error) { console.error(error) }   }
+        catch(error) { 
+                localStorage.clear()
+                console.error(error) }   }

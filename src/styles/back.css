@@ -53,6 +53,7 @@
 .all.en::after { content: "Return"; }
 
 .nav {
+    cursor: pointer;
     position: absolute;
     border: none;
     color: transparent !important;

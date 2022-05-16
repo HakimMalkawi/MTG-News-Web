@@ -1,7 +1,6 @@
 .language-container,
 .language-label,
 .language-list li { 
-    cursor: pointer;
     background: none !important; }
 
 .language-container {
@@ -26,6 +25,7 @@
     height: 2.5rem; }
 
 .language-label {
+    cursor: pointer;
     display: grid;
     z-index: 2;
     position: relative;
