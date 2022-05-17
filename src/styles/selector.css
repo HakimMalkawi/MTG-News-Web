@@ -9,10 +9,13 @@
     height: 1.5rem;
     width: min-content;
     color: transparent !important;
-    font-size: 1rem; 
-    transition: margin-left .25s ease-out .15s; }
+    font-size: 1rem; }
 
-.selector-container.slide-over-right { margin-left: 2.25rem; }
+.content .selector-container {
+    
+    transition: margin-left .35s ease-out .25s; }
+
+.selector-container.slide-over-right { margin-left: 0rem; }
 
 .selector-container::after {
     content: "";
@@ -69,6 +72,7 @@
     transition: margin .25s ease-in-out; }
 
 .selector-list li { 
+    cursor: pointer;
     font-size: 1.25rem;
     font-weight: 600; 
     margin: 0; }

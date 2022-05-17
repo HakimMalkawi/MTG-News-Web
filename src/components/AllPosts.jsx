@@ -9,7 +9,7 @@ const AllPosts = props => {
     const { scrollPosition, setScrollPosition, content, setContent, setCurrentPostData, setShowPost, currentCategoryId, selectedYear, language } = props
 
     useEffect( () => { 
-        document.querySelector(".selector-container").classList.add("slide-over-right")
+        document.querySelectorAll(".selector-container").forEach( selector => selector.classList.add("slide-over-right") )
         document.querySelector(".nav").classList.add("fade-in")
         restoreScrollPosition(scrollPosition) 
         
@@ -18,7 +18,7 @@ const AllPosts = props => {
                 document.querySelector(".nav").classList.remove("fade-in")
 
             if (document.querySelector(".selector-container")) 
-                document.querySelector(".selector-container").classList.remove("slide-over-right") } }, [])
+            document.querySelectorAll(".selector-container").forEach( selector => selector.classList.remove("slide-over-right") ) } }, [])
         
     const handleClick = (id) => {
         saveScrollPosition(setScrollPosition)

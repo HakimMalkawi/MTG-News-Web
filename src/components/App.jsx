@@ -36,7 +36,7 @@ const App = () => {
       darkMode: darkMode,
       scrollPosition: scrollPosition }))
 
-    return <>   <div className={`app ${darkMode ? "dark" : "light"}`}>
+    return <>   <div className={`app ${content ? "" : "home"} ${darkMode ? "dark" : "light"}`}>
 
                   { toggleMenu && 
                     <Menu 

@@ -54,13 +54,12 @@
 
 .nav {
     cursor: pointer;
-    position: absolute;
+    position: relative;
     border: none;
     color: transparent !important;
     opacity: 0;
     z-index: 2;
     top: .5rem;
-    left: .5rem;
     width: 2.5rem;
     height: 2.5rem; }
 
