@@ -23,7 +23,7 @@ export const fetchSelectedPosts = async (handleState, categoryId, lang="en", set
                                 const unformattedDate = post["date"].slice(0, post["date"].indexOf("T")).split("-").reverse()
 
                                 const extractedMonthNameFromDate = 
-                                        months[unformattedDate[1].at(0) === "0" ? JSON.parse(unformattedDate[1].at(1)) : JSON.parse(unformattedDate[1])]
+                                        months[unformattedDate[1].at(0) === "0" ? JSON.parse(unformattedDate[1].at(1) - 1) : JSON.parse(unformattedDate[1] - 1)]
 
                                 const formattedDate = `${unformattedDate[0]} ${extractedMonthNameFromDate} ${unformattedDate[2]}`
 

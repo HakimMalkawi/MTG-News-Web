@@ -14,7 +14,7 @@ const AllPosts = props => {
         restoreScrollPosition(scrollPosition) 
         return () => {
             if (document.querySelector(".nav")) document.querySelector(".nav").classList.remove("fade-in")
-            document.querySelector(".language-container").classList.remove("slide-over-right") } }, [])
+            if (document.querySelector(".language-container")) document.querySelector(".language-container").classList.remove("slide-over-right") } }, [])
         
     const handleClick = (id) => {
         saveScrollPosition(setScrollPosition)

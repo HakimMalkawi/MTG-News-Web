@@ -21,8 +21,7 @@ body { overflow-x: hidden; }
 
 .app > * {
   grid-row: 1;
-  grid-column: 1;
-  max-width: 550px; }
+  grid-column: 1; }
 
 h1 {
   font-size: 1.15rem !important;

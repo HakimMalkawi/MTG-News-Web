@@ -40,7 +40,8 @@
     cursor: pointer;
     display: grid;
     justify-self: end;
-    height: min-content;
+    margin-top: -1rem;
+    height: 2rem;
     width: 2rem; 
     align-items: center; }
 
