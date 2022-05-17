@@ -7,11 +7,12 @@ const fetchCategory = async (categorySelection, lang="en") => {
 
         catch(error) { console.error(error) } }
 
-export const fetchSelectedPosts = async (handleState, categoryId, lang="en", setCurrentCategoryId = false, content = [], year="2016") => {
+export const fetchSelectedPosts = async ( 
+        handleState, categoryId, lang="en", setCurrentCategoryId = false, content = [], year = ( new Date().getFullYear() ) ) => {
                 if (setCurrentCategoryId !== false) setCurrentCategoryId(categoryId)
 
                 try {   const response = await fetch(
-                        `https://mtargetgroup.com/wp-json/wp/v2/posts?lang=${lang}&context=view&categories=${categoryId}&per_page=${content.length+10}&modified_after=${year}-01-01T00:00:00`)
+                        `https://mtargetgroup.com/wp-json/wp/v2/posts?lang=${lang}&context=view&categories=${categoryId}&per_page=${content.length+10}&before=${year}-12-31T00:00:00`)
                                 if(!response.ok) throw Error(response)
 
                         const data = await response.json()

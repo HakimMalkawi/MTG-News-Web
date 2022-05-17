@@ -17,6 +17,7 @@ const App = () => {
     const [home, setHome] = useState( preferencesSaved ? preferences.home : true)
     const [currentCategoryId, setCurrentCategoryId] = useState(preferencesSaved ? preferences.currentCategoryId : null)
     const [content, setContent] = useState( preferencesSaved ? preferences.content : null)
+    const [selectedYear, setSelectedYear] = useState(preferencesSaved ? preferencesSaved.selectedYear : null)
     const [currentPostData, setCurrentPostData] = useState( preferencesSaved ? preferences.currentPostData : null)
     const [showPost, setShowPost] = useState( preferencesSaved ? preferences.showPost : false)
     const [language, setLanguage] = useState( preferencesSaved ? preferences.language : true)
@@ -28,6 +29,7 @@ const App = () => {
       renderApp: renderApp,
       home: home,
       content: content,
+      selectedYear: selectedYear,
       currentPostData: currentPostData,
       showPost: showPost,
       language: language,
@@ -56,10 +58,13 @@ const App = () => {
                               setHome={setHome}
                               language={language} 
                               setLanguage={setLanguage} 
+                              content={content}
                               setContent={setContent} 
+                              currentCategoryId={currentCategoryId}
                               setCurrentPostData={setCurrentPostData}
                               showPost={showPost}
                               setShowPost={setShowPost} 
+                              setSelectedYear={setSelectedYear}
                               darkMode={darkMode} /> }
 
                         { home && 
@@ -76,6 +81,7 @@ const App = () => {
                               setContent={setContent}
                               setCurrentPostData={setCurrentPostData} 
                               currentCategoryId={currentCategoryId}
+                              selectedYear={selectedYear}
                               setShowPost={setShowPost} 
                               language={language}
                               scrollPosition={scrollPosition} 
