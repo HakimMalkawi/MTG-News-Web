@@ -1,9 +1,9 @@
-.language-container,
-.language-label,
-.language-list li { 
+.selector-container,
+.selector-label,
+.selector-list li { 
     background: none !important; }
 
-.language-container {
+.selector-container {
     border: none;
     align-self: center;
     height: 1.5rem;
@@ -12,9 +12,9 @@
     font-size: 1rem; 
     transition: margin-left .25s ease-out .15s; }
 
-.language-container.slide-over-right { margin-left: 2.25rem; }
+.selector-container.slide-over-right { margin-left: 2.25rem; }
 
-.language-container::after {
+.selector-container::after {
     content: "";
     position: fixed;
     z-index: 1;
@@ -24,7 +24,7 @@
     width: 100vw;
     height: 2.5rem; }
 
-.language-label {
+.selector-label {
     cursor: pointer;
     display: grid;
     z-index: 2;
@@ -33,7 +33,7 @@
     height: 1.5rem;
     width: 3rem; }
 
-.language-label::before {
+.selector-label::before {
     content: ""; 
     display: grid;
     position: absolute;
@@ -51,11 +51,11 @@
     mask-size: contain; 
     transition: transform .15s ease-in-out; }
 
-.language-label.open::before { transform: rotateX(180deg) translateY(50%); }
-.language-label.open + .language-list { margin-top: .3rem; }
-.language-label.closed + .language-list { margin-top: -15rem; }
+.selector-label.open::before { transform: rotateX(180deg) translateY(50%); }
+.selector-label.open + .selector-list { margin-top: .3rem; }
+.selector-label.closed + .selector-list { margin-top: -15rem; }
 
-.language-list {
+.selector-list {
     display: grid;
     grid-gap: .5rem;
     padding: .3rem 1.25rem .5rem;
@@ -68,7 +68,9 @@
     border-radius: 10px;
     transition: margin .25s ease-in-out; }
 
-.language-list li { 
+.selector-list li { 
     font-size: 1.25rem;
     font-weight: 600; 
     margin: 0; }
+
+#year-selector::before { right: -1.5rem; }

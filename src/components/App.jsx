@@ -63,7 +63,8 @@ const App = () => {
                               currentCategoryId={currentCategoryId}
                               setCurrentPostData={setCurrentPostData}
                               showPost={showPost}
-                              setShowPost={setShowPost} 
+                              setShowPost={setShowPost}
+                              selectedYear={selectedYear} 
                               setSelectedYear={setSelectedYear}
                               darkMode={darkMode} /> }
 
