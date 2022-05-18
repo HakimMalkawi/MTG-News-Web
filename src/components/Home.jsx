@@ -7,10 +7,10 @@ import "../styles/home.css"
 const Home = props => {
     const { setRenderHome, 
             setBulkPostContent, 
-            language, 
-            setScrollPosition, 
             setCurrentCategoryId, 
-            selectedYearForPosts } = props
+            selectedYearForPosts,
+            language, 
+            setScrollPosition } = props
 
     const currentCategory = event => event.target.parentElement.children[1].innerText
 

@@ -7,8 +7,8 @@ import PrivacyPolicy from "./PrivacyPolicy"
 import "../styles/menu.css"
 
 const Menu = props => {
-    const { setRenderMenu, 
-            setRenderAllExceptMenu, 
+    const { setRenderAllExceptMenu, 
+            setRenderMenu, 
             setRenderHome, 
             setBulkPostContent, 
             language } = props
@@ -43,7 +43,7 @@ const Menu = props => {
                         <ul className={`menu-content ${language ? "en" : "ru"}`}>{menuItems}</ul>
                     </main> } 
                 { menu.options[1].show && 
-                    <Settings id={1} setMenu={setMenu} language={language}/> }    
+                    <Settings setMenu={setMenu} language={language} id={1} /> }    
                 { menu.options[2].show && 
-                    <PrivacyPolicy id={2} setMenu={setMenu} language={language} /> } </> }
+                    <PrivacyPolicy setMenu={setMenu} language={language} id={2} /> } </> }
 export default Menu

@@ -4,7 +4,7 @@ import "../styles/selector.css"
 
 const Selector = props => {
     const [toggle, setToggle] = useState(false)
-    const { render: { label, list }, id = "test" } = props
+    const { render: { label, list }, id = "" } = props
 
     return  <>   <div className="selector-container">
                     <label onClick={() => setToggle(prevToggle => !prevToggle)} className={`selector-label ${toggle ? "open" : "closed"}`} id={id}>

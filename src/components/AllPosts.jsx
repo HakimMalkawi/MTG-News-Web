@@ -6,22 +6,22 @@ import InfiniteScroll from "react-infinite-scroll-component"
 import "../styles/all-posts.css"
 
 const AllPosts = props => {
-    const { scrollPosition, 
-            setScrollPosition, 
-            bulkPostContent, 
-            setBulkPostContent, 
-            setCurrentPostData, 
-            setRenderSinglePost, 
+    const { bulkPostContent, 
+            setBulkPostContent,
             currentCategoryId, 
-            selectedYearForPosts, 
-            language } = props
+            selectedYearForPosts,
+            setRenderSinglePost, 
+            setSinglePostContent, 
+            language,
+            scrollPosition, 
+            setScrollPosition } = props
 
     useEffect( () => { restoreScrollPosition(scrollPosition) }, [])
         
     const handleClick = (id) => {
         saveScrollPosition(setScrollPosition)
         setRenderSinglePost(true)
-        fetchPost(setCurrentPostData, id)  }
+        fetchPost(setSinglePostContent, id)  }
 
     return <>   <main className="all-posts" id="all-posts">
                     <InfiniteScroll 

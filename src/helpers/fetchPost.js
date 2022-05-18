@@ -1,21 +1,20 @@
-const fetchCategory = async (categorySelection, lang="en") => {
+const fetchCategory = async  (selectedCategory, lang = "en" ) => {
+        
         try {   const response = await fetch(`https://mtargetgroup.com/wp-json/wp/v2/categories?lang=${lang}`)
                 const categoryList = await response.json()
 
                 for (const categoryName of categoryList) {
-                        if (categorySelection.toLowerCase() === categoryName.name.toLowerCase()) return categoryName.id } }
+                        if (selectedCategory.toLowerCase() === categoryName.name.toLowerCase()) return categoryName.id } }
 
-        catch(error) { 
-                localStorage.clear()
-                console.error(error) } }
+        catch(error) { localStorage.clear(); console.error(error) } }
 
-export const fetchSelectedPosts = async ( 
-        handleState, categoryId, lang="en", setCurrentCategoryId = false, content = [], year = ( new Date().getFullYear() ) ) => {
-                if (setCurrentCategoryId !== false) setCurrentCategoryId(categoryId)
+export const fetchSelectedPosts = 
+        async ( handleState, categoryId, lang = "en", setCurrentCategoryId = null, content = [], year = ( new Date().getFullYear() ) ) => {
+
+                if (setCurrentCategoryId !== null) setCurrentCategoryId(categoryId)
 
                 try {   const response = await fetch(
-                        `https://mtargetgroup.com/wp-json/wp/v2/posts?lang=${lang}&context=view&categories=${categoryId}&per_page=${content.length+10}&before=${year}-12-31T00:00:00`)
-                                if(!response.ok) throw Error(response)
+                        `https://mtargetgroup.com/wp-json/wp/v2/posts?lang=${lang}&context=view&categories=${categoryId}&per_page=${content.length+10}&before=${year}-12-31T00:00:00` ); if(!response.ok) throw Error(response)
 
                         const data = await response.json()
 
@@ -26,7 +25,9 @@ export const fetchSelectedPosts = async (
                                 const unformattedDate = post["date"].slice(0, post["date"].indexOf("T")).split("-").reverse()
 
                                 const extractedMonthNameFromDate = 
-                                        months[unformattedDate[1].at(0) === "0" ? JSON.parse(unformattedDate[1].at(1) - 1) : JSON.parse(unformattedDate[1] - 1)]
+                                        months[unformattedDate[1].at(0) === "0" ? 
+                                                JSON.parse(unformattedDate[1].at(1) - 1) : 
+                                                JSON.parse(unformattedDate[1] - 1)]
 
                                 const formattedDate = `${unformattedDate[0]} ${extractedMonthNameFromDate} ${unformattedDate[2]}`
 
@@ -37,21 +38,20 @@ export const fetchSelectedPosts = async (
 
                         return handleState(result)   }
 
-                catch(error) {  localStorage.clear()
-                                console.error(error) }   }
+                catch(error) { localStorage.clear(); console.error(error) }   }
 
-export const fetchPosts = async (handleState, categorySelection, lang="en", setCurrentCategoryId, year) => {
-        try {   fetchCategory(categorySelection, lang)
-                .then(categoryId => fetchSelectedPosts(handleState, categoryId, lang, setCurrentCategoryId, [], year)) }
+export const fetchPosts = async (handleState, selectedCategory, lang="en", setCurrentCategoryId, year) => {
+
+        try {   fetchCategory(selectedCategory, lang)
+                .then( categoryId => fetchSelectedPosts(handleState, categoryId, lang, setCurrentCategoryId, [], year) ) }
         
-        catch(error) {  localStorage.clear()
-                        console.error(error) } }
+        catch(error) {  localStorage.clear(); console.error(error) } }
 
 export const fetchPost = async (handleState, id, lang="en") => {
+
         try {   const response = await fetch(`https://mtargetgroup.com/wp-json/wp/v2/posts/${id}?lang=${lang}&context=view`)
                         if(!response.ok) throw Error(response)
                 const data = await response.json()
                 return handleState({content: data.content.rendered, image: data["yoast_head_json"]["og_image"][0]["url"]})  }
 
-        catch(error) {  localStorage.clear()
-                        console.error(error) }   }
+        catch(error) {  localStorage.clear(); console.error(error) }   }

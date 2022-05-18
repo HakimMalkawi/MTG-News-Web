@@ -3,10 +3,10 @@ import "../styles/back.css"
 
 const Back = props => {    
     const { setShowState, 
-            className, 
-            classNamesForToggle, 
-            language = true, 
             reset = () => {}, 
+            language = true,
+            className, 
+            classNamesForToggle,
             id = false } = props
             
     return  <button onClick={ () => { hideSelectedMenuOption(setShowState, classNamesForToggle, id); reset(null) } }

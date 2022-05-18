@@ -14,36 +14,36 @@ const App = () => {
     let savedPreferences = localStorage.getItem("appState")
     const preferences = JSON.parse(savedPreferences)
 
-    const [renderMenu, setRenderMenu] = useState( savedPreferences ? preferences.renderMenu : false)
     const [renderAllExceptMenu, setRenderAllExceptMenu] = useState( savedPreferences ? preferences.renderAllExceptMenu : true)
+    const [renderMenu, setRenderMenu] = useState( savedPreferences ? preferences.renderMenu : false)
     const [renderHome, setRenderHome] = useState( savedPreferences ? preferences.renderHome : true)
-    const [currentCategoryId, setCurrentCategoryId] = useState(savedPreferences ? preferences.currentCategoryId : null)
     const [bulkPostContent, setBulkPostContent] = useState( savedPreferences ? preferences.bulkPostContent : null)
+    const [currentCategoryId, setCurrentCategoryId] = useState(savedPreferences ? preferences.currentCategoryId : null)
     const [selectedYearForPosts, setSelectedYearForPosts] = useState(savedPreferences ? savedPreferences.selectedYearForPosts : undefined)
-    const [currentPostData, setCurrentPostData] = useState( savedPreferences ? preferences.currentPostData : null)
     const [renderSinglePost, setRenderSinglePost] = useState( savedPreferences ? preferences.renderSinglePost : false)
+    const [singlePostContent, setSinglePostContent] = useState( savedPreferences ? preferences.singlePostContent : null)
     const [language, setLanguage] = useState( savedPreferences ? preferences.language : true)
     const [scrollPosition, setScrollPosition] = useState( savedPreferences ? preferences.scrollPosition : null)
 
     return  <DarkModeConsumer>
               { ( { darkMode } ) => {
                 localStorage.setItem("appState", JSON.stringify({
-                  renderMenu: renderMenu,
                   renderAllExceptMenu: renderAllExceptMenu,
+                  renderMenu: renderMenu,
                   renderHome: renderHome,
                   bulkPostContent: bulkPostContent,
                   selectedYearForPosts: selectedYearForPosts,
-                  currentPostData: currentPostData,
                   renderSinglePost: renderSinglePost,
+                  singlePostContent: singlePostContent,
                   language: language,
-                  darkMode: darkMode,
-                  scrollPosition: scrollPosition } ) )
+                  scrollPosition: scrollPosition,
+                  darkMode: darkMode } ) )
 
               return  <div className={`app ${bulkPostContent ? "content" : "home"} ${darkMode ? "dark" : "light"}`}>
                         { renderMenu && 
                             <Menu 
-                              setRenderMenu={setRenderMenu}
                               setRenderAllExceptMenu={setRenderAllExceptMenu}
+                              setRenderMenu={setRenderMenu}
                               setRenderHome={setRenderHome}
                               setBulkPostContent={setBulkPostContent}
                               language={language} /> }
@@ -51,50 +51,50 @@ const App = () => {
                         { renderAllExceptMenu &&
                           <>  { !renderSinglePost && 
                                   <Navbar 
-                                    setRenderMenu={setRenderMenu}
                                     setRenderAllExceptMenu={setRenderAllExceptMenu}
+                                    setRenderMenu={setRenderMenu}
                                     renderHome={renderHome} 
                                     setRenderHome={setRenderHome}
-                                    language={language} 
-                                    setLanguage={setLanguage} 
                                     setBulkPostContent={setBulkPostContent} 
                                     currentCategoryId={currentCategoryId}
-                                    setCurrentPostData={setCurrentPostData}
-                                    renderSinglePost={renderSinglePost}
-                                    setRenderSinglePost={setRenderSinglePost}
                                     selectedYearForPosts={selectedYearForPosts} 
                                     setSelectedYearForPosts={setSelectedYearForPosts}
-                                    setScrollPosition={setScrollPosition} /> }
+                                    renderSinglePost={renderSinglePost}
+                                    setRenderSinglePost={setRenderSinglePost}
+                                    setSinglePostContent={setSinglePostContent}
+                                    language={language} 
+                                    setLanguage={setLanguage}
+                                    setScrollPosition={setScrollPosition}  /> }
 
                               { renderHome && 
                                   <Home 
                                     setRenderHome={setRenderHome} 
                                     setBulkPostContent={setBulkPostContent} 
                                     setCurrentCategoryId={setCurrentCategoryId}
-                                    setScrollPosition={setScrollPosition}
                                     selectedYearForPosts={selectedYearForPosts}
-                                    language={language} /> }
+                                    language={language} 
+                                    setScrollPosition={setScrollPosition} /> }
 
                               { bulkPostContent && !renderSinglePost && !renderHome && 
                                   <AllPosts 
                                     bulkPostContent={bulkPostContent} 
                                     setBulkPostContent={setBulkPostContent}
-                                    setCurrentPostData={setCurrentPostData} 
                                     currentCategoryId={currentCategoryId}
                                     selectedYearForPosts={selectedYearForPosts}
                                     setRenderSinglePost={setRenderSinglePost} 
+                                    setSinglePostContent={setSinglePostContent} 
                                     language={language}
                                     scrollPosition={scrollPosition} 
                                     setScrollPosition={setScrollPosition} /> }
 
-                              { renderSinglePost && currentPostData &&
+                              { renderSinglePost && singlePostContent &&
                                   <SinglePost 
-                                    currentPostData={currentPostData} 
-                                    setCurrentPostData={setCurrentPostData}
-                                    setRenderSinglePost={setRenderSinglePost} /> } 
+                                    setRenderSinglePost={setRenderSinglePost}
+                                    singlePostContent={singlePostContent} 
+                                    setSinglePostContent={setSinglePostContent} /> } 
                                   
                         { ( !renderHome && !bulkPostContent && <PreLoader /> ) || 
-                          ( renderSinglePost && !currentPostData && <PreLoader /> ) }  </> } 
+                          ( renderSinglePost && !singlePostContent && <PreLoader /> ) }  </> } 
                       </div> } }
             </DarkModeConsumer> }
 export default App

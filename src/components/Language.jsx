@@ -6,14 +6,14 @@ const Language = props => {
             renderHome, 
             setRenderHome, 
             setBulkPostContent, 
-            setCurrentPostData, 
+            setSinglePostContent, 
             setRenderSinglePost } = props
 
     const refresh = () => {
         if(!renderHome) {
             setRenderHome(true)
             setBulkPostContent(null)
-            setCurrentPostData(null)
+            setSinglePostContent(null)
             setRenderSinglePost(false)  } }
     
     const handleClick = mainLanguage => {

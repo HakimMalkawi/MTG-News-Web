@@ -4,7 +4,7 @@ import Back from "./Back"
 import "../styles/privacy-policy.css"
 
 const PrivacyPolicy = props => {
-    const { setMenu, id, language } = props
+    const { setMenu, language, id } = props
     
     const classNamesForToggle = ["privacy-policy-container", "show-left"]
     useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle), [] )
@@ -100,7 +100,12 @@ const PrivacyPolicy = props => {
                             The <strong>M. Target Group</strong> website may contain links to other sites, including sites maintained by other organization and firms that are not governed by this Privacy Statement. Please review the destination websites’ privacy statements before submitting personal data on those sites. Whilst <strong>M. Target Group</strong> tries to link only to sites that share high standards and respect for privacy, <strong>M. Target Group</strong> is not responsible for the content, security, or privacy practices employed by other sites.
                         </p>
                     </div>
-                    <Back setShowState={setMenu} classNamesForToggle={classNamesForToggle} id={id} className="all" language={language} />
+                    <Back 
+                        setShowState={setMenu} 
+                        language={language}
+                        className="all"
+                        classNamesForToggle={classNamesForToggle} 
+                        id={id} />
                 </main> </> }
 
 export default memo(PrivacyPolicy)

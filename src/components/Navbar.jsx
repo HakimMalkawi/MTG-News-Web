@@ -6,19 +6,19 @@ import Back from "./Back"
 import "../styles/navbar.css"
 
 const Navbar = props => {
-    const { language, 
-            setLanguage, 
+    const { setRenderAllExceptMenu, 
+            setRenderMenu, 
             renderHome, 
             setRenderHome, 
-            setRenderMenu, 
-            setRenderAllExceptMenu, 
             setBulkPostContent, 
             currentCategoryId, 
-            setCurrentPostData, 
-            renderSinglePost, 
-            setRenderSinglePost, 
             selectedYearForPosts, 
             setSelectedYearForPosts, 
+            renderSinglePost, 
+            setRenderSinglePost,
+            setSinglePostContent, 
+            language, 
+            setLanguage, 
             setScrollPosition } = props
 
     const showMenu = () => { 
@@ -29,7 +29,7 @@ const Navbar = props => {
         setScrollPosition(null)
         setSelectedYearForPosts(event.target.innerText) 
         setBulkPostContent(null)
-        fetchSelectedPosts(setBulkPostContent, currentCategoryId, language ? "en" : "ru", false, "", event.target.innerText) }
+        fetchSelectedPosts(setBulkPostContent, currentCategoryId, language ? "en" : "ru", null, "", event.target.innerText) }
 
     const currentYear = new Date().getFullYear()
     const years = new Array(currentYear - 2019).fill("") ; years.forEach( (iteration, index, array) => array[index] = 2020 + index )
@@ -45,19 +45,19 @@ const Navbar = props => {
                         { !renderHome && !renderSinglePost && 
                         <Back   
                             setShowState={setRenderHome} 
-                            className="nav"
-                            classNamesForToggle={["all-posts", "hide-right"]} 
+                            reset={setBulkPostContent}
                             language={language} 
-                            reset={setBulkPostContent} /> }
+                            className="nav"
+                            classNamesForToggle={["all-posts", "hide-right"]} /> }
 
                         <Language 
-                            language={language} 
-                            setLanguage={setLanguage} 
                             renderHome={renderHome} 
                             setRenderHome={setRenderHome} 
                             setBulkPostContent={setBulkPostContent} 
-                            setCurrentPostData={setCurrentPostData} 
-                            setRenderSinglePost={setRenderSinglePost} />
+                            setRenderSinglePost={setRenderSinglePost} 
+                            setSinglePostContent={setSinglePostContent} 
+                            language={language} 
+                            setLanguage={setLanguage} />
 
                         { !renderHome && !renderSinglePost && <Selector render={yearSelector} id="year-selector" /> }
 

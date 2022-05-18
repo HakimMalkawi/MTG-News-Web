@@ -5,7 +5,7 @@ import Back from "./Back"
 import "../styles/settings.css"
 
 const Settings = props => {
-    const { setMenu, id, language } = props
+    const { setMenu, language, id } = props
 
     const classNamesForToggle = ["settings-container", "show-left"]
     useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle), [] )
