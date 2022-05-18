@@ -11,12 +11,6 @@
     color: transparent !important;
     font-size: 1rem; }
 
-.content .selector-container {
-    
-    transition: margin-left .35s ease-out .25s; }
-
-.selector-container.slide-over-right { margin-left: 0rem; }
-
 .selector-container::after {
     content: "";
     position: fixed;

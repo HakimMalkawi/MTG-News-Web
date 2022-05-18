@@ -6,31 +6,21 @@ import InfiniteScroll from "react-infinite-scroll-component"
 import "../styles/all-posts.css"
 
 const AllPosts = props => {
-    const { scrollPosition, setScrollPosition, content, setContent, setCurrentPostData, setShowPost, currentCategoryId, selectedYear, language } = props
+    const { scrollPosition, setScrollPosition, bulkPostContent, setBulkPostContent, setCurrentPostData, setRenderSinglePost, currentCategoryId, selectedYearForPosts, language } = props
 
-    useEffect( () => { 
-        document.querySelectorAll(".selector-container").forEach( selector => selector.classList.add("slide-over-right") )
-        document.querySelector(".nav").classList.add("fade-in")
-        restoreScrollPosition(scrollPosition) 
-        
-        return () => {
-            if (document.querySelector(".nav")) 
-                document.querySelector(".nav").classList.remove("fade-in")
-
-            if (document.querySelector(".selector-container")) 
-            document.querySelectorAll(".selector-container").forEach( selector => selector.classList.remove("slide-over-right") ) } }, [])
+    useEffect( () => { restoreScrollPosition(scrollPosition) }, [])
         
     const handleClick = (id) => {
         saveScrollPosition(setScrollPosition)
-        setShowPost(true)
+        setRenderSinglePost(true)
         fetchPost(setCurrentPostData, id)  }
 
     return <>   <main className="all-posts" id="all-posts">
                     <InfiniteScroll 
-                        dataLength={content.length} 
-                        next={() => fetchSelectedPosts(setContent, currentCategoryId, language ? "en" : "ru", false, content, selectedYear)} 
-                        hasMore={content.length < 40} >
-                        { content.map( post =>
+                        dataLength={bulkPostContent.length} 
+                        next={() => fetchSelectedPosts(setBulkPostContent, currentCategoryId, language ? "en" : "ru", false, bulkPostContent, selectedYearForPosts)} 
+                        hasMore={bulkPostContent.length < 40} >
+                        { bulkPostContent.map( post =>
                             <div onClick={() => handleClick(post.id)} className="post-container" key={nanoid()} >
                                 <h1 className="post-title">{post.title}</h1>
                                 <p className="post-date">{post.date}</p>

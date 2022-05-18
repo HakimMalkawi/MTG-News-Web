@@ -7,17 +7,21 @@ import PrivacyPolicy from "./PrivacyPolicy"
 import "../styles/menu.css"
 
 const Menu = props => {
-    const {setToggleMenu, setRenderApp, setHome, setContent, darkMode, setDarkMode, language} = props
+    const {setRenderMenu, setRenderAllExceptMenu, setRenderHome, setBulkPostContent, darkMode, setDarkMode, language} = props
+
     const [menu, setMenu] = useState(menuCategories)
+    
     const classNamesForToggle = ["menu-container", "show-right"]
 
-    useEffect( () => { if(menu.options[0].show) { hideMenu() ; setHome(true); toggleClass(classNamesForToggle); setContent(null) } }, [menu.options])
+    useEffect( () => { 
+        if(menu.options[0].show) { hideMenu() ; setRenderHome(true); toggleClass(classNamesForToggle); setBulkPostContent(null) } }, [menu.options])
+        
     useEffect( () => { if(!menu.on) toggleClass(classNamesForToggle) }, [menu.on])
 
     const hideMenu = () => {
-        setRenderApp(prevRenderApp => !prevRenderApp)
+        setRenderAllExceptMenu(prevRenderState => !prevRenderState)
         toggleClass(classNamesForToggle)
-        setTimeout( () => setToggleMenu(prevToggle => !prevToggle), 500) }
+        setTimeout( () => setRenderMenu(prevRenderState => !prevRenderState), 500) }
 
     const selectMenuItem = targetIndex => {
         toggleCurrentSetting(setMenu, targetIndex)

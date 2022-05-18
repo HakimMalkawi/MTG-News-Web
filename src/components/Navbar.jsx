@@ -6,44 +6,49 @@ import Back from "./Back"
 import "../styles/navbar.css"
 
 const Navbar = props => {
-    const { language, setLanguage, home, setHome, setToggleMenu, setRenderApp, setContent, currentCategoryId, setCurrentPostData, showPost, setShowPost, selectedYear, setSelectedYear, darkMode } = props
+    const { language, setLanguage, renderHome, setRenderHome, setRenderMenu, setRenderAllExceptMenu, setBulkPostContent, currentCategoryId, setCurrentPostData, renderSinglePost, setRenderSinglePost, selectedYearForPosts, setSelectedYearForPosts, setScrollPosition, darkMode } = props
 
-    const hideOverlay = () => { 
-        setToggleMenu(prevToggleMenu => !prevToggleMenu)
-        setTimeout( () => setRenderApp(prevRenderApp => !prevRenderApp), 500) }
+    const showMenu = () => { 
+        setRenderMenu(prevRenderState => !prevRenderState)
+        setTimeout( () => setRenderAllExceptMenu(prevRenderState => !prevRenderState), 500) }
 
     const yearClick = event => {
-        setSelectedYear(event.target.innerText) 
-        setContent(null)
-        fetchSelectedPosts(setContent, currentCategoryId, language ? "en" : "ru", false, "", event.target.innerText) }
+        setScrollPosition(null)
+        setSelectedYearForPosts(event.target.innerText) 
+        setBulkPostContent(null)
+        fetchSelectedPosts(setBulkPostContent, currentCategoryId, language ? "en" : "ru", false, "", event.target.innerText) }
 
     const currentYear = new Date().getFullYear()
     const years = new Array(currentYear - 2019).fill("") ; years.forEach( (iteration, index, array) => array[index] = 2020 + index )
-    const yearSelector = { label: selectedYear ? selectedYear : currentYear, list: years.map( year => ({ content: year, function: yearClick } ) ) }
+    const yearSelector = { 
+        label: selectedYearForPosts ? selectedYearForPosts : currentYear, 
+        list: years.map( year => ({ 
+            content: year, 
+            function: yearClick } ) ) }
 
     return  <>  <header className="navbar-container">
                     <nav className="navbar-content">
 
-                        { !home && !showPost && 
+                        { !renderHome && !renderSinglePost && 
                         <Back   
-                            setShowState={setHome} 
+                            setShowState={setRenderHome} 
                             className={`nav ${darkMode ? "dark" : "light"}`}
                             classNamesForToggle={["all-posts", "hide-right"]} 
                             language={language} 
-                            reset={setContent} /> }
+                            reset={setBulkPostContent} /> }
 
                         <Language 
                             language={language} 
                             setLanguage={setLanguage} 
-                            home={home} 
-                            setHome={setHome} 
-                            setContent={setContent} 
+                            renderHome={renderHome} 
+                            setRenderHome={setRenderHome} 
+                            setBulkPostContent={setBulkPostContent} 
                             setCurrentPostData={setCurrentPostData} 
-                            setShowPost={setShowPost} />
+                            setRenderSinglePost={setRenderSinglePost} />
 
-                        { !home && !showPost && <Selector render={yearSelector} id="year-selector" /> }
+                        { !renderHome && !renderSinglePost && <Selector render={yearSelector} id="year-selector" /> }
 
-                        <ul className="navbar-menu-toggle" onClick={hideOverlay}><li></li><li></li><li></li></ul>
+                        <ul className="navbar-menu-toggle" onClick={showMenu}><li></li><li></li><li></li></ul>
                     </nav>
                 </header>   </> }
 export default memo(Navbar)

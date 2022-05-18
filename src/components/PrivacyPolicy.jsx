@@ -5,6 +5,7 @@ import "../styles/privacy-policy.css"
 
 const PrivacyPolicy = props => {
     const {setMenu, id, language} = props
+    
     const classNamesForToggle = ["privacy-policy-container", "show-left"]
     useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle), [] )
 

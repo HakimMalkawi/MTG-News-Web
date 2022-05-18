@@ -5,14 +5,14 @@ import { nanoid } from "nanoid"
 import "../styles/home.css"
 
 const Home = props => {
-    const {setHome, setContent, language, setScrollPosition, setCurrentCategoryId} = props
+    const {setRenderHome, setBulkPostContent, language, setScrollPosition, setCurrentCategoryId, selectedYearForPosts} = props
 
     const currentCategory = event => event.target.parentElement.children[1].innerText
 
     const renderSelectedCategoriesPosts = event => {
-        fetchPosts(setContent, currentCategory(event), language ? "en" : "ru", setCurrentCategoryId)
+        fetchPosts(setBulkPostContent, currentCategory(event), language ? "en" : "ru", setCurrentCategoryId, selectedYearForPosts)
         setScrollPosition(null)
-        setHome(false) }
+        setRenderHome(false) }
 
     const categoryElements = postCategories.map( category =>  
         <div onClick={renderSelectedCategoriesPosts} className={`categories-${category.en.toLowerCase()}`} key={nanoid()}>

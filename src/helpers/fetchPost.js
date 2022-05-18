@@ -5,7 +5,9 @@ const fetchCategory = async (categorySelection, lang="en") => {
                 for (const categoryName of categoryList) {
                         if (categorySelection.toLowerCase() === categoryName.name.toLowerCase()) return categoryName.id } }
 
-        catch(error) { console.error(error) } }
+        catch(error) { 
+                localStorage.clear()
+                console.error(error) } }
 
 export const fetchSelectedPosts = async ( 
         handleState, categoryId, lang="en", setCurrentCategoryId = false, content = [], year = ( new Date().getFullYear() ) ) => {
@@ -35,18 +37,21 @@ export const fetchSelectedPosts = async (
 
                         return handleState(result)   }
 
-                catch(error) { 
-                        localStorage.clear()
-                        console.error(error) }   }
+                catch(error) {  localStorage.clear()
+                                console.error(error) }   }
 
-export const fetchPosts = async (handleState, categorySelection, lang="en", setCurrentCategoryId) => {
-        fetchCategory(categorySelection, lang).then(categoryId => fetchSelectedPosts(handleState, categoryId, lang, setCurrentCategoryId)) }
+export const fetchPosts = async (handleState, categorySelection, lang="en", setCurrentCategoryId, year) => {
+        try {   fetchCategory(categorySelection, lang)
+                .then(categoryId => fetchSelectedPosts(handleState, categoryId, lang, setCurrentCategoryId, [], year)) }
+        
+        catch(error) {  localStorage.clear()
+                        console.error(error) } }
 
 export const fetchPost = async (handleState, id, lang="en") => {
         try {   const response = await fetch(`https://mtargetgroup.com/wp-json/wp/v2/posts/${id}?lang=${lang}&context=view`)
                         if(!response.ok) throw Error(response)
                 const data = await response.json()
                 return handleState({content: data.content.rendered, image: data["yoast_head_json"]["og_image"][0]["url"]})  }
-        catch(error) { 
-                localStorage.clear()
-                console.error(error) }   }
+
+        catch(error) {  localStorage.clear()
+                        console.error(error) }   }

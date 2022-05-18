@@ -5,6 +5,7 @@ import "../styles/settings.css"
 
 const Settings = props => {
     const {setMenu, darkMode, setDarkMode, id, language} = props
+
     const classNamesForToggle = ["settings-container", "show-left"]
     useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle), [] )
     
