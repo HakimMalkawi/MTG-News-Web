@@ -6,7 +6,20 @@ import Back from "./Back"
 import "../styles/navbar.css"
 
 const Navbar = props => {
-    const { language, setLanguage, renderHome, setRenderHome, setRenderMenu, setRenderAllExceptMenu, setBulkPostContent, currentCategoryId, setCurrentPostData, renderSinglePost, setRenderSinglePost, selectedYearForPosts, setSelectedYearForPosts, setScrollPosition, darkMode } = props
+    const { language, 
+            setLanguage, 
+            renderHome, 
+            setRenderHome, 
+            setRenderMenu, 
+            setRenderAllExceptMenu, 
+            setBulkPostContent, 
+            currentCategoryId, 
+            setCurrentPostData, 
+            renderSinglePost, 
+            setRenderSinglePost, 
+            selectedYearForPosts, 
+            setSelectedYearForPosts, 
+            setScrollPosition } = props
 
     const showMenu = () => { 
         setRenderMenu(prevRenderState => !prevRenderState)
@@ -32,7 +45,7 @@ const Navbar = props => {
                         { !renderHome && !renderSinglePost && 
                         <Back   
                             setShowState={setRenderHome} 
-                            className={`nav ${darkMode ? "dark" : "light"}`}
+                            className="nav"
                             classNamesForToggle={["all-posts", "hide-right"]} 
                             language={language} 
                             reset={setBulkPostContent} /> }

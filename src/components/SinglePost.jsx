@@ -3,7 +3,7 @@ import Back from "./Back"
 import "../styles/single-post.css"
 
 const SinglePost = props => {
-    const {currentPostData, setCurrentPostData, setRenderSinglePost} = props
+    const { currentPostData, setCurrentPostData, setRenderSinglePost } = props
     const classNamesForToggle = ["single-post", "hide-right"]
 
     return <>   <main className="single-post">

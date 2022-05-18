@@ -62,5 +62,5 @@
     width: 2.5rem;
     height: 2.5rem; }
 
-.nav.dark { background: url("../resources/preloader-dark.png") center / contain !important; }
-.nav.light { background: url("../resources/preloader-light.png") center / contain !important; }
+.dark .nav { background: url("../resources/preloader-dark.png") center / contain !important; }
+.light .nav { background: url("../resources/preloader-light.png") center / contain !important; }

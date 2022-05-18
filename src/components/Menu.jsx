@@ -7,7 +7,11 @@ import PrivacyPolicy from "./PrivacyPolicy"
 import "../styles/menu.css"
 
 const Menu = props => {
-    const {setRenderMenu, setRenderAllExceptMenu, setRenderHome, setBulkPostContent, darkMode, setDarkMode, language} = props
+    const { setRenderMenu, 
+            setRenderAllExceptMenu, 
+            setRenderHome, 
+            setBulkPostContent, 
+            language } = props
 
     const [menu, setMenu] = useState(menuCategories)
     
@@ -39,7 +43,7 @@ const Menu = props => {
                         <ul className={`menu-content ${language ? "en" : "ru"}`}>{menuItems}</ul>
                     </main> } 
                 { menu.options[1].show && 
-                    <Settings id={1} setMenu={setMenu} darkMode={darkMode} setDarkMode={setDarkMode} language={language}/> }    
+                    <Settings id={1} setMenu={setMenu} language={language}/> }    
                 { menu.options[2].show && 
                     <PrivacyPolicy id={2} setMenu={setMenu} language={language} /> } </> }
 export default Menu

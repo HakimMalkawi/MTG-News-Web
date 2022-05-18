@@ -1,7 +1,13 @@
 import Selector from "./Selector"
 
 const Language = props => {
-    const {language, setLanguage, renderHome, setRenderHome, setBulkPostContent, setCurrentPostData, setRenderSinglePost} = props
+    const { language, 
+            setLanguage, 
+            renderHome, 
+            setRenderHome, 
+            setBulkPostContent, 
+            setCurrentPostData, 
+            setRenderSinglePost } = props
 
     const refresh = () => {
         if(!renderHome) {

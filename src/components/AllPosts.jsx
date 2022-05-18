@@ -6,7 +6,15 @@ import InfiniteScroll from "react-infinite-scroll-component"
 import "../styles/all-posts.css"
 
 const AllPosts = props => {
-    const { scrollPosition, setScrollPosition, bulkPostContent, setBulkPostContent, setCurrentPostData, setRenderSinglePost, currentCategoryId, selectedYearForPosts, language } = props
+    const { scrollPosition, 
+            setScrollPosition, 
+            bulkPostContent, 
+            setBulkPostContent, 
+            setCurrentPostData, 
+            setRenderSinglePost, 
+            currentCategoryId, 
+            selectedYearForPosts, 
+            language } = props
 
     useEffect( () => { restoreScrollPosition(scrollPosition) }, [])
         
