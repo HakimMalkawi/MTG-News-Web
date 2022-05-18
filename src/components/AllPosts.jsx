@@ -24,10 +24,10 @@ const AllPosts = props => {
         fetchPost(setSinglePostContent, id)  }
 
     return <>   <main className="all-posts" id="all-posts">
-                    <InfiniteScroll 
-                        dataLength={bulkPostContent.length} 
-                        next={() => fetchSelectedPosts(setBulkPostContent, currentCategoryId, language ? "en" : "ru", false, bulkPostContent, selectedYearForPosts)} 
-                        hasMore={bulkPostContent.length < 40} >
+                    <InfiniteScroll  
+                        next={() => fetchSelectedPosts(setBulkPostContent, currentCategoryId, language ? "en" : "ru", null, bulkPostContent, selectedYearForPosts)} 
+                        hasMore={bulkPostContent.length < 40} 
+                        dataLength={bulkPostContent.length} >
                         { bulkPostContent.map( post =>
                             <div onClick={() => handleClick(post.id)} className="post-container" key={nanoid()} >
                                 <h1 className="post-title">{post.title}</h1>

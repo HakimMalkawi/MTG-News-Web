@@ -37,7 +37,7 @@ const App = () => {
                   singlePostContent: singlePostContent,
                   language: language,
                   scrollPosition: scrollPosition,
-                  darkMode: darkMode } ) )
+                  darkMode: darkMode }) )
 
               return  <div className={`app ${bulkPostContent ? "content" : "home"} ${darkMode ? "dark" : "light"}`}>
                         { renderMenu && 
