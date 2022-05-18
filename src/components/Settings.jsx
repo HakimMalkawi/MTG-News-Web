@@ -12,12 +12,13 @@ const Settings = props => {
     
     return  <DarkModeConsumer>
                 { ( { darkMode, setDarkMode } ) =>
-                    <main className="settings-container">
+                    <main aria-label="Settings Page" className="settings-container">
                         <Back setShowState={setMenu} classNamesForToggle={classNamesForToggle} id={id} className="menu" />
-                        <ul className="settings-options">
+                        <ul aria-label="Settings Options" className="settings-options">
                             <li onClick={ () => setDarkMode( prevDarkMode => !prevDarkMode ) } 
+                                aria-label="Dark Mode"
                                 className={`settings-option ${darkMode ? "on" : "off"}`}><p>{language ? "Dark Mode" : "Тёмный режим"}</p>
-                                <div>
+                                <div aria-label="Toggle">
                                     <span></span>
                                 </div>
                             </li>

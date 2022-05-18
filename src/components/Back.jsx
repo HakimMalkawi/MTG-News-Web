@@ -10,5 +10,6 @@ const Back = props => {
             id = false } = props
             
     return  <button onClick={ () => { hideSelectedMenuOption(setShowState, classNamesForToggle, id); reset(null) } }
+                    aria-label="Go Back"
                     className={`${className} ${language ? "en" : "ru"}`} >{"<"}</button> }
 export default Back

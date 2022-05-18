@@ -39,8 +39,8 @@ const Navbar = props => {
             content: year, 
             function: yearClick } ) ) }
 
-    return  <>  <header className="navbar-container">
-                    <nav className="navbar-content">
+    return  <>  <header aria-label="Navbar" className="navbar-container">
+                    <nav aria-label="Navbar Content" className="navbar-content">
 
                         { !renderHome && !renderSinglePost && 
                         <Back   
@@ -61,7 +61,7 @@ const Navbar = props => {
 
                         { !renderHome && !renderSinglePost && <Selector render={yearSelector} id="year-selector" /> }
 
-                        <ul className="navbar-menu-toggle" onClick={showMenu}><li></li><li></li><li></li></ul>
+                        <ul aria-label="Toggle Menu" className="navbar-menu-toggle" onClick={showMenu}><li></li><li></li><li></li></ul>
                     </nav>
                 </header>   </> }
 export default memo(Navbar)

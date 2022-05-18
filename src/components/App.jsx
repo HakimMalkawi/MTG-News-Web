@@ -39,7 +39,7 @@ const App = () => {
                   scrollPosition: scrollPosition,
                   darkMode: darkMode }) )
 
-              return  <div className={`app ${bulkPostContent ? "content" : "home"} ${darkMode ? "dark" : "light"}`}>
+              return  <div aria-label="Main Content" className={`app ${bulkPostContent ? "content" : "home"} ${darkMode ? "dark" : "light"}`}>
                         { renderMenu && 
                             <Menu 
                               setRenderAllExceptMenu={setRenderAllExceptMenu}

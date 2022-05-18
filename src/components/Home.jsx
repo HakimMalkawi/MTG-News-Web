@@ -20,13 +20,16 @@ const Home = props => {
         setRenderHome(false) }
 
     const categoryElements = postCategories.map( category =>  
-        <div onClick={renderSelectedCategoriesPosts} className={`categories-${category.en.toLowerCase()}`} key={nanoid()}>
+        <div onClick={renderSelectedCategoriesPosts} 
+             aria-label={`${category.en} Category`} 
+             className={`categories-${category.en.toLowerCase()}`} 
+             key={nanoid()} >
             <img src={category.img} alt={`View ${category.en}`} className={`categories-${category.en.toLowerCase()}-image`}></img>
             <h1 className={`categories-${category.en.toLowerCase()}-title`}>{language ? category.en : category.ru}</h1>
         </div> )
 
-    return  <> <main className="home-container">
-                    <section className="categories-container">
+    return  <> <main aria-label="Home Screen" className="home-container">
+                    <section aria-label="News Categories" className="categories-container">
                         {categoryElements}
                     </section>
                 </main> </>  }
