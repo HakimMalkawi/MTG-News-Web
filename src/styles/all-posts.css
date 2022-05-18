@@ -32,4 +32,5 @@
     z-index: 0;
     display: grid;
     place-content: center;
-    padding: .35em 0 .5em; }
+    height: 2.25em; 
+    padding-bottom: .25em; }
