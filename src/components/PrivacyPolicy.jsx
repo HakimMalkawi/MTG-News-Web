@@ -7,7 +7,7 @@ const PrivacyPolicy = props => {
     const { setMenu, language, id } = props
     
     const classNamesForToggle = ["privacy-policy-container", "show-left"]
-    useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle), [] )
+    useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle) )
 
     return  <>  <main aria-label="Our Privacy Policy" className="privacy-policy-container">
                 <h1>Privacy Policy & GDPR Disclaimer<br/>(Last Updated 20th March 2021)</h1>
