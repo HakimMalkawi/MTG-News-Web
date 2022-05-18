@@ -30,6 +30,6 @@
 .post-date {
     grid-area: date;
     z-index: 0;
-    padding: .25rem 0 0;
-    height: 2rem !important;
-    text-align: center; }
+    display: grid;
+    place-content: center;
+    padding: .35em 0 .5em; }
