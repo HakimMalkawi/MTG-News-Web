@@ -5,6 +5,7 @@ import Menu from "./Menu"
 import Home from "./Home"
 import AllPosts from "./AllPosts"
 import SinglePost from "./SinglePost"
+import Language from "./Language"
 import PreLoader from "./PreLoader"
 import "../styles/color-scheme.css"
 import "../styles/app.css"
@@ -24,6 +25,16 @@ const App = () => {
     const [singlePostContent, setSinglePostContent] = useState( savedPreferences ? preferences.singlePostContent : null)
     const [language, setLanguage] = useState( savedPreferences ? preferences.language : true)
     const [scrollPosition, setScrollPosition] = useState( savedPreferences ? preferences.scrollPosition : null)
+
+    const languageSelector = () => 
+      <Language 
+        renderHome={renderHome} 
+        setRenderHome={setRenderHome} 
+        setBulkPostContent={setBulkPostContent} 
+        setRenderSinglePost={setRenderSinglePost} 
+        setSinglePostContent={setSinglePostContent} 
+        language={language} 
+        setLanguage={setLanguage} />
 
     return  <DarkModeConsumer>
               { ( { darkMode } ) => {
@@ -46,7 +57,8 @@ const App = () => {
                               setRenderMenu={setRenderMenu}
                               setRenderHome={setRenderHome}
                               setBulkPostContent={setBulkPostContent}
-                              language={language} /> }
+                              language={language} 
+                              setLanguage={setLanguage} /> }
                         
                         { renderAllExceptMenu &&
                           <>  { !renderSinglePost && 
@@ -60,10 +72,8 @@ const App = () => {
                                     selectedYearForPosts={selectedYearForPosts} 
                                     setSelectedYearForPosts={setSelectedYearForPosts}
                                     renderSinglePost={renderSinglePost}
-                                    setRenderSinglePost={setRenderSinglePost}
-                                    setSinglePostContent={setSinglePostContent}
-                                    language={language} 
-                                    setLanguage={setLanguage}
+                                    languageSelector={languageSelector}
+                                    language={language}
                                     setScrollPosition={setScrollPosition}  /> }
 
                               { renderHome && 

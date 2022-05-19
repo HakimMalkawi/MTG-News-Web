@@ -9,20 +9,33 @@
     z-index: 1; }
 
 .settings-options {
+    padding-inline: 1.5rem;
     font-size: 1.5rem;
     list-style: none; 
     background: none !important; }
 
+.settings-options hr {
+    height: .1rem;
+    margin: 1.25rem 0 1.25rem;
+    border: none;
+    border-radius: 5px;
+    background: var(--light) !important; }
+
 .settings-option { 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     grid-gap: .75rem;
-    width: min-content;
-    margin: auto;
+    transition: width .15s ease-out;
+    background: none !important;
     border: none; }
+
+.en .settings-option { width: 13rem; }
+.ru .settings-option { width: 16rem; }
 
 .settings-option p {
     width: max-content;
+    height: 2rem;
+    overflow: hidden;
     background: none !important }
 
 .settings-option div { 

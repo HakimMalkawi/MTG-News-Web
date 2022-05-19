@@ -15,10 +15,8 @@ const Navbar = props => {
             selectedYearForPosts, 
             setSelectedYearForPosts, 
             renderSinglePost, 
-            setRenderSinglePost,
-            setSinglePostContent, 
+            languageSelector,
             language, 
-            setLanguage, 
             setScrollPosition } = props
 
     const showMenu = () => { 
@@ -49,15 +47,8 @@ const Navbar = props => {
                             language={language} 
                             className="nav"
                             classNamesForToggle={["all-posts", "hide-right"]} /> }
-
-                        <Language 
-                            renderHome={renderHome} 
-                            setRenderHome={setRenderHome} 
-                            setBulkPostContent={setBulkPostContent} 
-                            setRenderSinglePost={setRenderSinglePost} 
-                            setSinglePostContent={setSinglePostContent} 
-                            language={language} 
-                            setLanguage={setLanguage} />
+                        
+                        { renderHome && languageSelector() }
 
                         { !renderHome && !renderSinglePost && <Selector render={yearSelector} id="year-selector" /> }
 

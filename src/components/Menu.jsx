@@ -11,7 +11,8 @@ const Menu = props => {
             setRenderMenu, 
             setRenderHome, 
             setBulkPostContent, 
-            language } = props
+            language,
+            setLanguage } = props
 
     const [menu, setMenu] = useState(menuCategories)
     
@@ -43,7 +44,7 @@ const Menu = props => {
                         <ul aria-label="Menu Options" className={`menu-content ${language ? "en" : "ru"}`}>{menuItems}</ul>
                     </main> } 
                 { menu.options[1].show && 
-                    <Settings setMenu={setMenu} language={language} id={1} /> }    
+                    <Settings setMenu={setMenu} language={language} setLanguage={setLanguage} id={1} /> }    
                 { menu.options[2].show && 
                     <PrivacyPolicy setMenu={setMenu} language={language} id={2} /> } </> }
 export default Menu
