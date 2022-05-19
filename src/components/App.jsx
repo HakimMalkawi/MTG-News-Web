@@ -26,15 +26,14 @@ const App = () => {
     const [language, setLanguage] = useState( savedPreferences ? preferences.language : true)
     const [scrollPosition, setScrollPosition] = useState( savedPreferences ? preferences.scrollPosition : null)
 
-    const languageSelector = () => 
-      <Language 
-        renderHome={renderHome} 
-        setRenderHome={setRenderHome} 
-        setBulkPostContent={setBulkPostContent} 
-        setRenderSinglePost={setRenderSinglePost} 
-        setSinglePostContent={setSinglePostContent} 
-        language={language} 
-        setLanguage={setLanguage} />
+    const refresh = () => {
+      if(!renderHome) {
+          setRenderHome(true)
+          setBulkPostContent(null)
+          setSinglePostContent(null)
+          setRenderSinglePost(false) } }
+
+    const languageSelector = () => <Language language={language} setLanguage={setLanguage} refresh={refresh} />
 
     return  <DarkModeConsumer>
               { ( { darkMode } ) => {
@@ -58,7 +57,8 @@ const App = () => {
                               setRenderHome={setRenderHome}
                               setBulkPostContent={setBulkPostContent}
                               language={language} 
-                              setLanguage={setLanguage} /> }
+                              setLanguage={setLanguage} 
+                              refresh={refresh} /> }
                         
                         { renderAllExceptMenu &&
                           <>  { !renderSinglePost && 

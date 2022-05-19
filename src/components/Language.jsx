@@ -1,21 +1,8 @@
 import Selector from "./Selector"
 
 const Language = props => {
-    const { language, 
-            setLanguage, 
-            renderHome, 
-            setRenderHome, 
-            setBulkPostContent, 
-            setSinglePostContent, 
-            setRenderSinglePost } = props
+    const { language, setLanguage, refresh } = props
 
-    const refresh = () => {
-        if(!renderHome) {
-            setRenderHome(true)
-            setBulkPostContent(null)
-            setSinglePostContent(null)
-            setRenderSinglePost(false)  } }
-    
     const handleClick = mainLanguage => {
         if (language !== mainLanguage) {
                 setLanguage(mainLanguage)

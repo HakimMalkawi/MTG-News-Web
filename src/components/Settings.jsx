@@ -1,13 +1,12 @@
 import { memo, useEffect } from "react"
 import { DarkModeConsumer } from "../context/darkModeContext"
 import { showSelectedMenuOption } from "../helpers/navigationFlow"
-import Language from "./Language"
 import Back from "./Back"
 import "../styles/settings.css"
 
 
 const Settings = props => {
-    const { setMenu, language, setLanguage, id } = props
+    const { setMenu, language, setLanguage, refresh, id } = props
 
     const classNamesForToggle = ["settings-container", "show-left"]
     useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle), [] )
@@ -31,7 +30,7 @@ const Settings = props => {
                                     </div>
                                 </li>
                                 <hr/>
-                                <li onClick={ () => setLanguage( prevLanguage => !prevLanguage ) } 
+                                <li onClick={ () => { setLanguage( prevLanguage => !prevLanguage ); refresh() } } 
                                     aria-label="Language Selector" 
                                     className={`settings-option ${language ? "on" : "off"}`}>
                                     <p>{language ? "English" : "Русский"}</p>
