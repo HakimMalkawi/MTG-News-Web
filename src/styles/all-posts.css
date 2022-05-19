@@ -9,7 +9,6 @@
 .post-container {
     cursor: pointer;
     display: grid;
-    grid-template: 15rem auto / 15.5rem;
     grid-template-areas:
         "image"
         "date"
@@ -29,7 +28,5 @@
 
 .post-date {
     grid-area: date;
-    z-index: 0;
-    display: grid;
-    place-content: center;
-    height: 2.25em; }
+    padding: .2rem 0 .35rem;
+    text-align: center; }
