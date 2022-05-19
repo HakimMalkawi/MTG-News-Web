@@ -9,6 +9,7 @@
 .post-container {
     cursor: pointer;
     display: grid;
+    grid-template: repeat(3, min-content ) / auto;
     grid-template-areas:
         "image"
         "date"
