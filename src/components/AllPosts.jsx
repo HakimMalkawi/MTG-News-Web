@@ -16,7 +16,7 @@ const AllPosts = props => {
             scrollPosition, 
             setScrollPosition } = props
 
-    useEffect( () => { restoreScrollPosition(scrollPosition) } )
+    useEffect( () => restoreScrollPosition(scrollPosition), [] )
         
     const handleClick = (id) => {
         saveScrollPosition(setScrollPosition)

@@ -1,4 +1,4 @@
-import { memo } from "react"
+import { memo, useEffect } from "react"
 import { fetchPosts } from "../helpers/fetchPost"
 import { postCategories } from "../data/postCategories"
 import { nanoid } from "nanoid"
@@ -11,6 +11,9 @@ const Home = props => {
             selectedYearForPosts,
             language, 
             setScrollPosition } = props
+
+    // useEffect( () => {
+    //     if ( document.querySelector(".navbar-menu-toggle").classList.contains("spin") ) document.querySelector(".navbar-menu-toggle").classList.remove("spin") }, [])
 
     const currentCategory = event => event.target.parentElement.children[1].innerText
 
