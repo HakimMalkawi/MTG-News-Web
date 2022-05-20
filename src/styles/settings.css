@@ -10,7 +10,7 @@
 
 .settings-options {
     padding-inline: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     list-style: none; 
     background: none !important; }
 
@@ -24,13 +24,12 @@
 .settings-option { 
     display: flex;
     justify-content: space-between;
-    grid-gap: .75rem;
     transition: width .15s ease-out;
     background: none !important;
     border: none; }
 
 .en .settings-option { width: 13rem; }
-.ru .settings-option { width: 16rem; }
+.ru .settings-option { width: 14rem; }
 
 .settings-option p {
     width: max-content;
