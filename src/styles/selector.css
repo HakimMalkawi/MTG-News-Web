@@ -54,7 +54,7 @@
 
 .selector-list {
     display: grid;
-    grid-gap: .5rem;
+    grid-gap: .25rem;
     padding: .3rem 1.25rem .5rem;
     margin-left: -.6rem;
     justify-content: center;
@@ -67,7 +67,7 @@
 
 .selector-list li { 
     cursor: pointer;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 600; 
     margin: 0; }
 
