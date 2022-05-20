@@ -19,6 +19,7 @@ const Navbar = props => {
             setScrollPosition } = props
 
     const showMenu = () => { 
+        document.querySelector(".navbar-menu-toggle").classList.toggle("spin")
         setRenderMenu(prevRenderState => !prevRenderState)
         setTimeout( () => setRenderAllExceptMenu(prevRenderState => !prevRenderState), 500) }
 
@@ -51,7 +52,7 @@ const Navbar = props => {
 
                         { !renderHome && !renderSinglePost && <Selector render={yearSelector} id="year-selector" /> }
 
-                        <ul aria-label="Toggle Menu" className="navbar-menu-toggle" onClick={showMenu}><li></li><li></li><li></li></ul>
+                        <ul aria-label="Toggle Menu" className="navbar-menu-toggle spin" onClick={showMenu}><li></li><li></li><li></li></ul>
                     </nav>
                 </header>   </> }
 export default memo(Navbar)

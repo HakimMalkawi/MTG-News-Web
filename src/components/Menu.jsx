@@ -27,7 +27,8 @@ const Menu = props => {
     const hideMenu = () => {
         setRenderAllExceptMenu(prevRenderState => !prevRenderState)
         toggleClass(classNamesForToggle)
-        setTimeout( () => setRenderMenu(prevRenderState => !prevRenderState), 500) }
+        setTimeout( () => { setRenderMenu(prevRenderState => !prevRenderState)
+                            document.querySelector(".navbar-menu-toggle").classList.toggle("spin") }, 500) }
 
     const selectMenuItem = targetIndex => {
         toggleCurrentSetting(setMenu, targetIndex)

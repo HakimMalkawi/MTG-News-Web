@@ -23,7 +23,8 @@
     width: 2em;
     background: none !important;
     justify-self: end;
-    align-self: center; }
+    align-self: center; 
+    transition: transform .15s ease-in-out; }
 
 .navbar-menu-toggle * {
     list-style: none;
@@ -31,5 +32,7 @@
     -webkit-border-radius: 10px;
     border-radius: 10px;
     margin: 0;
-    height: .25rem;
+    height: .2rem;
     background: var(--light) !important; }
+
+.navbar-menu-toggle.spin { transform: rotate(90deg); }
