@@ -9,7 +9,7 @@ const Settings = props => {
     const { setMenu, language, setLanguage, refresh, id } = props
 
     const classNamesForToggle = ["settings-container", "show-left"]
-    useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle), [] )
+    useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle) )
     
     return  <DarkModeConsumer>
                 { ( { darkMode, setDarkMode } ) => {

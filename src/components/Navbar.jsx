@@ -1,6 +1,5 @@
 import { memo } from "react"
 import { fetchSelectedPosts } from "../helpers/fetchPost"
-import Language from "./Language"
 import Selector from "./Selector"
 import Back from "./Back"
 import "../styles/navbar.css"
