@@ -12,9 +12,6 @@ const Home = props => {
             language, 
             setScrollPosition } = props
 
-    // useEffect( () => {
-    //     if ( document.querySelector(".navbar-menu-toggle").classList.contains("spin") ) document.querySelector(".navbar-menu-toggle").classList.remove("spin") }, [])
-
     const currentCategory = event => event.target.parentElement.children[1].innerText
 
     const renderSelectedCategoriesPosts = event => {
