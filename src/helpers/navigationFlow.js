@@ -6,7 +6,10 @@ export const toggleCurrentSetting = (setState, targetIndex = false ) => {
 
 export const toggleOnState = setState => setState( prevState => ({ ...prevState, on: !prevState.on }) )
 
-export const toggleClass = (classNamesForToggle) => document.querySelector(`.${classNamesForToggle[0]}`).classList.toggle(classNamesForToggle[1])
+export const toggleClass = (classNamesForToggle) => {
+    if(typeof classNamesForToggle[0] === "string")
+        return document.querySelector(`.${classNamesForToggle[0]}`).classList.toggle(classNamesForToggle[1])
+    return classNamesForToggle[0].current.classList.toggle(classNamesForToggle[1]) }
 
 export const showSelectedMenuOption = (setState, classNamesForToggle) => {
     toggleClass(classNamesForToggle)

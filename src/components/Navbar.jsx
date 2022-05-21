@@ -1,4 +1,4 @@
-import { memo } from "react"
+import { memo, useRef } from "react"
 import { fetchSelectedPosts } from "../helpers/fetchPost"
 import Selector from "./Selector"
 import Back from "./Back"
@@ -18,8 +18,10 @@ const Navbar = props => {
             language, 
             setScrollPosition } = props
 
+    const menuToggle = useRef(null)
+
     const showMenu = () => { 
-        document.querySelector(".navbar-menu-toggle").classList.add("spin")
+        menuToggle.current.classList.add("spin")
         setRenderMenu(prevRenderState => !prevRenderState)
         setTimeout( () => setRenderAllExceptMenu(prevRenderState => !prevRenderState), 500) }
 
@@ -52,7 +54,7 @@ const Navbar = props => {
 
                         { !renderHome && !renderSinglePost && <Selector render={yearSelector} id="year-selector" /> }
 
-                        <ul aria-label="Toggle Menu" className="navbar-menu-toggle" onClick={showMenu}><li></li><li></li><li></li></ul>
+                        <ul ref={menuToggle} aria-label="Toggle Menu" className="navbar-menu-toggle" onClick={showMenu}><li></li><li></li><li></li></ul>
                     </nav>
                 </header>   </> }
 export default memo(Navbar)

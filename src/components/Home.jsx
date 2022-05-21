@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react"
+import { memo } from "react"
 import { fetchPosts } from "../helpers/fetchPost"
 import { postCategories } from "../data/postCategories"
 import { nanoid } from "nanoid"

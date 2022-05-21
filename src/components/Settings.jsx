@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react"
+import { memo, useEffect, useRef } from "react"
 import { DarkModeConsumer } from "../context/darkModeContext"
 import { showSelectedMenuOption } from "../helpers/navigationFlow"
 import Back from "./Back"
@@ -7,8 +7,8 @@ import "../styles/settings.css"
 
 const Settings = props => {
     const { setMenu, language, setLanguage, refresh, id } = props
-
-    const classNamesForToggle = ["settings-container", "show-left"]
+    const settingsContainer = useRef(null)
+    const classNamesForToggle = [settingsContainer, "show-left"]
     useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle), [] )
     
     return  <DarkModeConsumer>
@@ -18,7 +18,7 @@ const Settings = props => {
                     if (language) return darkMode ? "Dark Mode" : "Light Mode"
                     return darkMode ? "Тёмный режим" : "Светлый режим" }
                 
-                return  <main aria-label="Settings Page" className="settings-container">
+                return  <main ref={settingsContainer} aria-label="Settings Page" className="settings-container">
                             <Back setShowState={setMenu} classNamesForToggle={classNamesForToggle} id={id} className="menu" />
                             <ul aria-label="Settings Options" className={`settings-options  ${language ? "en" : "ru"}`}>
                                 <li onClick={ () => setDarkMode( prevDarkMode => !prevDarkMode ) } 

@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react"
+import { Fragment, useState, useEffect, useRef } from "react"
 import { toggleCurrentSetting, toggleClass } from "../helpers/navigationFlow"
 import { menuCategories } from "../data/menuCategories"
 import { nanoid } from "nanoid"
@@ -14,10 +14,10 @@ const Menu = props => {
             language,
             setLanguage,
             refresh } = props
-
+    const menuContainer = useRef(null)
     const [menu, setMenu] = useState(menuCategories)
     
-    const classNamesForToggle = ["menu-container", "show-right"]
+    const classNamesForToggle = [menuContainer, "show-right"]
 
     useEffect( () => { 
         if(menu.options[0].show) { hideMenu() ; setRenderHome(true); toggleClass(classNamesForToggle); setBulkPostContent(null) } }, [menu.options])
@@ -43,7 +43,7 @@ const Menu = props => {
         </Fragment> ) 
 
     return  <>  { !menu.on &&
-                    <main aria-label="Main Menu" className="menu-container">
+                    <main ref={menuContainer} aria-label="Main Menu" className="menu-container">
                         <ul aria-label="Toggle Main Menu" className="menu-toggle" onClick={hideMenu}><li></li><li></li></ul>
                         <ul aria-label="Menu Options" className={`menu-content ${language ? "en" : "ru"}`}>{menuItems}</ul>
                     </main> } 
