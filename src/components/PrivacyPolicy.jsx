@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef } from "react"
+import { useEffect, useRef, memo } from "react"
 import { showSelectedMenuOption } from "../helpers/navigationFlow"
 import Back from "./Back"
 import "../styles/privacy-policy.css"

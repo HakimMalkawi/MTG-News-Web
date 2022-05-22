@@ -1,4 +1,4 @@
-import { memo, useRef } from "react"
+import { useRef, memo } from "react"
 import { fetchSelectedPosts } from "../helpers/fetchPost"
 import Selector from "./Selector"
 import Back from "./Back"

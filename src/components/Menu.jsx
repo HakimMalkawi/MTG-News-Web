@@ -1,6 +1,6 @@
-import { Fragment, useState, useEffect, useRef } from "react"
-import { toggleCurrentSetting, toggleClass } from "../helpers/navigationFlow"
+import { useState, useEffect, useRef, Fragment } from "react"
 import { menuCategories } from "../data/menuCategories"
+import { toggleCurrentSetting, toggleClass } from "../helpers/navigationFlow"
 import { nanoid } from "nanoid"
 import Settings from "./Settings"
 import PrivacyPolicy from "./PrivacyPolicy"

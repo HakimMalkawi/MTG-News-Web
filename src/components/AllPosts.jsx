@@ -1,7 +1,7 @@
-import { memo, useEffect } from "react"
+import { useEffect, memo } from "react"
 import { fetchPost, fetchSelectedPosts } from "../helpers/fetchPost"
-import { nanoid } from "nanoid"
 import { saveScrollPosition, restoreScrollPosition } from "../helpers/scrollTracker.js"
+import { nanoid } from "nanoid"
 import InfiniteScroll from "react-infinite-scroll-component"
 import "../styles/all-posts.css"
 
