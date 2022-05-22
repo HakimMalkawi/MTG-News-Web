@@ -14,13 +14,18 @@ const Menu = props => {
             language,
             setLanguage,
             refresh } = props
+
     const menuContainer = useRef(null)
     const [menu, setMenu] = useState(menuCategories)
     
     const classNamesForToggle = [menuContainer, "show-right"]
 
     useEffect( () => { 
-        if(menu.options[0].show) { hideMenu() ; setRenderHome(true); toggleClass(classNamesForToggle); setBulkPostContent(null) } }, [menu.options])
+        if(menu.options[0].show) { 
+            hideMenu()
+            setRenderHome(true)
+            toggleClass(classNamesForToggle)
+            setBulkPostContent(null) } }, [menu.options])
         
     useEffect( () => { if(!menu.on) toggleClass(classNamesForToggle) }, [menu.on])
 
@@ -28,13 +33,12 @@ const Menu = props => {
         setRenderAllExceptMenu(prevRenderState => !prevRenderState)
         toggleClass(classNamesForToggle)
         setTimeout( () => document.querySelector(".navbar-menu-toggle").classList.add("spin"), 10 )
-        setTimeout( () => {
-            setRenderMenu(prevRenderState => !prevRenderState)
-            document.querySelector(".navbar-menu-toggle").classList.remove("spin") }, 500) }
+        setTimeout( () => { setRenderMenu(prevRenderState => !prevRenderState)
+                            document.querySelector(".navbar-menu-toggle").classList.remove("spin") }, 500) }
 
     const selectMenuItem = targetIndex => {
         toggleCurrentSetting(setMenu, targetIndex)
-        toggleClass(classNamesForToggle)    } 
+        toggleClass(classNamesForToggle) } 
 
     const menuItems = menu.options.map( (option, index) =>
         <Fragment key={nanoid()}>  

@@ -33,11 +33,9 @@ const Navbar = props => {
 
     const currentYear = new Date().getFullYear()
     const years = new Array(currentYear - 2019).fill("") ; years.forEach( (iteration, index, currentArray) => currentArray[index] = 2020 + index )
-    const yearSelector = { 
-        label: selectedYearForPosts ? selectedYearForPosts : currentYear,
-        list: years.map( year => ({ 
-            content: year, 
-            function: yearClick } ) ) }
+    const yearSelector = {  label: selectedYearForPosts ? selectedYearForPosts : currentYear,
+                            list: years.map( year => ({ content: year, 
+                                                        function: yearClick } ) ) }
 
     return  <>  <header aria-label="Navbar" className="navbar-container">
                     <nav aria-label="Navbar Content" className="navbar-content">

@@ -29,7 +29,10 @@ const AllPosts = props => {
                         hasMore={bulkPostContent.length < 40} 
                         dataLength={bulkPostContent.length} >
                         { bulkPostContent.map( post =>
-                            <div aria-label="News Article" onClick={() => handleClick(post.id)} className="post-container" key={nanoid()} >
+                            <div aria-label="News Article" 
+                                 onClick={() => handleClick(post.id)} 
+                                 className="post-container" 
+                                 key={nanoid() } >
                                 <h1 className="post-title">{post.title}</h1>
                                 <p className="post-date">{post.date}</p>
                                 <img className="post-image" src={post.image} alt="Post"/>
