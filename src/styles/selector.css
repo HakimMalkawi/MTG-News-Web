@@ -71,4 +71,8 @@
     font-weight: 600; 
     margin: 0; }
 
-#year-selector::before { right: -1.5rem; }
+#year-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 4rem; }
