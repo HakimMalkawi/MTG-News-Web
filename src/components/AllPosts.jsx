@@ -17,26 +17,25 @@ const AllPosts = props => {
             setScrollPosition } = props
 
     useEffect( () => restoreScrollPosition(scrollPosition), [] )
-        
+
+    const loadNextContent = () => 
+        fetchSelectedPosts( setBulkPostContent, currentCategoryId, language ? "en" : "ru", null, bulkPostContent, selectedYearForPosts )
+
     const handleClick = (id) => {
         saveScrollPosition(setScrollPosition)
         setRenderSinglePost(true)
         fetchPost(setSinglePostContent, id)  }
 
-    return <>   <main aria-label="News Articles Page" className="all-posts" id="all-posts">
-                    <InfiniteScroll  
-                        next={() => fetchSelectedPosts(setBulkPostContent, currentCategoryId, language ? "en" : "ru", null, bulkPostContent, selectedYearForPosts)} 
-                        hasMore={bulkPostContent.length < 40} 
-                        dataLength={bulkPostContent.length} >
-                        { bulkPostContent.map( post =>
-                            <div aria-label="News Article" 
-                                 onClick={() => handleClick(post.id)} 
-                                 className="post-container" 
-                                 key={nanoid() } >
-                                <h1 className="post-title">{post.title}</h1>
-                                <p className="post-date">{post.date}</p>
-                                <img className="post-image" src={post.image} alt="Post"/>
-                            </div> ) }
-                    </InfiniteScroll>
-                </main>  </> }
+    const loadCurrentContent = bulkPostContent.map( post =>
+        <div onClick={() => handleClick(post.id)} className="post-container" aria-label="News Article" key={nanoid()} >
+            <h1 className="post-title" >{post.title}</h1>
+            <p className="post-date" >{post.date}</p>
+            <img className="post-image" src={post.image} alt="Post" />
+        </div> )
+
+    return  <main className="all-posts" id="all-posts" aria-label="News Articles Page" >
+                <InfiniteScroll dataLength={bulkPostContent.length} hasMore={bulkPostContent.length < 40} next={loadNextContent} >
+                    { loadCurrentContent }
+                </InfiniteScroll>
+            </main> }
 export default memo(AllPosts)

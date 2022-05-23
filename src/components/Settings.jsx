@@ -9,6 +9,7 @@ const Settings = props => {
     const { setMenu, language, setLanguage, refresh, id } = props
     const settingsContainer = useRef(null)
     const classNamesForToggle = [settingsContainer, "show-left"]
+
     useEffect( () => showSelectedMenuOption(setMenu, classNamesForToggle), [] )
 
     const { darkMode, setDarkMode } = useContext(DarkMode)
@@ -16,26 +17,21 @@ const Settings = props => {
     const colorScheme = () => {
         if (language) return darkMode ? "Dark Mode" : "Light Mode"
         return darkMode ? "Тёмный режим" : "Светлый режим" }
+
+    const toggleDarkMode = () => setDarkMode( prevDarkMode => !prevDarkMode )
+    const toggleLanguage = () => { setLanguage( prevLanguage => !prevLanguage ); refresh() }
     
-    return  <main ref={settingsContainer} aria-label="Settings Page" className="settings-container">
+    return  <main ref={settingsContainer} className="settings-container" aria-label="Settings Page" >
                 <Back setShowState={setMenu} classNamesForToggle={classNamesForToggle} id={id} className="menu" />
-                <ul aria-label="Settings Options" className={`settings-options  ${language ? "en" : "ru"}`}>
-                    <li onClick={ () => setDarkMode( prevDarkMode => !prevDarkMode ) } 
-                        aria-label="Dark Mode"
-                        className={`settings-option ${darkMode ? "on" : "off"}`}>
+                <ul className={`settings-options  ${language ? "en" : "ru"}`} aria-label="Settings Options" >
+                    <li onClick={toggleDarkMode} className={`settings-option ${darkMode ? "on" : "off"}`} aria-label="Dark Mode" >
                         <p> { colorScheme() } </p>
-                        <div aria-label="Toggle Dark Mode">
-                            <span></span>
-                        </div>
+                        <div aria-label="Toggle Dark Mode" > <span></span> </div>
                     </li>
-                    <hr/>
-                    <li onClick={ () => { setLanguage( prevLanguage => !prevLanguage ); refresh() } } 
-                        aria-label="Language Selector" 
-                        className={`settings-option ${language ? "on" : "off"}`}>
+                    <hr />
+                    <li onClick={toggleLanguage} className={`settings-option ${language ? "on" : "off"}`} aria-label="Language Selector" >
                         <p>{language ? "English" : "Русский"}</p>
-                        <div aria-label="Toggle Language">
-                            <span></span>
-                        </div>
+                        <div aria-label="Toggle Language" > <span></span> </div>
                     </li>
                 </ul>
             </main> } 

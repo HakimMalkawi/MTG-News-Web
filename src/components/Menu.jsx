@@ -36,20 +36,20 @@ const Menu = props => {
         setTimeout( () => { setRenderMenu(prevRenderState => !prevRenderState)
                             document.querySelector(".navbar-menu-toggle").classList.remove("spin") }, 500) }
 
-    const selectMenuItem = targetIndex => {
-        toggleCurrentSetting(setMenu, targetIndex)
-        toggleClass(classNamesForToggle) } 
+    const selectMenuItem = targetIndex => { toggleCurrentSetting(setMenu, targetIndex); toggleClass(classNamesForToggle) } 
 
     const menuItems = menu.options.map( (option, index) =>
         <Fragment key={nanoid()}>  
-            <li aria-label={option.name.en} onClick={() => selectMenuItem(index)} className="menu-item">{language ? option.name.en : option.name.ru}</li>
+            <li onClick={() => selectMenuItem(index)} className="menu-item"  aria-label={option.name.en} >
+                {language ? option.name.en : option.name.ru}
+            </li>
             <hr className="menu-item-separator" /> 
         </Fragment> ) 
 
     return  <>  { !menu.on &&
-                    <main ref={menuContainer} aria-label="Main Menu" className="menu-container">
-                        <ul aria-label="Toggle Main Menu" className="menu-toggle" onClick={hideMenu}><li></li><li></li></ul>
-                        <ul aria-label="Menu Options" className={`menu-content ${language ? "en" : "ru"}`}>{menuItems}</ul>
+                    <main ref={menuContainer} className="menu-container" aria-label="Main Menu" >
+                        <ul onClick={hideMenu} className="menu-toggle" aria-label="Toggle Main Menu" ><li></li><li></li></ul>
+                        <ul className={`menu-content ${language ? "en" : "ru"}`} aria-label="Menu Options" >{menuItems}</ul>
                     </main> } 
                 { menu.options[1].show && 
                     <Settings setMenu={setMenu} language={language} setLanguage={setLanguage} refresh={refresh} id={1} /> }    

@@ -12,25 +12,23 @@ const Home = props => {
             language, 
             setScrollPosition } = props
 
-    const currentCategory = event => event.target.parentElement.children[1].innerText
+    const currentCategoryName = event => event.target.parentElement.children[1].innerText
 
     const renderSelectedCategoriesPosts = event => {
-        fetchPosts(setBulkPostContent, currentCategory(event), language ? "en" : "ru", setCurrentCategoryId, selectedYearForPosts)
+        fetchPosts(setBulkPostContent, currentCategoryName(event), language ? "en" : "ru", setCurrentCategoryId, selectedYearForPosts)
         setScrollPosition(null)
         setRenderHome(false) }
 
     const categoryElements = postCategories.map( category =>  
         <div onClick={renderSelectedCategoriesPosts} 
-             aria-label={`${category.en} Category`} 
              className={`categories-${category.en.toLowerCase()}`} 
+             aria-label={`${category.en} Category`} 
              key={nanoid()} >
-            <img src={category.img} alt={`View ${category.en}`} className={`categories-${category.en.toLowerCase()}-image`}></img>
-            <h1 className={`categories-${category.en.toLowerCase()}-title`}>{language ? category.en : category.ru}</h1>
+            <img src={category.img} alt={`View ${category.en}`} className={`categories-${category.en.toLowerCase()}-image`} />
+            <h1 className={`categories-${category.en.toLowerCase()}-title`} > {language ? category.en : category.ru} </h1>
         </div> )
 
-    return  <> <main aria-label="Home Screen" className="home-container">
-                    <section aria-label="News Categories" className="categories-container">
-                        {categoryElements}
-                    </section>
-                </main> </>  }
+    return  <main className="home-container" aria-label="Home Screen" >
+                <section className="categories-container" aria-label="News Categories" > {categoryElements} </section>
+            </main> }
 export default memo(Home)

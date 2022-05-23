@@ -25,7 +25,7 @@ const Navbar = props => {
         setRenderMenu(prevRenderState => !prevRenderState)
         setTimeout( () => setRenderAllExceptMenu(prevRenderState => !prevRenderState), 500) }
 
-    const yearClick = event => {
+    const selectYear = event => {
         setScrollPosition(null)
         setSelectedYearForPosts(event.target.innerText) 
         setBulkPostContent(null)
@@ -33,12 +33,13 @@ const Navbar = props => {
 
     const currentYear = new Date().getFullYear()
     const years = new Array(currentYear - 2019).fill("") ; years.forEach( (iteration, index, currentArray) => currentArray[index] = 2020 + index )
+
     const yearSelector = {  label: selectedYearForPosts ? selectedYearForPosts : currentYear,
                             list: years.map( year => ({ content: year, 
-                                                        function: yearClick } ) ) }
+                                                        function: selectYear } ) ) }
 
-    return  <>  <header aria-label="Navbar" className="navbar-container">
-                    <nav aria-label="Navbar Content" className="navbar-content">
+    return  <>  <header className="navbar-container" aria-label="Navbar" >
+                    <nav className="navbar-content" aria-label="Navbar Content" >
 
                         { !renderHome && !renderSinglePost && 
                         <Back   
@@ -52,7 +53,9 @@ const Navbar = props => {
 
                         { !renderHome && !renderSinglePost && <Selector render={yearSelector} id="year-selector" /> }
 
-                        <ul ref={menuToggle} aria-label="Toggle Menu" className="navbar-menu-toggle" onClick={showMenu}><li></li><li></li><li></li></ul>
+                        <ul onClick={showMenu} ref={menuToggle} className="navbar-menu-toggle" aria-label="Toggle Menu" >
+                            <li></li><li></li><li></li>
+                        </ul>
                     </nav>
                 </header>   </> }
 export default memo(Navbar)

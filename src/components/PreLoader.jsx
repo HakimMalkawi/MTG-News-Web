@@ -7,7 +7,7 @@ import "../styles/preloader.css"
 const PreLoader = () => {
     const { darkMode } = useContext(DarkMode)
 
-    return  <main className="preloader-container"> 
-                <img className="preloader-image" src={darkMode ? preloaderDark : preloaderLight} alt="loading..." /> 
+    return  <main className="preloader-container" > 
+                <img src={darkMode ? preloaderDark : preloaderLight} alt="loading..." className="preloader-image" /> 
             </main> }  
 export default PreLoader
