@@ -23,20 +23,17 @@
 
 .selector-label {
     cursor: pointer;
-    display: grid;
-    z-index: 2;
     position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-weight: bold;
     height: 1.5rem;
-    width: 3rem; }
+    width: max-content; }
 
-.selector-label::before {
+.selector-label::after {
     content: ""; 
-    display: grid;
-    position: absolute;
-    right: -.5rem;
-    top: 45%;
-    transform: translateY(-45%);
     width: 2.25rem;
     height: 2.25rem; 
     background: var(--light);
@@ -48,7 +45,7 @@
     mask-size: contain; 
     transition: transform .15s ease-in-out; }
 
-.selector-label.open::before { transform: rotateX(180deg) translateY(50%); }
+.selector-label.open::after { transform: rotateX(180deg); }
 .selector-label.open + .selector-list { margin-top: .3rem; }
 .selector-label.closed + .selector-list { margin-top: -15rem; }
 
@@ -70,9 +67,3 @@
     font-size: 1rem;
     font-weight: 600; 
     margin: 0; }
-
-#year-selector {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 4rem; }

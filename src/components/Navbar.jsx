@@ -44,7 +44,7 @@ const Navbar = props => {
                         
                         { renderHome && languageSelector() }
 
-                        { !renderHome && !renderSinglePost && <Selector render={yearSelector} id="year-selector" /> }
+                        { !renderHome && !renderSinglePost && <Selector render={yearSelector} /> }
 
                         <ul onClick={showMenu} ref={menuToggle} className="navbar-menu-toggle" aria-label="Toggle Menu" >
                             <li></li><li></li><li></li>
