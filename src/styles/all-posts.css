@@ -6,6 +6,8 @@
     grid-gap: 3rem; 
     justify-content: center; }
 
+.all-posts > div > div > h4 { text-align: center; }
+
 .post-container {
     cursor: pointer;
     display: grid;
@@ -31,3 +33,6 @@
     grid-area: date;
     padding: .2rem 0 .35rem;
     text-align: center; }
+
+@media (min-width: 1130px) { .all-posts > div > div > h4 { display: none; } }
+@media (min-width: 1130px) { .all-posts > div > div > button { display: none; } }

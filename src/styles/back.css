@@ -24,7 +24,7 @@
     border-radius: 50%;
     border: 2px solid var(--teal); }
 
-.all {
+.large {
     cursor: pointer;
     display: grid;
     position: fixed;
@@ -35,11 +35,11 @@
     background: transparent !important;
     border: none !important;  }
 
-.all * {
+.large * {
     grid-row: 1;
     grid-column: 1; }
 
-.all::after {
+.large::after {
     background: var(--dark) !important;
     color: var(--light);
     padding: .5rem 2rem .6rem 2rem;
@@ -49,8 +49,15 @@
     border-radius: 10px;
     border: 2px solid var(--teal); }    
 
-.all.ru::after { content: "обратно"; }
-.all.en::after { content: "Return"; }
+.large.ru::after { content: "обратно"; }
+.large.en::after { content: "Return"; }
+
+.large.stuck { 
+    position: relative;
+    justify-self: center;
+    left: auto;
+    transform: none;
+    width: 10rem; }
 
 .nav {
     cursor: pointer;

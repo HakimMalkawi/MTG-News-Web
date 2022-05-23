@@ -1,14 +1,12 @@
 import { useRef, memo } from "react"
 import { fetchSelectedPosts } from "../helpers/fetchPost"
 import Selector from "./Selector"
-import Back from "./Back"
 import "../styles/navbar.css"
 
 const Navbar = props => {
     const { setRenderAllExceptMenu, 
             setRenderMenu, 
             renderHome, 
-            setRenderHome, 
             setBulkPostContent, 
             currentCategoryId, 
             selectedYearForPosts, 
@@ -16,6 +14,7 @@ const Navbar = props => {
             renderSinglePost, 
             languageSelector,
             language, 
+            backFromPosts,
             setScrollPosition } = props
 
     const menuToggle = useRef(null)
@@ -41,13 +40,7 @@ const Navbar = props => {
     return  <>  <header className="navbar-container" aria-label="Navbar" >
                     <nav className="navbar-content" aria-label="Navbar Content" >
 
-                        { !renderHome && !renderSinglePost && 
-                        <Back   
-                            setShowState={setRenderHome} 
-                            reset={setBulkPostContent}
-                            language={language} 
-                            className="nav"
-                            classNamesForToggle={["all-posts", "hide-right"]} /> }
+                        { !renderHome && !renderSinglePost && backFromPosts("nav") }
                         
                         { renderHome && languageSelector() }
 

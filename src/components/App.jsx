@@ -7,6 +7,7 @@ import Home from "./Home"
 import AllPosts from "./AllPosts"
 import SinglePost from "./SinglePost"
 import PreLoader from "./PreLoader"
+import Back from "./Back"
 import "../styles/color-scheme.css"
 import "../styles/app.css"
 
@@ -69,6 +70,13 @@ const App = () => {
     const languageSelector = () => 
       <Language language={language} setLanguage={setLanguage} refresh={refresh} />
 
+    const backFromPosts = className => 
+      <Back setShowState={setRenderHome} 
+            reset={setBulkPostContent} 
+            language={language} 
+            className={className} 
+            classNamesForToggle={["all-posts", "hide-right"]} />
+
     return  <div  aria-label="Main Content" 
                   className={`app ${bulkPostContent ? "content" : "home"} ${darkMode ? "dark" : "light"}`}>
               { renderMenu && 
@@ -87,7 +95,6 @@ const App = () => {
                           setRenderAllExceptMenu={setRenderAllExceptMenu}
                           setRenderMenu={setRenderMenu}
                           renderHome={renderHome} 
-                          setRenderHome={setRenderHome}
                           setBulkPostContent={setBulkPostContent} 
                           currentCategoryId={currentCategoryId}
                           selectedYearForPosts={selectedYearForPosts} 
@@ -95,6 +102,7 @@ const App = () => {
                           renderSinglePost={renderSinglePost}
                           languageSelector={languageSelector}
                           language={language}
+                          backFromPosts={backFromPosts}
                           setScrollPosition={setScrollPosition}  /> }
 
                     { renderHome && 
@@ -115,6 +123,7 @@ const App = () => {
                           setRenderSinglePost={setRenderSinglePost} 
                           setSinglePostContent={setSinglePostContent} 
                           language={language}
+                          backFromPosts={backFromPosts}
                           scrollPosition={scrollPosition} 
                           setScrollPosition={setScrollPosition} /> }
 

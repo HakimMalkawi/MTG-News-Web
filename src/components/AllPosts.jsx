@@ -3,6 +3,7 @@ import { fetchPost, fetchSelectedPosts } from "../helpers/fetchPost"
 import { saveScrollPosition, restoreScrollPosition } from "../helpers/scrollTracker.js"
 import { nanoid } from "nanoid"
 import InfiniteScroll from "react-infinite-scroll-component"
+import Loader from "./Loader"
 import "../styles/all-posts.css"
 
 const AllPosts = props => {
@@ -13,6 +14,7 @@ const AllPosts = props => {
             setRenderSinglePost, 
             setSinglePostContent, 
             language,
+            backFromPosts,
             scrollPosition, 
             setScrollPosition } = props
 
@@ -33,8 +35,17 @@ const AllPosts = props => {
             <img className="post-image" src={post.image} alt="Post" />
         </div> )
 
+    const endMessageElement = () =>
+        <>  <h4>That's all for now! <br/><br/> For more content feel free to visit our other categories!</h4>
+            {backFromPosts("large stuck")} </>
+
     return  <main className="all-posts" id="all-posts" aria-label="News Articles Page" >
-                <InfiniteScroll dataLength={bulkPostContent.length} hasMore={bulkPostContent.length < 40} next={loadNextContent} >
+                <InfiniteScroll 
+                    dataLength={bulkPostContent.length} 
+                    hasMore={bulkPostContent.length < 40} 
+                    next={loadNextContent} 
+                    loader={<Loader />} 
+                    endMessage={endMessageElement()} >
                     { loadCurrentContent }
                 </InfiniteScroll>
             </main> }

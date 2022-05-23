@@ -72,7 +72,7 @@ const PrivacyPolicy = props => {
                     <Back 
                         setShowState={setMenu} 
                         language={language}
-                        className="all"
+                        className="large"
                         classNamesForToggle={classNamesForToggle} 
                         id={id} />
                 </main> </> }
