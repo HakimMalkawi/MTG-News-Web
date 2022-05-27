@@ -1,6 +1,6 @@
 {
-  "homepage": "http://HakimMalkawi.github.io/MTG-Posts-App",
-  "name": "app",
+  "homepage": "http://HakimMalkawi.github.io/MTG-News-Web",
+  "name": "mtg.news.web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
