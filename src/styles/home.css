@@ -9,7 +9,10 @@
 .categories-container > div {
     cursor: pointer;
     display: grid;
+    border-bottom: 2px solid var(--light);
     overflow: hidden; }
+
+.categories-container > div:last-child { border-bottom: none; }
 
 .categories-container > div > img {
     justify-self: center; 
@@ -20,7 +23,7 @@
 
 .categories-container > div > h1 {
     font-size: 1rem !important;
-    padding: 1rem;
+    padding: .5rem 0 .75rem;
     align-self: end;
     border-top: 2px solid var(--light); }
 
