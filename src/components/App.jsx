@@ -28,8 +28,11 @@ const App = () => {
     const [bulkPostContent, setBulkPostContent] = 
       useState( savedPreferences ? preferences.bulkPostContent : null)
 
-    const [currentCategoryId, setCurrentCategoryId] = 
-      useState(savedPreferences ? preferences.currentCategoryId : null)
+    const [currentCategoryData, setCurrentCategoryData] = 
+      useState(savedPreferences ? preferences.currentCategoryData : null)
+
+    const [lastPostId, setLastPostId] =
+      useState(savedPreferences ? savedPreferences.selectedYearForPosts : null)
 
     const [selectedYearForPosts, setSelectedYearForPosts] = 
       useState(savedPreferences ? savedPreferences.selectedYearForPosts : undefined)
@@ -53,6 +56,7 @@ const App = () => {
       renderMenu: renderMenu,
       renderHome: renderHome,
       bulkPostContent: bulkPostContent,
+      lastPostId: lastPostId,
       selectedYearForPosts: selectedYearForPosts,
       renderSinglePost: renderSinglePost,
       singlePostContent: singlePostContent,
@@ -96,7 +100,7 @@ const App = () => {
                           setRenderMenu={setRenderMenu}
                           renderHome={renderHome} 
                           setBulkPostContent={setBulkPostContent} 
-                          currentCategoryId={currentCategoryId}
+                          currentCategoryData={currentCategoryData}
                           selectedYearForPosts={selectedYearForPosts} 
                           setSelectedYearForPosts={setSelectedYearForPosts}
                           renderSinglePost={renderSinglePost}
@@ -109,7 +113,7 @@ const App = () => {
                         <Home 
                           setRenderHome={setRenderHome} 
                           setBulkPostContent={setBulkPostContent} 
-                          setCurrentCategoryId={setCurrentCategoryId}
+                          setCurrentCategoryData={setCurrentCategoryData}
                           selectedYearForPosts={selectedYearForPosts}
                           language={language} 
                           setScrollPosition={setScrollPosition} /> }
@@ -118,7 +122,7 @@ const App = () => {
                         <AllPosts 
                           bulkPostContent={bulkPostContent} 
                           setBulkPostContent={setBulkPostContent}
-                          currentCategoryId={currentCategoryId}
+                          currentCategoryData={currentCategoryData}
                           selectedYearForPosts={selectedYearForPosts}
                           setRenderSinglePost={setRenderSinglePost} 
                           setSinglePostContent={setSinglePostContent} 

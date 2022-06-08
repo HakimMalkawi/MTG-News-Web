@@ -7,7 +7,7 @@ import "../styles/home.css"
 const Home = props => {
     const { setRenderHome, 
             setBulkPostContent, 
-            setCurrentCategoryId, 
+            setCurrentCategoryData, 
             selectedYearForPosts,
             language, 
             setScrollPosition } = props
@@ -15,7 +15,7 @@ const Home = props => {
     const currentCategoryName = event => event.target.parentElement.children[1].innerText
 
     const renderSelectedCategoriesPosts = event => {
-        fetchPosts(setBulkPostContent, currentCategoryName(event), language ? "en" : "ru", setCurrentCategoryId, selectedYearForPosts)
+        fetchPosts(setBulkPostContent, currentCategoryName(event), language ? "en" : "ru", setCurrentCategoryData, selectedYearForPosts)
         setScrollPosition(null)
         setRenderHome(false) }
 

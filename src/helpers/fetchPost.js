@@ -4,17 +4,25 @@ const fetchCategory = async  (selectedCategory, lang = "en" ) => {
                 const categoryList = await response.json()
 
                 for (const categoryName of categoryList) {
-                        if (selectedCategory.toLowerCase() === categoryName.name.toLowerCase()) return categoryName.id } }
+                        if (selectedCategory.toLowerCase() === categoryName.name.toLowerCase()) 
+                        return { id: categoryName.id, count: categoryName.count } } }
 
         catch(error) { localStorage.clear(); console.error(error) } }
 
+
+
 export const fetchSelectedPosts = 
-        async ( handleState, categoryId, lang = "en", setCurrentCategoryId = null, content = [], year = ( new Date().getFullYear() ) ) => {
+        async ( handleState, 
+                categoryData, 
+                lang = "en", 
+                setCurrentCategoryData = null, 
+                content = [], 
+                year = ( new Date().getFullYear() ) ) => {
 
-                if (setCurrentCategoryId !== null) setCurrentCategoryId(categoryId)
-
-                try {   const response = await fetch(
-                        `https://mtargetgroup.com/wp-json/wp/v2/posts?lang=${lang}&context=view&categories=${categoryId}&per_page=${content.length+10}&before=${year}-12-31T00:00:00` ); if(!response.ok) throw Error(response)
+                try {   const lastPostIdResponse = await fetchLastPostForReference(categoryData.id, lang)
+                        const lastPostId = lastPostIdResponse[0].id
+                        const response = await fetch(
+                        `https://mtargetgroup.com/wp-json/wp/v2/posts?lang=${lang}&context=view&categories=${categoryData.id}&per_page=${content.length+10}&before=${year}-12-31T00:00:00` ); if(!response.ok) throw Error(response)
 
                         const data = await response.json()
 
@@ -36,20 +44,33 @@ export const fetchSelectedPosts =
                                          image: post["yoast_head_json"]["og_image"][0]["url"].replaceAll("\\", ""),
                                          date: formattedDate } }  )
 
+                        if (setCurrentCategoryData !== null) setCurrentCategoryData( { ...categoryData, lastPostId: lastPostId } )
                         return handleState(result)   }
 
                 catch(error) { localStorage.clear(); console.error(error) }   }
 
-export const fetchPosts = async (handleState, selectedCategory, lang="en", setCurrentCategoryId, year) => {
+
+
+export const fetchPosts = async (handleState, selectedCategory, lang="en", setCurrentCategoryData, year) => {
 
         try {   fetchCategory(selectedCategory, lang)
-                .then( categoryId => fetchSelectedPosts(handleState, categoryId, lang, setCurrentCategoryId, [], year) ) }
+                .then( categoryData => fetchSelectedPosts(handleState, categoryData, lang, setCurrentCategoryData, [], year) ) }
         
         catch(error) {  localStorage.clear(); console.error(error) } }
 
-export const fetchPost = async (handleState, id, lang="en") => {
 
-        try {   const response = await fetch(`https://mtargetgroup.com/wp-json/wp/v2/posts/${id}?lang=${lang}&context=view`)
+
+const fetchLastPostForReference = async ( currentCategoryId, lang="en" ) => {
+        try {   const response = await fetch(`https://mtargetgroup.com/wp-json/wp/v2/posts?lang=${lang}&categories=${currentCategoryId}&orderby=date&order=asc&per_page=1`); if (!response.ok) throw Error(response)
+                return await response.json() }
+        
+        catch(error) { localStorage.clear(); console.error(error) } }
+
+
+
+export const fetchPost = async (handleState, id) => {
+
+        try {   const response = await fetch(`https://mtargetgroup.com/wp-json/wp/v2/posts/${id}?context=view`)
                         if(!response.ok) throw Error(response)
                 const data = await response.json()
                 return handleState({content: data.content.rendered, image: data["yoast_head_json"]["og_image"][0]["url"]})  }

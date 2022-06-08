@@ -9,7 +9,7 @@ import "../styles/all-posts.css"
 const AllPosts = props => {
     const { bulkPostContent, 
             setBulkPostContent,
-            currentCategoryId, 
+            currentCategoryData, 
             selectedYearForPosts,
             setRenderSinglePost, 
             setSinglePostContent, 
@@ -21,7 +21,7 @@ const AllPosts = props => {
     useEffect( () => restoreScrollPosition(scrollPosition), [] )
 
     const loadNextContent = () => 
-        fetchSelectedPosts( setBulkPostContent, currentCategoryId, language ? "en" : "ru", null, bulkPostContent, selectedYearForPosts )
+        fetchSelectedPosts( setBulkPostContent, currentCategoryData, language ? "en" : "ru", null, bulkPostContent, selectedYearForPosts )
 
     const handleClick = (id) => {
         saveScrollPosition(setScrollPosition)
@@ -42,7 +42,7 @@ const AllPosts = props => {
     return  <main className="all-posts" id="all-posts" aria-label="News Articles Page" >
                 <InfiniteScroll 
                     dataLength={bulkPostContent.length} 
-                    hasMore={bulkPostContent.length < 40} 
+                    hasMore={currentCategoryData.lastPostId !== bulkPostContent.at(-1).id} 
                     next={loadNextContent} 
                     loader={<Loader />} 
                     endMessage={endMessageElement()} >

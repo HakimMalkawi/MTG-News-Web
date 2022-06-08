@@ -8,7 +8,7 @@ const Navbar = props => {
             setRenderMenu, 
             renderHome, 
             setBulkPostContent, 
-            currentCategoryId, 
+            currentCategoryData, 
             selectedYearForPosts, 
             setSelectedYearForPosts, 
             renderSinglePost, 
@@ -28,7 +28,7 @@ const Navbar = props => {
         setScrollPosition(null)
         setSelectedYearForPosts(event.target.innerText) 
         setBulkPostContent(null)
-        fetchSelectedPosts(setBulkPostContent, currentCategoryId, language ? "en" : "ru", null, "", event.target.innerText) }
+        fetchSelectedPosts(setBulkPostContent, currentCategoryData, language ? "en" : "ru", null, "", event.target.innerText) }
 
     const currentYear = new Date().getFullYear()
     const years = new Array(currentYear - 2019).fill("") ; years.forEach( (iteration, index, currentArray) => currentArray[index] = 2020 + index )
