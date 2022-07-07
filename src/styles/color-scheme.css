@@ -1,15 +1,19 @@
 .dark {
-    --darker: #1f1f1f;
-    --dark: #384b66;
-    --light: #f1f1f1;
+    --darker: #1F1F1F;
+    --dark: #118E96;
+    --light: #F1F1F1;
     --background: #363839;
-    --teal: #0eab8e;
-    --ruby: #c01755; }
+    --teal: #0EAB8E;
+    --ruby: #C01755; 
+    --staticDark: #1F1F1F;
+    --staticWhite: #FFFFFF; }
 
 .light {
-    --darker: #f1f1f1;
-    --dark: #e7d4c0;
-    --light: #384b66;
+    --darker: #D1D9DE;
+    --dark: #118E96;
+    --light: #384B66;
     --background: #363839;
-    --teal: #0a6a60;
-    --ruby: #7d0833; }
+    --teal: #0A6A60;
+    --ruby: #7D0833; 
+    --staticDark: #1F1F1F;
+    --staticWhite: #FFFFFF; }

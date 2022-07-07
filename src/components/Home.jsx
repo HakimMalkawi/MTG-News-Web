@@ -1,7 +1,8 @@
-import { memo } from "react"
+import { useState, memo } from "react"
 import { fetchPosts } from "../helpers/fetchPost"
 import { postCategories } from "../data/postCategories"
 import { nanoid } from "nanoid"
+import search from "../resources/categories/search.png"
 import "../styles/home.css"
 
 const Home = props => {
@@ -28,7 +29,29 @@ const Home = props => {
             <h1 className={`categories-${category.en.toLowerCase()}-title`} > {language ? category.en : category.ru} </h1>
         </div> )
 
+    const [ searchValue, setSearchValue ] = useState(null)
+
+    const submitSearchQuery = event => 
+        event.key === "Enter" &&
+            ( () => {
+                
+                setSearchValue("") } )() 
+
+    const trackSearchInState = event => setSearchValue(event.target.value)
+
+
     return  <main className="home-container" aria-label="Home Screen" >
-                <section className="categories-container" aria-label="News Categories" > {categoryElements} </section>
+                <div className="home-search-container" >
+                    <input  value={searchValue} 
+                            onChange={trackSearchInState} 
+                            className="home-search-element" 
+                            placeholder="Search for a post" type="text" 
+                            onKeyPress={submitSearchQuery} />
+                    <img className="home-search-icon" src={search} alt="Search" />
+                </div>
+                <h2 className="home-title" >Check out our latest news:</h2>
+                <section className="categories-container" aria-label="News Categories" > 
+                    {categoryElements} 
+                </section>
             </main> }
 export default memo(Home)

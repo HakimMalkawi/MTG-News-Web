@@ -1,19 +1,26 @@
 .navbar-container {
-    height: 3.5rem;
+    height: 5rem;
     position: sticky;
     top: 0; 
     z-index: 1; }
 
 .navbar-content {
     display: flex;
-    justify-content: space-between;
-    background: var(--dark) !important;
+    gap: 2rem;
+    align-items: center;
+    background: var(--darker) !important;
     height: 100%; 
     padding-inline: 1.5rem; }
 
 .navbar-content > * {
     grid-column: 1;
     grid-row: 1; }
+
+.navbar-logo {
+    z-index: 2;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: none !important; }
 
 .navbar-menu-toggle {
     cursor: pointer;
@@ -22,7 +29,6 @@
     z-index: 1;
     width: 2em;
     background: none !important;
-    justify-self: end;
     align-self: center; 
     transition: transform .15s ease-in-out; }
 

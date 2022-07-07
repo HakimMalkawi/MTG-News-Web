@@ -63,7 +63,7 @@
     height: 1.75rem;
     width: 1.75rem;
     border-radius: 100%;
-    background: var(--light) !important;
+    background: var(--staticWhite) !important;
     transition: left .25s ease-in-out, background .35s ease-out; }
 
 .settings-option.on div span { left: 2.1rem; }

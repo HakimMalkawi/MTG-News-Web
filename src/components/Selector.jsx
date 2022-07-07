@@ -4,12 +4,12 @@ import "../styles/selector.css"
 
 const Selector = props => {
     const [toggle, setToggle] = useState(false)
-    const { render: { label, list }, id = "" } = props
+    const { render: { label, list }, id = "", style = false } = props
 
     const handleLabelClick = () => setToggle(prevToggle => !prevToggle)
     const handleListItemClick = (listItem, event) => { listItem.function(event); setToggle(false) }
 
-    return  <>   <div className="selector-container" aria-label="Selector" >
+    return  <>   <div style={ style ? style : { margin: "auto" } } className="selector-container" aria-label="Selector" >
                     <label onClick={handleLabelClick} className={`selector-label ${toggle ? "open" : "closed"}`} id={id} >
                         {label}
                     </label>

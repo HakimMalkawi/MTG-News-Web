@@ -65,9 +65,9 @@
     border: none;
     color: transparent !important;
     z-index: 2;
-    top: .5rem;
-    width: 2.5rem;
-    height: 2.5rem; }
+    width: 2.75rem;
+    height: 2.75rem; 
+}
 
-.dark .nav { background: url("../resources/preloader-dark.png") center / contain !important; }
-.light .nav { background: url("../resources/preloader-light.png") center / contain !important; }
+.dark .nav { background: url("../resources/navigation/mtg-dark.png") center / contain no-repeat !important; }
+.light .nav { background: url("../resources/navigation/mtg-light.png") center / contain no-repeat !important; }

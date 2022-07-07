@@ -1,6 +1,9 @@
-import { useRef, memo } from "react"
+import { useRef, useContext, memo } from "react"
 import { fetchSelectedPosts } from "../helpers/fetchPost"
+import { DarkMode } from "../context/darkModeContext"
 import Selector from "./Selector"
+import mtgDark from "../resources/navigation/mtg-dark.png"
+import mtgLight from "../resources/navigation/mtg-light.png"
 import "../styles/navbar.css"
 
 const Navbar = props => {
@@ -35,14 +38,18 @@ const Navbar = props => {
 
     const yearSelector = {  label: selectedYearForPosts ? selectedYearForPosts : currentYear,
                             list: years.map( year => ({ content: year, 
-                                                        function: selectYear } ) ) }
+                                                        function: selectYear } ) ).reverse() }
+
+    const { darkMode } = useContext(DarkMode)
 
     return  <>  <header className="navbar-container" aria-label="Navbar" >
                     <nav className="navbar-content" aria-label="Navbar Content" >
 
                         { !renderHome && !renderSinglePost && backFromPosts("nav") }
                         
-                        { renderHome && languageSelector() }
+                        { renderHome && 
+                            <>  <img className="navbar-logo" src={ darkMode ? mtgDark : mtgLight } alt="M. Target Group" />
+                                { languageSelector() }  </> }
 
                         { !renderHome && !renderSinglePost && <Selector render={yearSelector} /> }
 

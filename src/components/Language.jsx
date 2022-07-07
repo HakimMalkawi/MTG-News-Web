@@ -9,5 +9,5 @@ const Language = props => {
                                 list: [ {content: "EN", function: () => handleClick(true)}, 
                                         {content: "RU", function: () => handleClick(false)} ] }
 
-    return <Selector render={languageSelector} /> }
+    return <Selector style={ { marginLeft: "auto" } } render={languageSelector} /> }
 export default Language
