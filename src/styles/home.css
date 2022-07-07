@@ -29,12 +29,20 @@
     color: var(--staticDark); }
 
 .home-search-icon {
+    cursor: pointer;
     height: 1rem;
     width: 1rem;
     position: absolute;
     background: none !important;
     top: .5rem;
-    right: .75rem; }
+    right: .75rem; 
+    transition: transform .15s ease-out;
+}
+
+.home-search-icon:hover,
+.home-search-icon:focus {
+    transform: scale(1.2);
+}
 
 .home-title {
     margin-top: -.5rem;

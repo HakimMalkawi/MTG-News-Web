@@ -31,11 +31,9 @@ const Home = props => {
 
     const [ searchValue, setSearchValue ] = useState(null)
 
-    const submitSearchQuery = event => 
-        event.key === "Enter" &&
-            ( () => {
-                
-                setSearchValue("") } )() 
+    const submitSearchQuery = () => {
+        setSearchValue("")
+    }
 
     const trackSearchInState = event => setSearchValue(event.target.value)
 
@@ -46,8 +44,8 @@ const Home = props => {
                             onChange={trackSearchInState} 
                             className="home-search-element" 
                             placeholder="Search for a post" type="text" 
-                            onKeyPress={submitSearchQuery} />
-                    <img className="home-search-icon" src={search} alt="Search" />
+                            onKeyPress={ event => event.key === "Enter" && submitSearchQuery() } />
+                    <img onClick={submitSearchQuery} className="home-search-icon" src={search} alt="Search" />
                 </div>
                 <h2 className="home-title" >Check out our latest news:</h2>
                 <section className="categories-container" aria-label="News Categories" > 
