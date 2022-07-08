@@ -29,13 +29,13 @@ h1 {
   text-align: center;
   width: 100%;
   padding: 0.75rem 0.75rem 1rem 0.75rem;
-  background: var(--dark) !important;
+  background: var(--background) !important;
   color: var(--light);
   border: none; }
 
 a,
 a * {
-  color: var(--ruby) !important;
+  color: var(--teal) !important;
   font-weight: bold;
   text-decoration: none;
   text-align: left; }

@@ -19,15 +19,17 @@
     overflow: hidden;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    border: solid 2px var(--light);
-    background: var(--dark) !important; }
+    border: solid 1px var(--light);
+    background: var(--background) !important; }
 
 .post-image { 
     grid-area: image; 
     object-fit: cover;
     height: 15.5rem; }
 
-.post-title { grid-area: title; }
+.post-title { 
+    color: var(--staticWhite) !important;
+    grid-area: title; }
 
 .post-date {
     grid-area: date;
