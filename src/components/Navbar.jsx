@@ -27,12 +27,17 @@ const Navbar = props => {
         setRenderMenu(prevRenderState => !prevRenderState)
         setTimeout( () => setRenderAllExceptMenu(prevRenderState => !prevRenderState), 500) }
 
+
+    const handleInvalidYearSelection = () => setSelectedYearForPosts( new Date().getFullYear() )
+
+
     const selectYear = event => {
         setScrollPosition(null)
         setSelectedYearForPosts(event.target.innerText) 
         setBulkPostContent(null)
-        fetchSelectedPosts(setBulkPostContent, currentCategoryData, language ? "en" : "ru", null, "", event.target.innerText) }
+        fetchSelectedPosts( setBulkPostContent, currentCategoryData, language ? "en" : "ru", null, "", event.target.innerText, handleInvalidYearSelection ) }
 
+        
     const currentYear = new Date().getFullYear()
     const years = new Array(currentYear - 2019).fill("") ; years.forEach( (iteration, index, currentArray) => currentArray[index] = 2020 + index )
 

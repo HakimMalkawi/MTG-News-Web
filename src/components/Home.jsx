@@ -1,5 +1,5 @@
 import { useState, memo } from "react"
-import { fetchPosts } from "../helpers/fetchPost"
+import { fetchCategoryAndItsPosts, fetchSelectedPosts } from "../helpers/fetchPost"
 import { postCategories } from "../data/postCategories"
 import { nanoid } from "nanoid"
 import search from "../resources/categories/search.png"
@@ -16,7 +16,7 @@ const Home = props => {
     const currentCategoryName = event => event.target.parentElement.children[1].innerText
 
     const renderSelectedCategoriesPosts = event => {
-        fetchPosts(setBulkPostContent, currentCategoryName(event), language ? "en" : "ru", setCurrentCategoryData, selectedYearForPosts)
+        fetchCategoryAndItsPosts(setBulkPostContent, currentCategoryName(event), language ? "en" : "ru", setCurrentCategoryData, selectedYearForPosts)
         setScrollPosition(null)
         setRenderHome(false) }
 
@@ -24,32 +24,40 @@ const Home = props => {
         const mediaCategory = category.en === "Media"
 
         const categoryElement =
-            <div onClick={ !mediaCategory && renderSelectedCategoriesPosts} 
+            <div onClick={ mediaCategory ? () => {} : renderSelectedCategoriesPosts } 
                 className={`category-container category-${category.en.toLowerCase()}`} 
                 aria-label={`${category.en} Category`} 
-                key={nanoid()} >
+                key={ nanoid() } >
                 <img src={category.img} alt={`View ${category.en}`} className={`category-${category.en.toLowerCase()}-image`} />
                 <h1 className={`category-${category.en.toLowerCase()}-title`} > {language ? category.en : category.ru} </h1>
             </div> 
         
         return mediaCategory ? 
-            <a className="category-media-link" href={ language ? category.linkEn : category.linkRu }>
+            <a key={ nanoid() } className="category-media-link" href={ language ? category.linkEn : category.linkRu }>
                 { categoryElement }
             </a> : 
             categoryElement } )
 
+
     const [ searchValue, setSearchValue ] = useState(null)
-
-    const submitSearchQuery = () => {
-        setSearchValue("")
-    }
-
     const trackSearchInState = event => setSearchValue(event.target.value)
+
+
+    const handleInvalidSearchQuery = () => {
+        setBulkPostContent(null)
+        setRenderHome(true) }
+
+        
+    const submitSearchQuery = () => {
+        fetchSelectedPosts( setBulkPostContent, {search: searchValue}, language ? "en" : "ru", setCurrentCategoryData, [], new Date().getFullYear(), handleInvalidSearchQuery )
+        setSearchValue("") 
+        setScrollPosition(null)
+        setRenderHome(false) }
 
 
     return  <main className="home-container" aria-label="Home Screen" >
                 <div className="home-search-container" >
-                    <input  value={searchValue} 
+                    <input  value={searchValue ? searchValue : ""} 
                             onChange={trackSearchInState} 
                             className="home-search-element" 
                             placeholder="Search for a post" type="text" 

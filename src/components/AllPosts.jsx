@@ -1,5 +1,5 @@
 import { useEffect, memo } from "react"
-import { fetchPost, fetchSelectedPosts } from "../helpers/fetchPost"
+import { fetchSinglePost, fetchSelectedPosts } from "../helpers/fetchPost"
 import { saveScrollPosition, restoreScrollPosition } from "../helpers/scrollTracker.js"
 import { nanoid } from "nanoid"
 import InfiniteScroll from "react-infinite-scroll-component"
@@ -26,7 +26,7 @@ const AllPosts = props => {
     const handleClick = (id) => {
         saveScrollPosition(setScrollPosition)
         setRenderSinglePost(true)
-        fetchPost(setSinglePostContent, id)  }
+        fetchSinglePost(setSinglePostContent, id)  }
 
     const loadCurrentContent = bulkPostContent.map( post =>
         <div onClick={() => handleClick(post.id)} className="post-container" aria-label="News Article" key={nanoid()} >
