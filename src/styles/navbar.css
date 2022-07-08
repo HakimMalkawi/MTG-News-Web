@@ -27,7 +27,8 @@
     display: grid;
     grid-gap: .3rem;
     z-index: 1;
-    width: 2em;
+    height: 1rem;
+    width: 1.75em;
     background: none !important;
     align-self: center; 
     transition: transform .15s ease-in-out; }
@@ -38,7 +39,7 @@
     -webkit-border-radius: 10px;
     border-radius: 10px;
     margin: 0;
-    height: .2rem;
+    height: .15rem;
     background: var(--light) !important; }
 
 .navbar-menu-toggle.spin { transform: rotate(90deg); }

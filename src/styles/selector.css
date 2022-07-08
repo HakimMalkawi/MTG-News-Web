@@ -34,8 +34,9 @@
 
 .selector-label::after {
     content: ""; 
-    width: 2.25rem;
-    height: 2.25rem; 
+    width: 1.5rem;
+    height: 1.5rem; 
+    margin-top: .15rem;
     background: var(--light);
     -webkit-mask-image: url("../resources/toggle.svg");
     -webkit-mask-position: center;

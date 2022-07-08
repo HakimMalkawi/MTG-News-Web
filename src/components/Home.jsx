@@ -20,14 +20,23 @@ const Home = props => {
         setScrollPosition(null)
         setRenderHome(false) }
 
-    const categoryElements = postCategories.map( category =>  
-        <div onClick={renderSelectedCategoriesPosts} 
-             className={`categories-${category.en.toLowerCase()}`} 
-             aria-label={`${category.en} Category`} 
-             key={nanoid()} >
-            <img src={category.img} alt={`View ${category.en}`} className={`categories-${category.en.toLowerCase()}-image`} />
-            <h1 className={`categories-${category.en.toLowerCase()}-title`} > {language ? category.en : category.ru} </h1>
-        </div> )
+    const categoryElements = postCategories.map( category => {
+        const mediaCategory = category.en === "Media"
+
+        const categoryElement =
+            <div onClick={ !mediaCategory && renderSelectedCategoriesPosts} 
+                className={`category-container category-${category.en.toLowerCase()}`} 
+                aria-label={`${category.en} Category`} 
+                key={nanoid()} >
+                <img src={category.img} alt={`View ${category.en}`} className={`category-${category.en.toLowerCase()}-image`} />
+                <h1 className={`category-${category.en.toLowerCase()}-title`} > {language ? category.en : category.ru} </h1>
+            </div> 
+        
+        return mediaCategory ? 
+            <a className="category-media-link" href={ language ? category.linkEn : category.linkRu }>
+                { categoryElement }
+            </a> : 
+            categoryElement } )
 
     const [ searchValue, setSearchValue ] = useState(null)
 
