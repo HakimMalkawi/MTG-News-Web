@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/MTG-News-Web/static/css/main.98ed7b33.css",
+    "main.js": "/MTG-News-Web/static/js/main.6c368b43.js",
+    "static/media/announcements.png": "/MTG-News-Web/static/media/announcements.b157334e09bbe0a5893e.png",
+    "static/media/events.png": "/MTG-News-Web/static/media/events.0601c01c4e592aeed994.png",
+    "static/media/media.png": "/MTG-News-Web/static/media/media.22d09968ac7bd4bbd5ac.png",
+    "static/media/publications.png": "/MTG-News-Web/static/media/publications.b049172cef9aa14d953f.png",
+    "static/media/preloader-light.png": "/MTG-News-Web/static/media/preloader-light.2c52a46a0a0305771af4.png",
+    "static/media/mtg-dark.png": "/MTG-News-Web/static/media/mtg-dark.e44345b33edc5b2d7f3e.png",
+    "static/media/mtg-light.png": "/MTG-News-Web/static/media/mtg-light.081a870567de86a39e30.png",
+    "static/media/preloader-dark.png": "/MTG-News-Web/static/media/preloader-dark.348c7fb1f941d031e07d.png",
+    "static/media/search.png": "/MTG-News-Web/static/media/search.386fdfe4e48b726ab68b.png",
+    "index.html": "/MTG-News-Web/index.html",
+    "static/media/toggle.svg": "/MTG-News-Web/static/media/toggle.7dd0cb697b666a745cd5.svg",
+    "main.98ed7b33.css.map": "/MTG-News-Web/static/css/main.98ed7b33.css.map",
+    "main.6c368b43.js.map": "/MTG-News-Web/static/js/main.6c368b43.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98ed7b33.css",
+    "static/js/main.6c368b43.js"
+  ]
+}
